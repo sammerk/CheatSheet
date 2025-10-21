@@ -1,0 +1,440 @@
+---
+title: "BiU Statistik im WiSe 2025/26"
+subtitle: "Ein Cheatsheet"
+date: last-modified
+format:
+  html:
+    toc: true
+    toc-title: "{{< brand logo medium >}}"
+    toc-location: left
+    toc-depth: 4
+    self-contained: true
+    grid: 
+      margin-width: 250px
+brand:
+  color:
+    link: "#267326"
+  logo: 
+    medium: "img/logo_standard.svg"  
+
+lang: de
+reference-location: margin
+#citation-location: margin
+bibliography: skeleton.bib
+---
+
+# Methodology: The Science before Statistics
+
+Jede statistische Modellierung gewinnt an Aussagekraft, je umfassender sie die inhaltliche Fragestellung abzubilden im Stande ist. Um aus der riesigen Fülle an Optionen geeignet und zielgerichtet auswählen zu können sind die folgenden Unterscheidungen oft sehr hilfreich.
+
+## Erkenntnisinteressen
+
+Ganz grundlegend kann a priori das Erkenntnisinteresse von Studien in die folgenden vier Kategorien unterschieden werden:
+
+::: column-page-right
+| Deskriptiv | Explorativ | Explanativ | Prädiktiv |
+|------------------|------------------|------------------|------------------|
+| populationsbeschreibend | hypothesengenerierend | hypothesenprüfend | Datenpunkte vorhersagend oder imputierend |
+| *Bei welchem Anteil 15-Jähriger in Deutschland handelt es sich um funktionale Analphabet:innen?* | *Was sind potentielle Ursachen für genderbezogene Disparitäten im Analphabetismus?* | *Sind 15-jährige Jungen häufiger Analphabeten als 15-jährige Mädchen?* | *Mit welchen Variablen können Schüler:innen at risk erfolgreich identifiziert werden?* |
+
+: Erkenntisinteressen nach [@doering2016].
+:::
+
+## Gütekriterien wiss. Erkenntnis nach @campbell1957
+
+Für ein erfolgreiches Studiendesign und die anschließende statistische Analyse ist es sehr wertvoll sich vorab über Schwerpunkte besonders gewünschter Aspekte wissenschaftlicher Güte Gedanken zu machen. Insbesondere über die Unterkriterien **Methodischer Strenge**:
+
+-   **Konstruktvalidität** (*Inwiefern ist die Interpretation der Messwerte angemessen?*)
+-   **Interne Validität** (*Inwiefern sind Assoziationen von unabhängiger \[beeinflussender\] und abhängiger \[beeinflusster\] Variabler als kausale Effekte interpretierbar?*)
+-   **Externe Validität** (*Inwiefern können die Schlussfolgerungen der Studie verallgemeinert werden?*)
+-   **Statistische Validität** (*Wie robust und angemessen sind die verwendeten statistischen Verfahren?*)
+
+### Steigerung von interner und externer Validität
+::: column-page-right
+:::: {.columns}
+
+::: {.column width="50%"}
+Zur Steigerung der internen Validität eignen sich insbesondere:
+
+* Die Randomisierung der unabhängigen Variablen
+* Kontroll- und Vergleichsgruppen
+* Längsschnittliche Designs
+* Statistische Kontrolle von Störvariablen (z.B. Matching)
+* Direkte Replikationen
+* Laborstudien
+* (Doppelte) Verblindung
+* Präregistrerung
+
+:::
+
+::: {.column width="50%"}
+Zur Steigerung der externen Validität eignen sich insbesondere:
+
+* Zufallsstichproben aus der Zielpopulation
+* Gewichtungen
+* Konzeptuelle Replikationen
+* Feldstudien
+* Metaanalysen
+
+::::
+:::
+````{=html}
+<!--
+## Deskriptiv- und Inferenzstatistik
+
+**Deskriptive Statistik** beschreibt vorliegende Daten (z.B. mit Effektstärken), während **Inferenzstatistik** Aussagen über den die Daten generierenden Mechanismus trifft. Beide können »eher einfach« oder »hoch komplex« sein und oftmals stehen sie in einem synergetischen Verhältnis (siehe @fig-jingjang).
+
+::: column-margin
+![Synergetisches Verhältnis von deskriptiver Statistik und Inferenzstatistik](img/yingyang.svg){#fig-jingjang width="300px"}
+:::
+
+## Bayesianisches und Frequentistisches Schätzen und Testen
+
+Eine sehr heuristische Klassifikation inferenzstatistischer Verfahren stellt die Unterscheidung von statistischer Schätzung und Testung dar:
+
+> (Inferenzstatistische) *Schätzungen* (estimation with quantified uncertainty) treffen anhand von Stichproben Aussagen über Parameter der Grundgesamtheit (Population) aus der die Stichprobe gezogen wurde.[^1]
+
+[^1]: Bspw.: *»Mit 96%iger Wahrscheinlichkeit liegt die Analphabetismusinzidienz von 15-Jährigen in Deutschland zwischen .08 und .12«*
+
+> (Inferenzstatistische) *Hypothesentests* bewerten anhand von Stichprobendaten die Gültigkeit von Hypothesen in der Grundgesamtheit (Population) aus der die Stichprobe gezogen wurde.[^2]
+
+[^2]: Bspw.: *»Nimmt man an, dass sich die Analphabetismusinzidienz von 15-Jährigen in Deutschland zwischen 2021 und 2025 nicht geändert hat, beträgt die Wahrscheinlichkeit der vorliegenden Daten p = .032«*
+
+Diese beiden Verfahren können sowohl im Rahmen der **frequentistischen Statistik** als auch der **bayesianischen Statistik** angewendet werden. Die folgende Tabelle gibt einen Überblick über die wichtigsten Werkzeuge:
+
+|   | Frequentistische Statistik | Bayesianische Statistik |
+|----------------------|--------------------------|------------------------|
+| Parameterschätzung | Konfidenzintervalle | Posterior Distributions |
+| Hypothesentest | p-Werte | Bayes Faktoren & ROPE-CrI Procedure |
+
+## Hypothesenarten
+
+Bayesianische wie frequentistischen Hypothesentests können unterschiedliche Arten von Hypothesen zugrunde gelegt werden:
+
+-   **Punkthypothesen** setzen Parameter gleich einer reellen Zahl; etwa $H_0\text{: } \delta = 0$
+-   **Äquivalenzhypothesen** nehmen Parameter in einem reellen Intervall an; etwa $H_0\text{: } \delta \not\in\ [-.3, .3]$
+-   **Informative Hypothesen** nehmen eine Ordnungsrelation mehrerer Parameter an; etwa $\mu_{\text{Baseline}} < \mu_{\text{Imaginary Pill}} < \mu_{\text{Blinded Placebo}}$ [@buergler2023]
+
+> **Die *Art* der (falsifizierten) Hypothese entscheidet wesentlich stärker über den Informationsgehalt eines Hypothesentests als die Entscheidung für das frequentistische oder bayesianische Paradigma** [@hoijtink2012].
+
+Dies ist am leichtesten anhand der Nullhypothese nachvollziehbar. Wird etwa die Nullhypothese $H_0\text{: } \delta = 0$ verworfen, wird entsprechend die Alternativhypothese $H_A\text{: } \delta \neq 0$ angenommen. Diese enthält aber quasi keine Information, da sie nur mit einer einzigen Beobachtung (d = 0.000000 ...) verworfen werden kann und im kritischen Rationalismus gilt, dass eine Aussage umso mehr Information enthält, umso leichter sie verworfen werden kann [@doering2016].
+
+Äquivalenzhypothesen können sowohl frequentistisch [z.B. TOAST-Prozedur in R und JASP, @lakens2017] wie bayesianisch [z.B. ROPE-Ansatz @kruschke2015] getestet werden. Für das Testen informativer Hypothesen liegen bayesianische Methoden in (u.a.) JASP und R vor [z.B. `{bain}`, @gu2019] sowie in den frequentistischen R-Paketen `{restriktor}` [@vanbrabant2020] und `{ic.infer}` [@gromping2010].
+
+# Grundlagen der Regressionsanalyse
+
+Regressionsanalysen sind ein sehr mächtiges Werkzeug um Zusammenhänge oder Unterschiede zwischen/in Variablen zu modellieren. Innerhalb der Regressionsanalyse kann sowohl geschätzt als auch getestet werden und dies jeweils bayesianisch oder frequentistisch.
+
+Die Grundidee der lineare Regression ist in [diesem interaktiven Applet](https://www.geogebra.org/m/wDpDdS7g) veranschaulicht. Eine Abhängige Variable $y_i$ wird also in der Regressionsanlyse als normalverteilt mit bedingtem Erwartungswert $b_0 + b_1*x_i$ und $\sigma$ angenommen:
+
+$$y_i \sim \mathcal{N}\left( b_0 + b_1*x_i, \sigma \right)$$
+
+## Datengrundlage
+
+Das wollen wir in den berühmten Daten aus dem STAR-Experiment (Student/Teacher Achievement Ratio) illustrieren. In diesem Experiment wurden Schüler:innen und Lehrer:innen zufällig auf Klassen mit kleiner (13-17 Schüler:innen pro Lehrer:in) und großer (22-25 Schüler:innen pro Lehrer:in) Klassengröße zugeteilt. Zusätzlich gab es Klassen großer Größe, die von einer:m ausgebildeten Hilfslehrer:in unterstützt wurde. Die Schüler:innen wurden über mehrere Jahre getestet.
+
+Wir können die Daten [herunterladen](https://github.com/sammerk/Zuerich_Statistics/tree/master/data) oder direkt programmatisch importieren.
+
+```{r}
+#| message: false
+library(readr) # für den data import
+library(dplyr)    # für das datawrangling
+data_star <-
+  readr::read_csv(
+    paste0(
+      "https://raw.githubusercontent.com/sammerk/",
+      "Zuerich_Statistics/master/data/star.csv"
+    )
+  )
+
+```
+
+Der Satzsatz sieht wie folgt aus:
+
+```{r}
+glimpse(data_star)
+```
+
+Die Variablen dieses Datensatzes sind die folgenden:
+
+-   `id`: a factor - student id number
+-   `sch`: a factor - school id number
+-   `gr`: grade - an ordered factor with levels K \< 1 \< 2 \< 3
+-   `cltype`: class type - a factor with levels small, reg and reg+A. The last level indicates a regular class size with a teachers aide.
+-   `hdeg`: highest degree obtained by the teacher - an ordered factor with levels ASSOC \< BS/BA \< MS/MA/MEd \< MA+ \< Ed.S \< Ed.D/Ph.D
+-   `clad`: career ladder position of the teacher - a factor with levels NOT APPR PROB PEND 1 2 3
+-   `exp`: a numeric vector - the total number of years of experience of the teacher
+-   `trace`: teacher's race - a factor with levels W, B, A, H, I and O representing white, black, Asian, Hispanic, Indian (Native American) and other
+-   `read`: the student's total reading scaled score
+-   `math`: the student's total math scaled score
+-   `ses`: socioeconomic status - a factor with levels F and N representing eligible for free lunches or not eligible
+-   `schtype`: school type - a factor with levels inner, suburb, rural and urban
+-   `sx`: student's sex - a factor with levels M F
+-   `eth`: student's ethnicity - a factor with the same levels as trace
+-   `birthq`: student's birth quarter - an ordered factor with levels 1977:1 \< ... \< 1982:2
+-   `birthy`: student's birth year - an ordered factor with levels 1977:1982
+-   `yrs`: number of years of schooling for the student - a numeric version of the grade gr with Kindergarten represented as 0. This variable was generated from gr and does not allow for a student being retained.
+-   `tch`: a factor - teacher id number
+
+Um nicht gleich mit Mehrebenenregression starten zu müssen, erstellen wir als erstes einen Subdatensatz, der nur eine:n Schüler:in pro Lehrer:in enthält
+
+```{r}
+data_star_sub <-
+  data_star %>%
+  group_by(tch) %>%
+  sample_n(1) %>%
+  ungroup()
+```
+
+## »Effekte« der Klassenstufe
+
+### Einfache lineare Regression
+
+Zunächst wollen wir »Effekte« der Klassenstufe modellieren. Ich empfehle dingend Daten immer erst zu visualisieren und dann statistisch zu modellieren.
+
+```{r}
+library(ggplot2) # plots
+library(ggforce) # sina plots
+
+ggplot(data_star_sub, aes(gr, math)) +
+  geom_jitter() +
+  theme_minimal()
+```
+
+Die unabhängige Variable ist hier noch nicht intervallskaliert. Dies können wir wie folgt ändern.
+
+```{r}
+# Das Schuljahr K zu 0 rekodieren
+data_star_sub <-
+  data_star_sub %>%
+  mutate(
+    grade = case_when(
+      gr == "K" ~ 0,
+      gr == "1" ~ 1,
+      gr == "2" ~ 2,
+      gr == "3" ~ 3
+    )
+  )
+# Anschließend nochmals visualisieren
+ggplot(data_star_sub, aes(grade, math)) +
+  geom_jitter() +
+  theme_minimal()
+```
+
+Dann kann eine erste Regressionsgerade modelliert werden.
+
+#### Frequentistische Punktschätzung
+
+Mit der Funktion `lm()` werden mithilfe kleinster Quadrate $b_0$ und $b_1$ geschätzt.
+
+```{r}
+mod0 <- lm(math ~ grade, data = data_star_sub)
+mod0
+```
+
+#### Frequentistischer Nullhypothesensignifikanztest
+
+Die Standardinferenzstatistik zu einem solchen Modell ist sind p-Werte für die Nullhypothesen $$H_0:\; b_0 = 0$$ $$H_0:\; b_1 = 0$$
+
+```{r}
+summary(mod0)
+```
+
+#### Frequentistische Konfidenzintervalle
+
+```{r}
+confint(mod0)
+```
+
+#### Bayesianische Posterior Distributions
+
+```{r}
+#| message: false
+#| warning: false
+library(MCMCpack) #für bayesianische Schätzung
+mod1 <- MCMCregress(math ~ grade, data = data_star_sub)
+
+plot(mod1)
+summary(mod1)
+```
+
+Während die Densityplots den Posterior der Schätzung charakterisieren, erhält man mit `summary()` auch die 95%CrI-Intervalle.
+
+#### Bayes Factor
+
+Mit einem Bayes Factor testet man im Falle unseres Models wie wahrscheinlich die vorliegenden Daten sind geben ein Intercept-Only-Modell vs. unser Model `mod1`. Da die Funktion `lmBF()` im Paket `{BayesFactor}` allerdings Daten ohne Missings erwartet, müssen diese noch gefiltert werden.
+
+```{r}
+#| message: false
+library(BayesFactor)
+mod2 <- lmBF(
+  formula = math ~ grade,
+  data = data_star_sub %>%
+    filter(!is.na(math))
+)
+```
+
+## Standardisierte Regression
+
+Die in `mod0` erhaltenen Regressionskoeffizienten konnten wir nutzen um zu interpretieren welche Punktzahl durchschnittlich im Kindergarten vorliegt ($b_0$) und was der durchschnittliche Anstieg in einem Jahr ist ($b_1$). Diese Zahlen sind insbesondere dann gut als (nicht-standardisierte) Effektstärke interpretierbar, wenn man mit der Skala vertraut ist. Eine Alternative dazu ist die [z-Standardisierung](https://www.geogebra.org/m/CRegjsxH) der abhängigen Variable. Um dies zu veranschaulichen betrachten wir Effekte des SES (free lunch) auf die Mathematikleistung in der dritten Klasse. Die Rohdataten sehen wie folgt aus:
+
+```{r}
+data_star_sub %>%
+  filter(grade == 3 & !is.na(ses)) %>%
+  ggplot(aes(ses, math)) +
+  geom_violin() +
+  geom_sina() +
+  stat_summary(
+    fun.data = mean_sdl,
+    fun.args = list(mult = 1),
+    geom = "pointrange",
+    colour = "#1bbc9d"
+  ) +
+  theme_minimal()
+```
+
+z-standardisieren wir die abhängige Variable bleiben die Verteilungsformen gleich, lediglich die Skalierung ändert sich.
+
+```{r}
+data_star_sub %>% 
+  filter(grade == 3 & !is.na(ses)) %>% 
+  ggplot(aes(ses, scale(math))) +
+  geom_violin() +
+  geom_sina() +
+  stat_summary(
+    fun.data = mean_sdl,
+    fun.args = list(mult = 1),
+    geom = "pointrange",
+    colour = "#1bbc9d"
+  ) +
+  theme_minimal()
+```
+
+Der folgende Code kodiert automatisch die `ses` Variable als `0`, `1`-Variable um.
+
+```{r}
+mod3 <-
+  lm(
+    scale(math) ~ ses,
+    data = data_star_sub %>%
+      filter(grade == 3 & !is.na(ses))
+  )
+```
+
+Die Koeffizienten passend sehr gut zur Abbildung:
+
+```{r}
+#| echo: false
+equatiomatic::extract_eq(mod3, use_coefs = T)
+```
+
+`{r} round(coef(mod3)[1], 2)` ist der Mittelwert der Gruppe mit Free Lunch, `{r} round(coef(mod3)[2], 2)` die Differenz der beiden Gruppenmittelwerte gemessen in Standardabweichungen und damit wie ein Cohen's $d$ interpretiertbar.
+
+```{r}
+library(effectsize)
+cohens_d(
+  math ~ ses,
+  data = data_star_sub %>% filter(grade == 3 & !is.na(ses)),
+  pooled_sd = F
+)
+```
+
+## Multiple Regression
+
+Die multiple Regression erweitert die Idee der einfachen lineare Regression auf mehrere unabhängige Variablen:
+
+$$y_i \sim \mathcal{N}\left( b_0 + b_1*x_{1i} + b_2*x_{2i}, \sigma \right)$$
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+library(plotly)
+library(reshape2)
+
+#load data
+
+my_df <- data_star_sub %>%
+  sample_n(400) %>%
+  mutate(ses_n = ifelse(ses == "F", 0, 1))
+#petal_lm <- lm(Petal.Length ~ Sepal.Length + Sepal.Width,data = my_df)
+mod4 <- lm(math ~ grade + ses_n, data = my_df)
+
+#Graph Resolution (more important for more complex shapes)
+graph_reso <- 0.05
+
+#Setup Axis
+axis_x <- seq(min(my_df$grade, na.rm = T), max(my_df$grade, na.rm = T), by = graph_reso)
+axis_y <- seq(min(my_df$ses_n, na.rm = T), max(my_df$ses_n, na.rm = T), by = graph_reso)
+
+#Sample points
+mod4_surface <- expand.grid(
+  grade = axis_x,
+  ses_n = axis_y,
+  KEEP.OUT.ATTRS = F
+)
+mod4_surface$math <- predict.lm(
+  mod4,
+  newdata = mod4_surface
+)
+mod4_surface <- acast(
+  mod4_surface,
+  ses_n ~ grade,
+  value.var = "math"
+) #y ~ x
+
+hcolors = viridisLite::viridis(4)[my_df$grade]
+star_plot <- plot_ly(
+  my_df,
+  x = ~grade,
+  y = ~ses_n,
+  z = ~math,
+  text = ~grade, # EDIT: ~ added
+  type = "scatter3d",
+  mode = "markers",
+  marker = list(color = hcolors)
+)
+
+star_plot <- add_trace(
+  p = star_plot,
+  z = mod4_surface,
+  x = axis_x,
+  y = axis_y,
+  type = "surface"
+)
+
+star_plot
+```
+
+### Informative Hypothesentests in der multiplen Regression
+
+```{r}
+# Informative Hypothese
+library(bain)
+
+## ANOVA als Regression
+
+data_star_sub <- data_star_sub %>% 
+	mutate(classtype = ifelse(cltype == "reg+A",
+														"regA",  cltype))
+
+mod5 <- lm(math ~ classtype - 1, data = data_star_sub) # Intercept mit `-1` entfernt
+mod5
+
+bain(mod5, "classtypereg = classtyperegA = classtypesmall; classtypereg < classtyperegA < classtypesmall")
+```
+
+### Schätzung der eines Cohen's d zwischen großer und kleiner Klasse in `math`
+
+```{r}
+data_star %>% 
+  	filter(gr == 3 & !is.na(cltype) & cltype != "reg+A") %>%
+    cohens_d(
+      math ~ cltype,
+      data = .,
+      pooled_sd = F
+    )
+```
+
+-->
+````
