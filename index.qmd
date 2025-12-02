@@ -126,13 +126,6 @@ $$\widetilde{x}=
 
 Der **Modus** ist ein Maß der zentrale Tendenz von nominalen, ordinalen und intervallskalierten Variablen. Er entspricht dem am häufigsten vorkommenden Wert in einer Verteilung.
 
-```{webr}
-#| exercise: compute_mean
-for (x in 1:5) {
-  print(x ** 2)
-}
-```
-
 
 
 ### Übungen
