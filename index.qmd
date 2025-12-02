@@ -2,12 +2,12 @@
 title: "BiU Statistik im WiSe 2025/26"
 subtitle: "Ein Cheatsheet"
 date: last-modified
+engine: knitr
 format:
-  html:
+  live-html:
     toc: true
     toc-title: "{{< brand logo medium >}}"
     toc-location: left
-    toc-depth: 4
     self-contained: true
     grid: 
       margin-width: 250px
@@ -22,6 +22,7 @@ reference-location: margin
 #citation-location: margin
 bibliography: skeleton.bib
 ---
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
 
 # Methodology: The Science before Statistics
 
@@ -50,10 +51,7 @@ Für ein erfolgreiches Studiendesign und die anschließende statistische Analyse
 -   **Statistische Validität** (*Wie robust und angemessen sind die verwendeten statistischen Verfahren?*)
 
 ### Steigerung von interner und externer Validität
-::: column-page-right
-:::: {.columns}
 
-::: {.column width="50%"}
 Zur Steigerung der internen Validität eignen sich insbesondere:
 
 * Die Randomisierung der unabhängigen Variablen
@@ -65,9 +63,6 @@ Zur Steigerung der internen Validität eignen sich insbesondere:
 * (Doppelte) Verblindung
 * Präregistrerung
 
-:::
-
-::: {.column width="50%"}
 Zur Steigerung der externen Validität eignen sich insbesondere:
 
 * Zufallsstichproben aus der Zielpopulation
@@ -76,18 +71,21 @@ Zur Steigerung der externen Validität eignen sich insbesondere:
 * Feldstudien
 * Metaanalysen
 
-::::
-:::
 
-## Messtheorie
-### Skalenniveaus
+
+# Messtheorie
+## Skalenniveaus
 Statistische Berechnungen haben unterschiedliche Voraussetzungen an die Interpretierbarkeit von numerisch enkodierten Variablen. So hat sich die Unterscheidung der folgenden `Skalenniveaus` [@doering2016]etabliert:
 
 * **Nominal skalierte Variablen**: Dieses Variablenniveau liegt vor, wenn allein Gleichheit und Ungleichheit von Datenpunkiten unterschieden werden kann (z.B. Spezies, Sex, Nationalität).
 * **Ordinal skalierte Variablen**: Dieses Variablenniveau liegt vor, wenn neben der Gleichheit zudem eine Ordnung in Datenpunkten generiert werden kann (z.B. Entwicklungsstadien, Schulabschlüsse).
 * **Intervallskalierte Variablen**: Dieses Variablenniveau liegt vor, wenn neben der Gleichheit und der Ordnung von Datenpunkten zudem deren Abstand sinnvoll interpretiert werden kann (z.B. Temperatur, Gewicht).
 
-### Kausalrelationierung
+### Aufgabe Skalenniveau erkennen
+<iframe width="100%" height="400" src="aufg/skalenniveau-erkennen.html" title="Aufgabe"></iframe>
+
+
+## Kausalrelationierung
 Je nachdem ob eine Variable als Ursache, Wirkung oder beides in einem kausalen System angenommen wird erhalten sie in der Statistik unterschiedliche Bezeichnungen [@doering2016]:
 
 * **Unabhängige Variable** (UV, *independet variable*): Variable, die als Ursache in einem kausalen System angenommen wird.
@@ -96,14 +94,117 @@ Je nachdem ob eine Variable als Ursache, Wirkung oder beides in einem kausalen S
 * **Moderatorvariable** (MoV, *moderator*): Variable, die einen Einfluss beeinflusst.
 * **Störvariable** (UV, *confounder*): Variable, die sowohl UV als auch AV beeinflusst und somit eine Scheinkorrelation erzeugen kann.
 
-## Einfache lineare Regression
+### Aufgabe Kausalrelationierung erkennen
+<iframe width="100%" height="900" src="aufg/av-uv-mov-identifizieren-text.html" title="Aufgabe"></iframe>
+
+
+# Univariate Deskriptivstatistik
+## Maße der zentralen Tendenz
+Maße der zentralen Tendenz geben Auskunft über den typischen Wert einer Verteilung. Die drei wichtigsten Maße sind:  
+
+Das **arithmetische Mittel** ist ein Maß der zentralen Tendenz von intervallskalierten Variablen. Wenn $X = \{x_1, x_2, ..., x_n\}$ eine empirische Variable (= Datenreihe darstellt) ist das arithmetische Mittel $\bar x$ als »Durchschnitt« definiert: 
+$$\bar{x}=\frac{1}{n} \sum_{i=1}^{n} x_{i}$$
+
+In R kann das arithmetische Mittel mit der Funktion `mean()` berechnet werden. Berechnen Sie im folgenden Codefenster das arithmetische Mittel der Zahlen 1 bis 5.
+
+```{webr}
+#| exercise: compute_mean
+____(____)
+```
+
+::: { .hint exercise="compute_mean"}
+Einen Vector mit den Zahlen 1 bis 5 können Sie in R mit der Funktion `c(1, 2, 3, 4, 5)` erstellen. Die Funktion `mean()` berechnet das arithmetische Mittel eines Vectors.
+:::
+
+
+Der **Median** ist ein Maß der zentrale Tendenz von nominalen, ordinalen und intervallskalierten Variablen. Man erhält ihn, indem man alle Datenpunkte der Größe nach ordnet und dann den Wert in der Mitte nimmt. Ist die Anzahl der Datenpunkte eine gerade Zahl, entspricht der Median dem arithm. Mittel der beiden mittleren Werte.
+$$\widetilde{x}=
+   \begin{cases}
+   x_{m+1} &   \text{für ungerades }n = 2m + 1 \\ 
+   \frac{1}{2}(x_m + x_{m+1}) & \text{für gerades }n = 2m \\
+   \end{cases}$$  
+
+Der **Modus** ist ein Maß der zentrale Tendenz von nominalen, ordinalen und intervallskalierten Variablen. Er entspricht dem am häufigsten vorkommenden Wert in einer Verteilung.
+
+```{webr}
+#| exercise: compute_mean
+for (x in 1:5) {
+  print(x ** 2)
+}
+```
+
+
+
+### Übungen
+#### Aufgabe Median berechnen I
+<iframe width="100%" height="500" src="aufg/Median_berechnen_geradeAnzahl.html" title="Aufgabe"></iframe>
+
+
+#### Aufgabe Median berechnen II
+<iframe width="100%" height="500" src="aufg/Median_berechnen_ungeradeAnzahl.html" title="Aufgabe"></iframe>
+
+
+## Maße der Dispersion (Streuung)
+### Mean Average Deviation
+Die Mean Average Deviation (MAD) ist ein Streuungsmaß, das die durchschnittliche absolute Abweichung der Datenpunkte vom arithmetischen Mittel angibt. Für eine empirische Variable $X = \{x_1, x_2, ..., x_n\}$ wird die MAD wie folgt berechnet:
+$$\text{MeanAD} = \frac{1}{n} \sum_{i=1}^{n} |x_i - \bar{x}|$$
+Die MeanAD kann in R mit der Funktion `MeanAD()` aus dem Paket `DescTools` berechnet werden.
+
+::: {.callout-note}
+## Beispiel MeanAD
+Eine Gruppe Forschender erfasst die Zustimmung zur Aussage *»Modern science will solve our environmental problems with little change to our way of life.«* auf einer Skala von `1 = Agree strongly` bis `20 = Disagree strongly` und erhält die Datenreihe $x = 13, 4, 14, 4, 10$. Das arithmetische Mittel dieser Datenreihe ist $\bar{x}= 9$. Die MeanAD wird wie folgt berechnet:
+
+$$\text{MeanAD} = \frac{1}{5} (|13-9| + |4-9| + |14-9| + |4-9| + |10-9|) = $$
+$$= \frac{1}{5} (4 + 5 + 5 + 5 + 1) = \frac{20}{5} = 4$$
+
+:::
+
+![](img/MAD.svg)
+
+### Varianz und Standardabweichung
+Die Varianz ist ein Streuungsmaß, das die durchschnittliche quadrierte Abweichung der Datenpunkte vom arithmetischen Mittel angibt. Für eine empirische Variable $X = \{x_1, x_2, ..., x_n\}$ wird die Varianz wie folgt berechnet:
+$$s^2 = \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2$$
+Die Standardabweichung ist die Quadratwurzel der Varianz und wird wie folgt berechnet:
+$$s = \sqrt{s^2}$$
+Die Varianz und Standardabweichung können in R mit den Funktionen `var()` und `sd()` berechnet werden.
+
+::: {.callout-note}
+## Beispiel Varianz und Standardabweichung
+Eine Gruppe Forschender erfasst die Zustimmung zur Aussage *»Modern science will solve our environmental problems with little change to our way of life.«* auf einer Skala von `1 = Agree strongly` bis `20 = Disagree strongly` und erhält die Datenreihe $x = 13, 4, 14, 4, 10$. Das arithmetische Mittel dieser Datenreihe ist $\bar{x}= 9$. Die Varianz wird wie folgt berechnet:
+$$s^2 = \frac{1}{5-1} ((13-9)^2 + (4-9)^2 + (14-9)^2 + (4-9)^2 + (10-9)^2) = $$
+$$= \frac{1}{4} (16 + 25 + 25 + 25 + 1) = \frac{92}{4} = 23$$
+Die Standardabweichung ist dann:
+$$s = \sqrt{23} \approx 4.8$$
+:::
+
+## Modalität{.smaller .center}
+Mit **Modalität** wird die »Vielgipflichkeit« einer Verteilung bezeichnet. Die Modi entsprechen oftmals in den Daten enthaltenen Subgruppen [@eid2013].
+
+## Schiefe
+Die Verteilung einer (unimodalen) intervallskalierten Variable ist schief, wenn die Streuungen der oberen/unteren Hälfte unterschiedlich sind [@vonhippel2005].
+
+## Kurtosis
+Die Kurtosis beschreibt die »Schmal- oder Breitgipfligkeit« einer (unimodalen) Verteilung.
+
+## Grafische Darstellung univariater Verteilungen
+![](img/Plottypes_embedded.svg){.lightbox}
+
+### Aufgaben
+#### Aufgabe Mean aus Grafik schätzen
+<iframe width="100%" height="1000" src="aufg/Mean_guessing_SC.html" title="Aufgabe"></iframe>
+
+#### Aufgabe Mean Average Deviation aus Grafik schätzen
+<iframe width="100%" height="1000" src="aufg/MAD_guessing_SC.html" title="Aufgabe"></iframe>
+
+
+# Einfache lineare Regression
 Ein lineares Modell beschreibt die Beziehung zwischen einer abhängigen Variable $y$ und einer unabhängiger $x$ Variablen. 
 
-### Geometrische Repräsentation
+## Geometrische Repräsentation
 Oftmals wird die lineare Regression zunächst [geometrisch eingeführt](https://www.geogebra.org/m/bxdpxd48):
 
 
-### Algebraische Notation
+## Algebraische Notation
 Man kann die einfache lineare Regression auch algebraisch darstellen. In der einfachsten Form wird die abhängige Variable `Pro-Environmental Behaviour` durch eine unabhängige Variable `Climate Anxiety` erklärt:
 
 $$\text{Pro-Environmental Behaviour}_i = b_0 + b_1 \cdot \text{Climate Anxiety}_i + \varepsilon_i$$
@@ -115,12 +216,12 @@ Dabei kann dann `b_0` als Achsenabschnitt und `b_1` als Steigung der Regressions
 
 ![](img/EinfLinRegression.svg)
 
-### Stochastische Notation
+## Stochastische Notation
 Während die sowohl die geometrische Repräsentation als auch die algebraische Notation das **Modell** mit seinen zu bestimmenden Parametern beschrieben, betont die stochastische Schreibweise den **Prozess**, durch den die Daten generiert werden
 
 $$\text{Pro-Environmental Behaviour} \sim \mathcal{N}\left(b_0 + b_1 \cdot \text{Climate Anxiety}, \sigma^2\right)$$
 
 In der stochastischen Notation wird angenommen, dass die abhängige Variable `Pro-Environmental Behaviour` für jede `Climate Anxiety`-Subgruppe einer Normalverteilung folgt, die Variable als Gesamtes jedoch nicht unbedingt. Zudem ist in der Notation bereits die Annahme der Homoskedastizität (konstante Varianz enthalten: Die Streuung der der `Pro-Environmental Behaviour`-Werte ist für alle `Climate Anxiety`-Subgruppen gleich ($\sigma^2$).
 
-### Standardisierte Regression
+## Standardisierte Regression
 Die Steigung einer einfachen linearen regression hängt von der Maßeinheit der abhängigen udn unabhängigen Variable ab. Um diese Abhängigkeit zu eliminieren können sowohl die abhängige als auch die unabhängige Variable standardisiert werden. In der standardisierten Regression entspricht die Steigung `b_1` dann der erwarteten Differenz in Standardabweichungen der abhängigen Variable, wenn sich die unabhängige Variable um eine Standardabweichung ändert. Das entspricht exakt der sogenannten Pearson-Korrelation $r$, wie in dieser [interaktiven Applikation](https://www.geogebra.org/m/mR3kx7Fm) verdeutlicht wird.
