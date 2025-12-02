@@ -170,6 +170,15 @@ Die Standardabweichung ist dann:
 $$s = \sqrt{23} \approx 4.8$$
 :::
 
+### Range, Quartile und Interquartilsbereich
+Der Range, die Quartile $Q_1$, $Q_2$, $Q_3$, sowie der Interquartilsbereich $IQR$ wie folgt definiert: 
+
+$$Range = [min(x_i);\;max(x_i)]$$
+
+$$\text{Quartil 1} = \text{Median aller } x_i ≤ \widetilde{x} \text{; } \text{Quartil 2} = \widetilde{x} \text{; } \text{Quartil 3} = \text{Median aller } x_i ≥ \widetilde{x} \text{; }$$
+
+$$IQR = \left[\text{Quartil 1}; \text{Quartil 3} \right] $$
+
 ## Modalität{.smaller .center}
 Mit **Modalität** wird die »Vielgipflichkeit« einer Verteilung bezeichnet. Die Modi entsprechen oftmals in den Daten enthaltenen Subgruppen [@eid2013].
 
