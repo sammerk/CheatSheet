@@ -1,0 +1,15 @@
+{
+  "hash": "67c65963212b163b04a92db836478ff7",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"BiU Statistik im WiSe 2025/26\"\nsubtitle: \"Ein kleines interaktive E-Book\"\ndate: last-modified\nengine: knitr\n\n\nlang: de\nreference-location: margin\n#citation-location: margin\nbibliography: skeleton.bib\n---\n\n# Hallo 👋🏼\nIn diesem interaktiven E-Book finden Sie die Materialen für die Vorlesung »Biu Statistik« im Wintersemester 2025-2026.\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

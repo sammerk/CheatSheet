@@ -1,0 +1,37 @@
+logo: 
+  medium: img/logo_square.svg
+color: 
+  link: "#267326"
+  background: "#f2f2f2"
+  primary: "#267326"
+typography:
+  fonts:
+    - family: Source Sans Pro
+      source: google
+      weight: [300, 400, 600, 700]
+      style: [normal, italic]
+    - family: Source Serif Pro
+      source: google
+      weight: [300, 400, 600, 700]
+      style: [normal, italic]
+    - family: Roboto Mono
+      source: google
+      # Used for selected high-quality publications (e.g. Festschriften)
+  base:
+    family: Source Sans Pro
+    weight: 400
+    size: 16px
+    line-height: 1.5
+  headings:
+    family: Source Sans Pro
+    weight: 700
+    style: normal
+    color: "#267326"
+    line-height: 1.2
+  monospace:
+    family: Roboto Mono
+    weight: 400
+  link:
+    weight: 400
+    color: "#267326"
+    decoration: underline

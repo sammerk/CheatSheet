@@ -1,0 +1,27 @@
+Ein lineares Modell beschreibt die Beziehung zwischen einer abhängigen Variable $y$ und einer unabhängiger $x$ Variablen. 
+
+## Geometrische Repräsentation
+Oftmals wird die lineare Regression zunächst [geometrisch eingeführt](https://www.geogebra.org/m/bxdpxd48):
+
+
+## Algebraische Notation
+Man kann die einfache lineare Regression auch algebraisch darstellen. In der einfachsten Form wird die abhängige Variable `Pro-Environmental Behaviour` durch eine unabhängige Variable `Climate Anxiety` erklärt:
+
+$$\text{Pro-Environmental Behaviour}_i = b_0 + b_1 \cdot \text{Climate Anxiety}_i + \varepsilon_i$$
+
+Dabei kann dann `b_0` als Achsenabschnitt und `b_1` als Steigung der Regressionsgeraden interpretiert werden:
+
+* `b_0`: Der erwartete Wert der `Pro-Environmental Behaviour`, wenn `Climate Anxiety` gleich 0 ist.
+* `b_1`: Die erwartete Differenz in der `Pro-Environmental Behaviour` zweier gruppen, die sich in `Climate Anxiety` um eine Einheit unterscheiden 
+
+![](img/EinfLinRegression.svg)
+
+## Stochastische Notation
+Während die sowohl die geometrische Repräsentation als auch die algebraische Notation das **Modell** mit seinen zu bestimmenden Parametern beschrieben, betont die stochastische Schreibweise den **Prozess**, durch den die Daten generiert werden
+
+$$\text{Pro-Environmental Behaviour} \sim \mathcal{N}\left(b_0 + b_1 \cdot \text{Climate Anxiety}, \sigma^2\right)$$
+
+In der stochastischen Notation wird angenommen, dass die abhängige Variable `Pro-Environmental Behaviour` für jede `Climate Anxiety`-Subgruppe einer Normalverteilung folgt, die Variable als Gesamtes jedoch nicht unbedingt. Zudem ist in der Notation bereits die Annahme der Homoskedastizität (konstante Varianz enthalten: Die Streuung der der `Pro-Environmental Behaviour`-Werte ist für alle `Climate Anxiety`-Subgruppen gleich ($\sigma^2$).
+
+## Standardisierte Regression
+Die Steigung einer einfachen linearen regression hängt von der Maßeinheit der abhängigen udn unabhängigen Variable ab. Um diese Abhängigkeit zu eliminieren können sowohl die abhängige als auch die unabhängige Variable standardisiert werden. In der standardisierten Regression entspricht die Steigung `b_1` dann der erwarteten Differenz in Standardabweichungen der abhängigen Variable, wenn sich die unabhängige Variable um eine Standardabweichung ändert. Das entspricht exakt der sogenannten Pearson-Korrelation $r$, wie in dieser [interaktiven Applikation](https://www.geogebra.org/m/mR3kx7Fm) verdeutlicht wird.

@@ -1,0 +1,381 @@
+```{r data generation, echo = FALSE, results = "hide", message=FALSE, warning=FALSE}
+library(tidyverse)
+library(readxl)
+library(ggdag)
+library(patchwork)
+library(exams)
+
+# read Excel table with variable in same folder
+variables <- tibble::tribble(
+               ~Topic,                               ~MV,                             ~IV,                               ~DV,
+                   1L,           "Kognitive Fähigkeiten",            "Gewissenhaftigkeit", "Schulische Leistungsentwicklung",
+                   2L,                           "Alter",             "Menge an Freizeit",         "Nutzung sozialer Medien",
+                   3L,     "Motivation der Studierenden",       "Anspruch eines Seminars",          "Bewertung des Seminars",
+                   4L,                           "Alter",           "Verbale Intelligenz",              "Gedächtnisleistung",
+                   5L,                     "Straßenlärm", "Dosierung eines Schlafmittels",                     "Schlafdauer",
+                   6L, "Einsatz von Entspannungstechnik",         "Aufgewendete Lernzeit",                      "Lernerfolg",
+                   7L,                   "Alkoholkonsum",         "Aufgewendete Lernzeit",                      "Lernerfolg",
+                   8L,           "Soziale Unterstützung",     "Individueller Stresslevel",                  "Lebensqualität",
+                   9L,                      "Geschlecht",              "Arbeitserfahrung",                          "Gehalt"
+               )
+
+# manually set the topic to be used in the task
+topic_manually_set <- sample(1:9, 1)
+
+# set modality of solution manually
+solution_mode_manually_set <- "verbally"
+
+# (random) sequence of the mentioning of the three variables within the topic 
+mv_iv_dv_seq <- 1:3 #sample(1:3,3)
+
+# generate the question string to alternate wordings 
+question_string_part1 <- 
+  paste("Eine Forscherin interessiert sich für die Variablen »",
+        variables %>% 
+          slice(topic_manually_set) %>% 
+          pull(1 + mv_iv_dv_seq[1]),
+        " (",
+        substr(
+          variables %>% 
+          slice(topic_manually_set) %>% 
+          pull(1 + mv_iv_dv_seq[1]), 
+          1,2),
+        ")«, »",
+        variables %>% 
+          slice(topic_manually_set) %>% 
+          pull(1 + mv_iv_dv_seq[2]),
+        " (",
+        substr(
+          variables %>% 
+          slice(topic_manually_set) %>% 
+          pull(1 + mv_iv_dv_seq[2]), 
+          1,2),
+        ")« und »",
+        variables %>% 
+          slice(topic_manually_set) %>% 
+          pull(1 + mv_iv_dv_seq[3]),
+        " (",
+        substr(
+          variables %>% 
+          slice(topic_manually_set) %>% 
+          pull(1 + mv_iv_dv_seq[3]), 
+          1,2),
+        ")«. Sie erhebt die entsprechenden Daten bei einer repräsentativen Stichprobe von ",
+        sample(501:7654, 1),
+        " SchülerInnen.", 
+        sep = ""
+        )
+
+question_string_part2 <- 
+  sample(c(
+    paste(
+      " Sie vermutet dabei folgendes: Je niedriger die Variable »",
+      variables %>% slice(topic_manually_set) %>% pull(MV),
+      "« ausgeprägt ist, desto größer ist der Effekt der Variable »",
+      variables %>% slice(topic_manually_set) %>% pull(IV),
+      "« auf die Variable »",
+      variables %>% slice(topic_manually_set) %>% pull(DV),
+      "«.",
+      sep = ""
+      ),
+    paste(
+      " Sie vermutet dabei, dass der Effekt der Variable »",
+      variables %>% slice(topic_manually_set) %>% pull(IV),
+      "« auf die Variable »",
+      variables %>% slice(topic_manually_set) %>% pull(DV),
+      "« umso kleiner ist, je kleiner die Variable »",
+      variables %>% slice(topic_manually_set) %>% pull(MV),
+      "« ausgeprägt ist.",
+      sep = ""
+      ),
+     paste(
+      " Sie vermutet dabei, dass der Effekt der Variable »",
+      variables %>% slice(topic_manually_set) %>% pull(IV),
+      "« auf die Variable »",
+      variables %>% slice(topic_manually_set) %>% pull(DV),
+      "« von der Ausprägung der Variable »",
+      variables %>% slice(topic_manually_set) %>% pull(MV),
+      "« beinflusst wird.",
+      sep = ""
+      )),
+    1
+    )
+```
+
+
+```{r data generation 2, echo = FALSE, results = "hide"}
+####################################################
+# generating the graphically represented solutions #
+####################################################
+
+# set title of right graphically solution
+title_of_right_graphical_solution <- sample(LETTERS[1:6], 1)
+title_of_wrong_graphical_solutions <- setdiff(LETTERS[1:6], title_of_right_graphical_solution)
+
+# dummy data to hack the moderator variable (not implemented in ggdag)
+coords <- tribble(
+  ~name,    ~x,  ~y,
+  "x",      1,   1,
+  "y",      2,   1,
+  "m",      1.5, 0.5,
+  "holder", 1.5, 1
+)
+
+right_graphical_solution <- 
+  dagify(
+    y ~ x,
+    holder ~ m,
+    coords = coords) %>% 
+  ggplot(aes(x = x, y = y, xend = xend, yend = yend)) + 
+    geom_dag_point(data = function(x) filter(x, name != "holder")) +
+    geom_dag_edges() + theme_dag() +
+    geom_dag_label_repel(data = function(x) filter(x, name != "holder"),
+                         aes(label = c(substr(variables %>% 
+                                                slice(topic_manually_set) %>% 
+                                                pull(MV), 
+                                              1, 2),
+                                       substr(variables %>% 
+                                                slice(topic_manually_set) %>% 
+                                                pull(DV), 
+                                              1, 2),
+                                       substr(variables %>% 
+                                                slice(topic_manually_set) %>% 
+                                                pull(IV), 
+                                              1, 2)))) +
+  ggtitle(paste("Lösung ", title_of_right_graphical_solution)) +
+    theme(plot.margin = margin(0.5, 0.5, 0.5, 0.5, "cm"))
+
+assign(paste("graphical_solution", 
+             title_of_right_graphical_solution, 
+             sep = "_"), right_graphical_solution)
+
+# didn't get the for loop to work :-(
+assign(paste("graphical_solution", title_of_wrong_graphical_solutions[1], sep = "_"),  
+  dagify(
+    y ~ x,
+    holder ~ m,
+    coords = coords) %>% 
+  ggplot(aes(x = x, y = y, xend = xend, yend = yend)) + 
+    geom_dag_point(data = function(x) filter(x, name != "holder")) +
+    geom_dag_edges() + theme_dag() +
+    geom_dag_label_repel(data = function(x) filter(x, name != "holder"),
+                         aes(label = c(substr(variables %>% 
+                                                slice(topic_manually_set) %>% 
+                                                pull(c("MV", "IV", "IV", "DV", "DV")[1]), 
+                                              1, 2),
+                                       substr(variables %>% 
+                                                slice(topic_manually_set) %>% 
+                                                pull(c("IV", "MV", "DV", "IV", "MV")[1]), 
+                                              1, 2),
+                                       substr(variables %>% 
+                                                slice(topic_manually_set) %>% 
+                                                pull(c("DV", "DV", "MV", "MV", "IV")[1]), 
+                                              1, 2)))) +
+  ggtitle(paste("Lösung", title_of_wrong_graphical_solutions[1])) +
+    theme(plot.margin = margin(0.5, 0.5, 0.5, 0.5, "cm"))
+) 
+
+assign(paste("graphical_solution", title_of_wrong_graphical_solutions[2], sep = "_"),  
+  dagify(
+    y ~ x,
+    holder ~ m,
+    coords = coords) %>% 
+  ggplot(aes(x = x, y = y, xend = xend, yend = yend)) + 
+    geom_dag_point(data = function(x) filter(x, name != "holder")) +
+    geom_dag_edges() + theme_dag() +
+    geom_dag_label_repel(data = function(x) filter(x, name != "holder"),
+                         aes(label = c(substr(variables %>% 
+                                                slice(topic_manually_set) %>% 
+                                                pull(c("MV", "IV", "IV", "DV", "DV")[2]), 
+                                              1, 2),
+                                       substr(variables %>% 
+                                                slice(topic_manually_set) %>% 
+                                                pull(c("IV", "MV", "DV", "IV", "MV")[2]), 
+                                              1, 2),
+                                       substr(variables %>% 
+                                                slice(topic_manually_set) %>% 
+                                                pull(c("DV", "DV", "MV", "MV", "IV")[2]), 
+                                              1, 2)))) +
+  ggtitle(paste("Lösung", title_of_wrong_graphical_solutions[2])) +
+    theme(plot.margin = margin(0.5, 0.5, 0.5, 0.5, "cm"))
+) 
+
+assign(paste("graphical_solution", title_of_wrong_graphical_solutions[3], sep = "_"),  
+  dagify(
+    y ~ x,
+    holder ~ m,
+    coords = coords) %>% 
+  ggplot(aes(x = x, y = y, xend = xend, yend = yend)) + 
+    geom_dag_point(data = function(x) filter(x, name != "holder")) +
+    geom_dag_edges() + theme_dag() +
+    geom_dag_label_repel(data = function(x) filter(x, name != "holder"),
+                         aes(label = c(substr(variables %>% 
+                                                slice(topic_manually_set) %>% 
+                                                pull(c("MV", "IV", "IV", "DV", "DV")[3]), 
+                                              1, 2),
+                                       substr(variables %>% 
+                                                slice(topic_manually_set) %>% 
+                                                pull(c("IV", "MV", "DV", "IV", "MV")[3]), 
+                                              1, 2),
+                                       substr(variables %>% 
+                                                slice(topic_manually_set) %>% 
+                                                pull(c("DV", "DV", "MV", "MV", "IV")[3]), 
+                                              1, 2)))) +
+  ggtitle(paste("Lösung", title_of_wrong_graphical_solutions[3])) +
+    theme(plot.margin = margin(0.5, 0.5, 0.5, 0.5, "cm"))
+) 
+
+assign(paste("graphical_solution", title_of_wrong_graphical_solutions[4], sep = "_"),  
+  dagify(
+    y ~ x,
+    holder ~ m,
+    coords = coords) %>% 
+  ggplot(aes(x = x, y = y, xend = xend, yend = yend)) + 
+    geom_dag_point(data = function(x) filter(x, name != "holder")) +
+    geom_dag_edges() + theme_dag() +
+    geom_dag_label_repel(data = function(x) filter(x, name != "holder"),
+                         aes(label = c(substr(variables %>% 
+                                                slice(topic_manually_set) %>% 
+                                                pull(c("MV", "IV", "IV", "DV", "DV")[4]), 
+                                              1, 2),
+                                       substr(variables %>% 
+                                                slice(topic_manually_set) %>% 
+                                                pull(c("IV", "MV", "DV", "IV", "MV")[4]), 
+                                              1, 2),
+                                       substr(variables %>% 
+                                                slice(topic_manually_set) %>% 
+                                                pull(c("DV", "DV", "MV", "MV", "IV")[4]), 
+                                              1, 2)))) +
+  ggtitle(paste("Lösung", title_of_wrong_graphical_solutions[4])) +
+    theme(plot.margin = margin(0.5, 0.5, 0.5, 0.5, "cm"))
+) 
+
+assign(paste("graphical_solution", title_of_wrong_graphical_solutions[5], sep = "_"),  
+  dagify(
+    y ~ x,
+    holder ~ m,
+    coords = coords) %>% 
+  ggplot(aes(x = x, y = y, xend = xend, yend = yend)) + 
+    geom_dag_point(data = function(x) filter(x, name != "holder")) +
+    geom_dag_edges() + theme_dag() +
+    geom_dag_label_repel(data = function(x) filter(x, name != "holder"),
+                         aes(label = c(substr(variables %>% 
+                                                slice(topic_manually_set) %>% 
+                                                pull(c("MV", "IV", "IV", "DV", "DV")[5]), 
+                                              1, 2),
+                                       substr(variables %>% 
+                                                slice(topic_manually_set) %>% 
+                                                pull(c("IV", "MV", "DV", "IV", "MV")[5]), 
+                                              1, 2),
+                                       substr(variables %>% 
+                                                slice(topic_manually_set) %>% 
+                                                pull(c("DV", "DV", "MV", "MV", "IV")[5]), 
+                                              1, 2)))) +
+  ggtitle(paste("Lösung", title_of_wrong_graphical_solutions[5])) +
+    theme(plot.margin = margin(0.5, 0.5, 0.5, 0.5, "cm"))
+) 
+
+final_plot <- 
+  graphical_solution_A + graphical_solution_B + graphical_solution_C +
+  graphical_solution_D + graphical_solution_E + graphical_solution_F +
+  plot_layout(ncol = 3)
+```
+
+
+```{r data generation 3, echo = FALSE, results = "hide"}
+## generating verbal solution
+
+list_of_answers <- 
+  if(solution_mode_manually_set == "graphically"){
+    c(title_of_right_graphical_solution, title_of_wrong_graphical_solutions)} else{    
+      c(paste("Abhängige Variable = ", 
+              variables %>% slice(topic_manually_set) %>% pull(DV),
+              "/ Unabhängige Variable = ",
+              variables %>% slice(topic_manually_set) %>% pull(IV),
+              "/ Moderatorvariable = ",
+              variables %>% slice(topic_manually_set) %>% pull(MV)),
+        paste("Abhängige Variable = ", 
+              variables %>% slice(topic_manually_set) %>% pull(DV),
+              "/ Unabhängige Variable = ",
+              variables %>% slice(topic_manually_set) %>% pull(MV),
+              "/ Moderatorvariable = ",
+              variables %>% slice(topic_manually_set) %>% pull(IV)),
+        paste("Abhängige Variable = ", 
+              variables %>% slice(topic_manually_set) %>% pull(IV),
+              "/ Unabhängige Variable = ",
+              variables %>% slice(topic_manually_set) %>% pull(DV),
+              "/ Moderatorvariable = ",
+              variables %>% slice(topic_manually_set) %>% pull(MV)),
+        paste("Abhängige Variable = ", 
+              variables %>% slice(topic_manually_set) %>% pull(IV),
+              "/ Unabhängige Variable = ",
+              variables %>% slice(topic_manually_set) %>% pull(MV),
+              "/ Moderatorvariable = ",
+              variables %>% slice(topic_manually_set) %>% pull(DV)),
+        paste("Abhängige Variable = ", 
+              variables %>% slice(topic_manually_set) %>% pull(MV),
+              "/ Unabhängige Variable = ",
+              variables %>% slice(topic_manually_set) %>% pull(IV),
+              "/ Moderatorvariable = ",
+              variables %>% slice(topic_manually_set) %>% pull(DV)),
+        paste("Abhängige Variable = ", 
+              variables %>% slice(topic_manually_set) %>% pull(MV),
+              "/ Unabhängige Variable = ",
+              variables %>% slice(topic_manually_set) %>% pull(DV),
+              "/ Moderatorvariable = ",
+              variables %>% slice(topic_manually_set) %>% pull(IV)))}
+```
+
+
+Question
+========
+`r paste(question_string_part1, question_string_part2)`
+
+
+
+```{r, echo = F, fig.width=10, fig.height=7.5, out.width="95%", fig.retina = 2}
+if(solution_mode_manually_set == "graphically"){
+  final_plot
+}
+```
+
+```{r questionprompt, results='asis', echo=FALSE}
+if(solution_mode_manually_set == "graphically"){
+  cat(" > Welche der folgenden graphischen Repräsentationen entspricht dem vermuteten Kausalzusammenhang?")
+} else{
+  cat(" > Welche der folgenden Zuordnungen entspricht dem vermuteten Kausalzusammenhang?")
+}
+```
+
+
+```{r questionlist, echo = FALSE, results = "asis"}
+if(solution_mode_manually_set == "graphically"){
+  answerlist(paste("Lösung", LETTERS[1:6]), markup = "markdown")
+} else{
+  answerlist(list_of_answers, markup = "markdown")
+}
+```
+
+Solution
+========
+
+```{r exsolutiongeneration, echo = F, results='hide'}
+if(solution_mode_manually_set == "graphically"){
+ex_solution <- case_when(title_of_right_graphical_solution == "A" ~ c(T,F,F,F,F,F),
+                         title_of_right_graphical_solution == "B" ~ c(F,T,F,F,F,F),
+                         title_of_right_graphical_solution == "C" ~ c(F,F,T,F,F,F),
+                         title_of_right_graphical_solution == "D" ~ c(F,F,F,T,F,F),
+                         title_of_right_graphical_solution == "E" ~ c(F,F,F,F,T,F),
+                         title_of_right_graphical_solution == "F" ~ c(F,F,F,F,F,T))
+} else{
+ex_solution <- c(T,F,F,F,F,F) #DUUUUMY
+}
+```
+
+
+Meta-information
+================
+exname: AV UV & MoV identifizieren
+extype: schoice
+exsolution: `r mchoice2string(ex_solution)`
+exshuffle: true

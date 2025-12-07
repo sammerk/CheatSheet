@@ -1,0 +1,40 @@
+
+## Skalenniveaus
+Statistische Berechnungen haben unterschiedliche Voraussetzungen an die Interpretierbarkeit von numerisch enkodierten Variablen. So hat sich die Unterscheidung der folgenden `Skalenniveaus` [@doering2016]etabliert:
+
+* **Nominal skalierte Variablen**: Dieses Variablenniveau liegt vor, wenn allein Gleichheit und Ungleichheit von Datenpunkiten unterschieden werden kann (z.B. Spezies, Sex, Nationalität).
+* **Ordinal skalierte Variablen**: Dieses Variablenniveau liegt vor, wenn neben der Gleichheit zudem eine Ordnung in Datenpunkten generiert werden kann (z.B. Entwicklungsstadien, Schulabschlüsse).
+* **Intervallskalierte Variablen**: Dieses Variablenniveau liegt vor, wenn neben der Gleichheit und der Ordnung von Datenpunkten zudem deren Abstand sinnvoll interpretiert werden kann (z.B. Temperatur, Gewicht).
+
+### Aufgabe: Skalenniveau erkennen
+```{r}
+#| echo: false
+#| results: 'asis'
+#| warning: false
+#| label: skalenniveau-erkennen
+library(exams)
+library(exams2forms)
+download.file("https://raw.githubusercontent.com/sammerk/aufgaben/refs/heads/master/messtheorie/skalenniveau-erkennen/exams/skalenniveau-erkennen.Rmd", "../exams/tempfile.Rmd")
+exams2forms("../exams/tempfile.Rmd", n = 20)
+```
+
+## Kausalrelationierung
+Je nachdem ob eine Variable als Ursache, Wirkung oder beides in einem kausalen System angenommen wird erhalten sie in der Statistik unterschiedliche Bezeichnungen [@doering2016]:
+
+* **Unabhängige Variable** (UV, *independet variable*): Variable, die als Ursache in einem kausalen System angenommen wird.
+* **Abhängige Variable** (AV, *dependet variable*): Variable, die als Wirkung in einem kausalen System angenommen wird.
+* **Mediatorvariable** (MeV, *mediator*): Variable, die sowohl UV als auch AV darstellt.
+* **Moderatorvariable** (MoV, *moderator*): Variable, die einen Einfluss beeinflusst.
+* **Störvariable** (UV, *confounder*): Variable, die sowohl UV als auch AV beeinflusst und somit eine Scheinkorrelation erzeugen kann.
+
+### Aufgabe: Kausalrelationierung erkennen
+```{r}
+#| echo: false
+#| results: 'asis'
+#| warning: false
+#| label: av-uv-mov-identifizieren-text
+library(exams)
+library(exams2forms)
+download.file("https://raw.githubusercontent.com/sammerk/aufgaben/refs/heads/master/messtheorie/av-uv-mov-identifizieren-text/exams/av-uv-mov-identifizieren-text.Rmd", "../exams/tempfile.Rmd")
+exams2forms("../exams/tempfile.Rmd", n = 20)
+```
