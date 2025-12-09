@@ -4,64 +4,8 @@ subtitle: "Ein kleines interaktive E-Book"
 date: last-modified
 lang: de
 bibliography: skeleton.bib
-format:
-  live-html
+format: html
 ---
 
 # Hallo 👋🏼
 In diesem interaktiven E-Book finden Sie die Materialen für die Vorlesung »Biu Statistik« im Wintersemester 2025-2026.
-
-{{< include _extensions/r-wasm/live/_knitr.qmd >}}
-
-Filter the `starwars` dataset so that only the droid characters are included.
-
-```{webr}
-#| setup: true
-#| exercise: ex_3
-library(dplyr)
-```
-
-```{webr}
-#| exercise: ex_3
-starwars |> ______
-```
-
-::: { .hint exercise="ex_3"}
-::: { .callout-note collapse="false"}
-## Hint 1
-
-Consider using the `filter()` function from `dplyr`.
-
-```r
-starwars |> filter(______)
-```
-:::
-:::
-
-::: { .hint exercise="ex_3"}
-::: { .callout-note collapse="false"}
-## Hint 2
-
-You should filter the dataset using the `species` column.
-
-```r
-starwars |> filter(species == ______)
-```
-:::
-:::
-
-::: { .solution exercise="ex_3" }
-::: { .callout-tip collapse="false"}
-## Fully worked solution:
-
-Use the `filter()` function from `dplyr`:
-
-```r
-starwars |>                                 #<1>
-    filter(species == "Droid")              #<2>
-```
-1. Take the `starwars` dataset, and then,
-2. Filter for the "Droid" species.
-
-:::
-:::

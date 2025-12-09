@@ -48,7 +48,7 @@
     "href": "index.html",
     "title": "BiU Statistik im WiSe 2025/26",
     "section": "",
-    "text": "Hallo 👋🏼\nIn diesem interaktiven E-Book finden Sie die Materialen für die Vorlesung »Biu Statistik« im Wintersemester 2025-2026.\nFilter the starwars dataset so that only the droid characters are included.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHinweisHint 1\n\n\n\n\n\nConsider using the filter() function from dplyr.\nstarwars |&gt; filter(______)\n\n\n\n\n\n\n\n\n\n\n\nHinweisHint 2\n\n\n\n\n\nYou should filter the dataset using the species column.\nstarwars |&gt; filter(species == ______)\n\n\n\n\n\n\n\n\n\n\n\nTippFully worked solution:\n\n\n\n\n\nUse the filter() function from dplyr:\n1starwars |&gt;\n2    filter(species == \"Droid\")\n\n1\n\nTake the starwars dataset, and then,\n\n2\n\nFilter for the “Droid” species.",
+    "text": "Hallo 👋🏼\nIn diesem interaktiven E-Book finden Sie die Materialen für die Vorlesung »Biu Statistik« im Wintersemester 2025-2026.",
     "crumbs": [
       "BiU Statistik im WiSe 2025/26"
     ]
