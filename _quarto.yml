@@ -18,7 +18,7 @@ website:
     contents:
       - index.qmd
       - Methodologie.qmd
-      - Chapters/Messtheorie.qmd
+      - Messtheorie.qmd
       - Univariate Deskriptivstatistik.qmd
       - Einfache lineare Regression.qmd
       - Multiple lineare Regression.qmd
