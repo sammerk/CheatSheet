@@ -1,6 +1,6 @@
 
 project:
-  type: book
+  type: website
   output-dir: docs
   resources: 
     - "/*.zip"
@@ -9,20 +9,19 @@ execute:
   freeze: auto
   cache: true
 
-book:
+website:
   title: BiU Statistikvorlesung WiSe 2025-2026
-  navbar:
+  navbar: 
     pinned: true
-    breadcrumbs: false
   sidebar:
-    logo: img/logosquare.svg
-  chapters:
-    - index.qmd
-    - Chapters/Methodologie.qmd
-    - Chapters/Messtheorie.qmd
-    - Chapters/Univariate Deskriptivstatistik.qmd
-    - Chapters/Einfache lineare Regression.qmd
-    - Chapters/Multiple lineare Regression.qmd
+    #  logo: img/logosquare.svg
+    contents:
+      - index.qmd
+      - Methodologie.qmd
+      - Chapters/Messtheorie.qmd
+      - Univariate Deskriptivstatistik.qmd
+      - Einfache lineare Regression.qmd
+      - Multiple lineare Regression.qmd
 
 
 format:

@@ -1,0 +1,307 @@
+---
+title: "Univariate Deskriptivstatistik"
+format:
+  live-html:
+    css: 
+      - brand.css     
+      - exams/webex.css
+    include-after-body: exams/webex.js
+engine: knitr
+---
+
+{{< include _extensions/r-wasm/live/_knitr.qmd >}}
+
+## Datensätze
+In diesem Kapitel werden zwei Datensätze verwendet. Zum einen der Datensatz `{palmerpenguins}` un dzum anderen resimulierte Daten aus dem Environment Modul des International Social Survey Programme.
+
+
+### Palmer Penguins Datensatz
+Der Palmer Penguins Datensatz  [@gorman2014, @horst2020] ist ein beliebtes Datenbeispiel in der `r fontawesome::fa(name = "r-project", fill = "#267326")`-Community und wird oft als Alternative zum berühmten Iris-Datensatz verwendet. Der Datensatz enthält Informationen zu verschiedenen Pinguinarten in der Antarktis und wurde von Allison Horst und Alison Hill berühmt gemacht und illustriert. Der Datensatz ist besonders nützlich, um statistische Methoden zu demonstrieren und Datenvisualisierungen zu erstellen.
+
+Der Palmer Penguins Datensatz umfasst folgende Variablen:
+
+| **Variable**           | **Beschreibung**                                                                                      |
+|------------------------|-------------------------------------------------------------------------------------------------------|
+| **species**            | Die Art des Pinguins (z. B. Adelie , Chinstrap, Gentoo).                                                |
+| **island**             | Die Insel, auf der der Pinguin gefunden wurde (z. B. Torgersen, Biscoe, Dream).                       |
+| **bill_length_mm**     | Die Länge des Schnabels des Pinguins in Millimetern.                                                   |
+| **bill_depth_mm**      | Die Tiefe des Schnabels des Pinguins in Millimetern.                                                   |
+| **flipper_length_mm**  | Die Länge der Flossen des Pinguins in Millimetern.                                                    |
+| **body_mass_g**        | Die Körpermasse des Pinguins in Gramm.                                                                 |
+| **sex**                | Das Geschlecht des Pinguins (männlich oder weiblich).   |
+
+
+:::: {.columns}
+
+::: {.column width='53%'}
+![Artwork CC-0 by \@allison_horst](https://allisonhorst.github.io/palmerpenguins/reference/figures/lter_penguins.png)
+:::
+
+::: {.column width='47%'}
+![](https://allisonhorst.github.io/palmerpenguins/reference/figures/culmen_depth.png){.lightbox}
+:::
+
+::::
+
+### ISSP Environment Modul
+Die [@isspresearchgroup2024] hat den Environment Modul 1993, 2000, 2010, 2020 jeweils mit repräsentativen Stichproben in mehreren Ländern durchgeführt - es handelt sich also um eine Trendstudie [@doering2016]. Der Datensatz enthält Informationen zu Einstellungen und Verhaltensweisen im Zusammenhang mit Umweltfragen.
+
+::: {.callout-note collapse="true"}
+
+## Einige der Variablen im ISSP Datensatz
+
+| Variable name | Variable label |
+| :--- | :--- |
+| v1 | abcd: Solve economic problems: private enterprise |
+| v2 | abcd: Responsibility of government: reduce income differences |
+| v3 | cd: Most important issue for [R's COUNTRY] today? |
+| v4 | cd: Next most important issue for [R's COUNTRY] today? |
+| v5 | cd: Most important environmental problem for [R's COUNTRY] as a whole? |
+| v6 | abcd: Highest priority in [R's COUNTRY]? |
+| v7 | abcd: Next highest priority in [R's COUNTRY]? |
+| v8 | cd: Amount of trust in most people |
+| v9 | abc: Believe too often in science |
+| v10 | abc: Science: more harm than good |
+| v11 | abcd: Science: solve enviromental problems |
+| v12 | abcd: Worry too much about environment and not enough about prices and jobs |
+| v13 | abcd: Modern life harms environment |
+| v14 | abcd: Worry too much about progress harming environment |
+| v15 | abcd: [R's COUNTRY] needs economic growth to protect environment |
+| v16 | ab: Animals: medical testing if save lifes |
+| v17 | abcd: Economic growth harms environment |
+| v18 | bc: Earth cannot continue to support population growth at its present rate |
+| v19 | ab: Nature is sacred because... |
+| v20 | abcd: Protect environment: pay much higher prices |
+| v21 | abcd: Protect environment: pay much higher taxes |
+| v22 | abcd: Protect environment: cut your standard of living |
+| v23 | abcd: Too difficult to do much about environment |
+| v24 | abcd: I do what is right, even when it costs more money and time |
+| v25 | bcd: There are more important things than protect environment |
+| v26 | bcd: No point unless others do the same |
+| v27 | bcd: Many claims about environment exaggerated |
+| v28 | cd: Hard to know whether the way I live is helpful or harmful to the environment |
+| v29 | ab: Antibiotics kill bacteria not viruses |
+| v30 | ab : Humans beeing developed from animals |
+| v31 | ab: Man-made chemicals can cause cancer |
+| v32 | ab: Exposed radioactivity results to die |
+| v33 | abc: Climate change is caused by a hole in atmosphere |
+| v34 | abc: Climate change by use of coal or oil or gas |
+| v35 | cd: Environmental problems have direct effect on everyday life |
+| v36 | abcd: Air pollution caused by cars is (dangerous/ not dangerous) for environment |
+| v37 | ab : Air pollution caused by cars is (dangerous/ not dangerous) for you and your family |
+| v38 | abcd: Nuclear power stations are (dangerous/ not dangerous) for environment |
+| v39 | abcd: Air pollution caused by industry is (dangerous/ not dangerous) for environment |
+| v40 | abcd: Pesticides used in farming are (dangerous/ not dangerous) for environment |
+| v41 | abcd: Pollution of rivers is (dangerous/ not dangerous) for environment |
+| v42 | abcd: A rise in world's temperature is (dangerous/ not dangerous) for environment |
+| v43 | bcd: Modifying genes of certain crops is (dangerous/ not dangerous) for environment |
+| v44 | abc: Government or ordinary people: decide themselves how to protect environment |
+| v45 | abc: Government or business: decide themselves how to protect environment |
+| v46 | bc: To protect environment - this country is doing |
+| v47 | bc: International agreements for environmental problems should be made |
+| v48 | bc: Poorer countries should be expected to make less effort |
+| v49 | bc: Economic progress in [COUNTRY] will slow down |
+| v50 | cd: Best way: getting business and industry to protect environment |
+| v51 | cd: Best way: getting people and their families to protect environment |
+| v52 | cd: Avoid buying certain products for environmental reasons |
+| v53 | abcd: How often effort to sort glass and so on for recycling? |
+| v54 | ac: Effort to buy fruit and vegetables without pesticides or chemicals |
+| v55 | abc: Cut back on driving a car for environmental reasons |
+| v56 | abcd: Member of a group to preserve environment? |
+| v57 | abcd: Last five years: signed a petition? |
+| v58 | abcd: Last five years: given money to an environmental group? |
+| v59 | abcd: Last five years: taken part in protest demonstration? |
+| v60 | ab: Expressing what you believe about God |
+
+: Variablenkurzbeschreibung des ISSP Environment Moduks {tbl-colwidths="[10,90]"}
+
+
+Eine detailierte Beschreibung kann dem [Codebook](img/CodebookISSP.pdf) des Datensatzes entnommen werden.
+::: 
+
+## Maße der zentralen Tendenz
+Maße der zentralen Tendenz geben Auskunft über den typischen Wert einer Verteilung. Die drei wichtigsten Maße sind:  
+
+Das **arithmetische Mittel** ist ein Maß der zentralen Tendenz von intervallskalierten Variablen. Wenn $X = \{x_1, x_2, ..., x_n\}$ eine empirische Variable (= Datenreihe darstellt) ist das arithmetische Mittel $\bar x$ als »Durchschnitt« definiert: 
+$$
+\bar{x}=\frac{1}{n} \sum_{i=1}^{n} x_{i}
+$$
+
+In R kann das arithmetische Mittel mit der Funktion `mean()` berechnet werden. Berechnen Sie im folgenden Codefenster das arithmetische Mittel der Zahlen 1 bis 5.
+
+### Zentrale Tendenzen in {{< iconify fa-brands:r-project >}} 
+
+#### Arithmetisches Mittel der Zahlen 1 bis 5 berechnen
+```{webr}
+#| setup: true
+#| exercise: compute_mean
+library(dplyr)
+```
+
+```{webr}
+#| exercise: compute_mean
+____(____)
+```
+
+::: { .hint exercise="compute_mean"}
+Einen Vector mit den Zahlen 1 bis 5 können Sie in R mit der Funktion `c(1, 2, 3, 4, 5)` erstellen. Die Funktion `mean()` berechnet das arithmetische Mittel eines Vectors.
+:::
+
+::: { .solution exercise="compute_mean"}
+`mean(c(1, 2, 3, 4, 5))` oder `mean(1:5)`
+:::
+
+#### Arithmerisches Mittel der Körpermasse der Pinguine berechnen
+Im folgenden Code-Fenster ist bereits der Datensatz `penguins` geladen. Er enthält die Variable `bill_depth_mm`. Berechnen Sie im folgenden Code-Fenster deren arithmetisches Mittel.
+```{webr}
+#| setup: true
+#| exercise: bill_depth_mm_mean
+library(palmerpenguins)
+```
+
+```{webr}
+#| exercise: bill_depth_mm_mean
+#| min-lines: 2
+
+
+```
+
+::: { .hint exercise="bill_depth_mm_mean"}
+Achtung, die Datenreihe enthält fehlende Werte (`NA`). Diese können mit dem Argument `na.rm = TRUE` in der Funktion `mean()` ignoriert werden.
+:::
+
+::: { .solution exercise="bill_depth_mm_mean" }
+`mean(penguins$bill_depth_mm, na.rm = TRUE)`
+:::
+
+#### Arithmerisches Mittel per `species`
+Berechnen Sie im folgenden Code-Fenster das arithmetische Mittel der `bill_depth_mm` und der Körpermasse (`body_mass_g`) der Pinguine, getrennt nach `species`. Nutzen Sie dazu den Split-Apply-Combine Ansatz mit `dplyr` indem Sie `group_by()` vor `mutate()` nutzen.
+
+```{webr}
+#| setup: true
+#| exercise: penguin_mass_mean_per_species
+library(palmerpenguins)
+```
+
+```{webr}
+#| exercise: penguin_mass_mean_per_species
+#| min-lines: 6
+
+
+```
+
+::: { .hint exercise="penguin_mass_mean_per_species"}
+Achtung, die Datenreihe enthält fehlende Werte (`NA`). Diese können mit dem Argument `na.rm = TRUE` in der Funktion `mean()` ignoriert werden.
+:::
+
+::: { .solution exercise="penguin_mass_mean_per_species" }
+penguins %>%
+  group_by(species) %>%
+  summarize(
+    bill_length_mean = mean(bill_length_mm, na.rm = T),   
+    body_mass_g_mean = mean(body_mass_g, na.rm = T))         
+:::
+
+
+Der **Median** ist ein Maß der zentrale Tendenz von nominalen, ordinalen und intervallskalierten Variablen. Man erhält ihn, indem man alle Datenpunkte der Größe nach ordnet und dann den Wert in der Mitte nimmt. Ist die Anzahl der Datenpunkte eine gerade Zahl, entspricht der Median dem arithm. Mittel der beiden mittleren Werte.
+$$\widetilde{x}=
+   \begin{cases}
+   x_{m+1} &   \text{für ungerades }n = 2m + 1 \\ 
+   \frac{1}{2}(x_m + x_{m+1}) & \text{für gerades }n = 2m \\
+   \end{cases}
+$$  
+
+Der **Modus** ist ein Maß der zentrale Tendenz von nominalen, ordinalen und intervallskalierten Variablen. Er entspricht dem am häufigsten vorkommenden Wert in einer Verteilung.
+
+
+
+### Übungen
+#### Aufgabe Median berechnen I
+
+```{r}
+#| echo: false
+#| results: 'asis'
+#| warning: false
+#| label: median-berechnen-ungeradeAnzahl
+library(exams)
+library(exams2forms)
+download.file("https://raw.githubusercontent.com/sammerk/aufgaben/refs/heads/master/verteilungen/Median_berechnen_ungerade_Anzahl/exams/Median_berechnen_ungeradeAnzahl.Rmd", "exams/tempfile.Rmd")
+exams2forms("exams/tempfile.Rmd", n = 20)
+```
+
+#### Aufgabe Median berechnen II
+
+```{r}
+#| echo: false
+#| results: 'asis'
+#| warning: false
+#| label: median-berechnen-geradeAnzahl
+library(exams)
+library(exams2forms)
+download.file("https://raw.githubusercontent.com/sammerk/aufgaben/refs/heads/master/verteilungen/Median_berechnen_geradeAnzahl_mitParameter/exams/Median_berechnen_geradeAnzahl.Rmd", "exams/tempfile.Rmd")
+exams2forms("exams/tempfile.Rmd", n = 20)
+```
+
+Median_berechnen_ungerade_Anzahl
+
+## Maße der Dispersion (Streuung)
+### Mean Average Deviation
+Die Mean Average Deviation (MAD) ist ein Streuungsmaß, das die durchschnittliche absolute Abweichung der Datenpunkte vom arithmetischen Mittel angibt. Für eine empirische Variable $X = \{x_1, x_2, ..., x_n\}$ wird die MAD wie folgt berechnet:
+$$\text{MeanAD} = \frac{1}{n} \sum_{i=1}^{n} |x_i - \bar{x}|$$
+Die MeanAD kann in R mit der Funktion `MeanAD()` aus dem Paket `DescTools` berechnet werden.
+
+::: {.callout-note}
+## Beispiel MeanAD
+Eine Gruppe Forschender erfasst die Zustimmung zur Aussage *»Modern science will solve our environmental problems with little change to our way of life.«* auf einer Skala von `1 = Agree strongly` bis `20 = Disagree strongly` und erhält die Datenreihe $x = 13, 4, 14, 4, 10$. Das arithmetische Mittel dieser Datenreihe ist $\bar{x}= 9$. Die MeanAD wird wie folgt berechnet:
+
+$$\text{MeanAD} = \frac{1}{5} (|13-9| + |4-9| + |14-9| + |4-9| + |10-9|) = $$
+$$= \frac{1}{5} (4 + 5 + 5 + 5 + 1) = \frac{20}{5} = 4$$
+
+:::
+
+![](img/MAD.svg)
+
+### Varianz und Standardabweichung
+Die Varianz ist ein Streuungsmaß, das die durchschnittliche quadrierte Abweichung der Datenpunkte vom arithmetischen Mittel angibt. Für eine empirische Variable $X = \{x_1, x_2, ..., x_n\}$ wird die Varianz wie folgt berechnet:
+$$s^2 = \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2$$
+Die Standardabweichung ist die Quadratwurzel der Varianz und wird wie folgt berechnet:
+$$s = \sqrt{s^2}$$
+Die Varianz und Standardabweichung können in R mit den Funktionen `var()` und `sd()` berechnet werden.
+
+::: {.callout-note}
+## Beispiel Varianz und Standardabweichung
+Eine Gruppe Forschender erfasst die Zustimmung zur Aussage *»Modern science will solve our environmental problems with little change to our way of life.«* auf einer Skala von `1 = Agree strongly` bis `20 = Disagree strongly` und erhält die Datenreihe $x = 13, 4, 14, 4, 10$. Das arithmetische Mittel dieser Datenreihe ist $\bar{x}= 9$. Die Varianz wird wie folgt berechnet:
+$$s^2 = \frac{1}{5-1} ((13-9)^2 + (4-9)^2 + (14-9)^2 + (4-9)^2 + (10-9)^2) = $$
+$$= \frac{1}{4} (16 + 25 + 25 + 25 + 1) = \frac{92}{4} = 23$$
+Die Standardabweichung ist dann:
+$$s = \sqrt{23} \approx 4.8$$
+:::
+
+### Range, Quartile und Interquartilsbereich
+Der Range, die Quartile $Q_1$, $Q_2$, $Q_3$, sowie der Interquartilsbereich $IQR$ wie folgt definiert: 
+
+$$Range = [min(x_i);\;max(x_i)]$$
+
+$$\text{Quartil 1} = \text{Median aller } x_i ≤ \widetilde{x} \text{; } \text{Quartil 2} = \widetilde{x} \text{; } \text{Quartil 3} = \text{Median aller } x_i ≥ \widetilde{x} \text{; }$$
+
+$$IQR = \left[\text{Quartil 1}; \text{Quartil 3} \right] $$
+
+## Modalität{.smaller .center}
+Mit **Modalität** wird die »Vielgipflichkeit« einer Verteilung bezeichnet. Die Modi entsprechen oftmals in den Daten enthaltenen Subgruppen [@eid2013].
+
+## Schiefe
+Die Verteilung einer (unimodalen) intervallskalierten Variable ist schief, wenn die Streuungen der oberen/unteren Hälfte unterschiedlich sind [@vonhippel2005].
+
+## Kurtosis
+Die Kurtosis beschreibt die »Schmal- oder Breitgipfligkeit« einer (unimodalen) Verteilung.
+
+## Grafische Darstellung univariater Verteilungen
+![](img/Plottypes_embedded.svg){.lightbox}
+
+### Aufgaben
+#### Aufgabe Mean aus Grafik schätzen
+<iframe width="100%" height="1000" src="aufg/Mean_guessing_SC.html" title="Aufgabe"></iframe>
+
+#### Aufgabe Mean Average Deviation aus Grafik schätzen
+<iframe width="100%" height="1000" src="aufg/MAD_guessing_SC.html" title="Aufgabe"></iframe>
+

@@ -1,8 +1,8 @@
 {
-  "hash": "67c65963212b163b04a92db836478ff7",
+  "hash": "0a35fd98a8f1193156032eba14995047",
   "result": {
     "engine": "knitr",
-    "markdown": "---\ntitle: \"BiU Statistik im WiSe 2025/26\"\nsubtitle: \"Ein kleines interaktive E-Book\"\ndate: last-modified\nengine: knitr\n\n\nlang: de\nreference-location: margin\n#citation-location: margin\nbibliography: skeleton.bib\n---\n\n# Hallo 👋🏼\nIn diesem interaktiven E-Book finden Sie die Materialen für die Vorlesung »Biu Statistik« im Wintersemester 2025-2026.\n",
+    "markdown": "---\ntitle: \"BiU Statistik im WiSe 2025/26\"\nsubtitle: \"Ein kleines interaktive E-Book\"\ndate: last-modified\nlang: de\nbibliography: skeleton.bib\nformat:\n  live-html\n---\n\n# Hallo 👋🏼\nIn diesem interaktiven E-Book finden Sie die Materialen für die Vorlesung »Biu Statistik« im Wintersemester 2025-2026.\n\n\n::: {.cell}\n\n:::\n\n\n\nFilter the `starwars` dataset so that only the droid characters are included.\n\n\n::: {.cell setup='true' exercise='ex_3'}\n```{webr}\n#| setup: true\n#| exercise: ex_3\nlibrary(dplyr)\n```\n:::\n\n\n\n::: {.cell exercise='ex_3'}\n```{webr}\n#| exercise: ex_3\nstarwars |> ______\n```\n:::\n\n\n::: { .hint exercise=\"ex_3\"}\n::: { .callout-note collapse=\"false\"}\n## Hint 1\n\nConsider using the `filter()` function from `dplyr`.\n\n```r\nstarwars |> filter(______)\n```\n:::\n:::\n\n::: { .hint exercise=\"ex_3\"}\n::: { .callout-note collapse=\"false\"}\n## Hint 2\n\nYou should filter the dataset using the `species` column.\n\n```r\nstarwars |> filter(species == ______)\n```\n:::\n:::\n\n::: { .solution exercise=\"ex_3\" }\n::: { .callout-tip collapse=\"false\"}\n## Fully worked solution:\n\nUse the `filter()` function from `dplyr`:\n\n```r\nstarwars |>                                 #<1>\n    filter(species == \"Droid\")              #<2>\n```\n1. Take the `starwars` dataset, and then,\n2. Filter for the \"Droid\" species.\n\n:::\n:::",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"

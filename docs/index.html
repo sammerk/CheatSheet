@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>BiU Statistikvorlesung WiSe 2025-2026</title>
+<title>BiU Statistik im WiSe 2025/26 – BiU Statistikvorlesung WiSe 2025-2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -29,7 +64,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Chapters/Methodologie.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -42,9 +76,11 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-a527cc2a42b9319235ae8b81ad279116.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-fdbbf6ab286253358b601483512a1976.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-fdbbf6ab286253358b601483512a1976.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-fdbbf6ab286253358b601483512a1976.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-2c7ee39116c572cc4e7a1cf3bf4739d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-2c7ee39116c572cc4e7a1cf3bf4739d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-2c7ee39116c572cc4e7a1cf3bf4739d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,13 +108,13 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Suchen"
   }
 }</script>
+<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
 
-<link rel="stylesheet" href="brand.css">
-<link rel="stylesheet" href="exams/webex.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed quarto-light">
+<body class="nav-sidebar floating nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -103,7 +139,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">BiU Statistik im WiSe 2025/26</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">BiU Statistik im WiSe 2025/26</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -113,10 +149,10 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
       <a href="./index.html" class="sidebar-logo-link">
-      <img src="./img/logosquare.svg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="./img/logosquare.svg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <img src="./img/logo_square.svg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="./img/logo_square.svg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
       </div>
     <div class="sidebar-menu-container"> 
@@ -124,37 +160,34 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">BiU Statistik im WiSe 2025/26</span></span></a>
+ <span class="menu-text">BiU Statistik im WiSe 2025/26</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Chapters/Methodologie.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Methodology: The Science before Statistics</span></span></a>
+  <a href="./Methodologie.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Methodologie</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+ <span class="menu-text">Chapters/Messtheorie.qmd</span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Univariate Deskriptivstatistik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Univariate Deskriptivstatistik</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Chapters/Messtheorie.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Skalenniveaus</span></span></a>
+  <a href="./Einfache lineare Regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Geometrische Repräsentation</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Chapters/Univariate Deskriptivstatistik.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Univariate Deskriptivstatistik</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Chapters/Einfache lineare Regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Geometrische Repräsentation</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Chapters/Multiple lineare Regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Methodologie</span></span></a>
+  <a href="./Multiple lineare Regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Methodologie</span></a>
   </div>
 </li>
     </ul>
@@ -162,21 +195,13 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Inhaltsverzeichnis</h2>
-   
-  <ul>
-  <li><a href="#hallo" id="toc-hallo" class="nav-link active" data-scroll-target="#hallo"><span class="header-section-number">1</span> Hallo 👋🏼</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">BiU Statistikvorlesung WiSe 2025-2026</h1>
+<h1 class="title">BiU Statistik im WiSe 2025/26</h1>
 <p class="subtitle lead">Ein kleines interaktive E-Book</p>
 </div>
 
@@ -188,7 +213,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">7. Dezember 2025</p>
+      <p class="date">9. Dezember 2025</p>
     </div>
   </div>
   
@@ -200,598 +225,125 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="hallo" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Hallo 👋🏼</h1>
+<section id="hallo" class="level1">
+<h1>Hallo 👋🏼</h1>
 <p>In diesem interaktiven E-Book finden Sie die Materialen für die Vorlesung »Biu Statistik« im Wintersemester 2025-2026.</p>
+<p>Filter the <code>starwars</code> dataset so that only the droid characters are included.</p>
+<div class="cell" data-setup="true" data-exercise="ex_3">
+<script type="exercise-setup-ex_3-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoiZXhfMyIsInNldHVwIjp0cnVlfSwiY29kZSI6ImxpYnJhcnkoZHBseXIpIn0=
+</script>
+</div>
+<div class="cell" data-exercise="ex_3">
+<div>
+<div id="webr-2" class="exercise-cell">
+
+</div>
+<script type="webr-2-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoiZXhfMyJ9LCJjb2RlIjoic3RhcndhcnMgfD4gX19fX19fIn0=
+</script>
+</div>
+</div>
+<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="ex_3">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Hint 1
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Consider using the <code>filter()</code> function from <code>dplyr</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">filter</span>(______)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="ex_3">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Hint 2
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>You should filter the dataset using the <code>species</code> column.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">filter</span>(species <span class="sc">==</span> ______)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<div class="webr-ojs-exercise exercise-solution d-none" data-exercise="ex_3">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Fully worked solution:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Use the <code>filter()</code> function from <code>dplyr</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-3"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-3-1" class="code-annotation-target"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">|&gt;</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-3-2" class="code-annotation-target"><a href="#annotated-cell-3-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Droid"</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="1" data-code-annotation="1">Take the <code>starwars</code> dataset, and then,</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="2" data-code-annotation="2">Filter for the “Droid” species.</span>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
 
 
+<script type="webr-data">
+eyJvcHRpb25zIjp7ImJhc2VVcmwiOiJodHRwczovL3dlYnIuci13YXNtLm9yZy92MC41LjQvIn0sInBhY2thZ2VzIjp7InBrZ3MiOlsiZXZhbHVhdGUiLCJrbml0ciIsImh0bWx0b29scyJdLCJyZXBvcyI6W119LCJyZW5kZXJfZGYiOiJkZWZhdWx0In0=
+</script>
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0yIiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8yO1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIn0seyJjZWxsTmFtZSI6IndlYnItMiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzIgPSB7XG4gIGNvbnN0IHsgV2ViUkV4ZXJjaXNlRWRpdG9yLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici0yLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgLy8gRGVmYXVsdCBleGVyY2lzZSBjb25maWd1cmF0aW9uXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKFxuICAgIHtcbiAgICAgIGlkOiBcIndlYnItMi1jb250ZW50c1wiLFxuICAgICAgZW52aXI6IGBleGVyY2lzZS1lbnYtJHtibG9jay5hdHRyLmV4ZXJjaXNlfWAsXG4gICAgICBlcnJvcjogZmFsc2UsXG4gICAgICBjYXB0aW9uOiAnRXhlcmNpc2UnLFxuICAgIH0sXG4gICAgYmxvY2suYXR0clxuICApO1xuXG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxudmlld29mIF93ZWJyX3ZhbHVlXzIgPSB3ZWJST2pzLnByb2Nlc3MoX3dlYnJfZWRpdG9yXzIsIHt9KTtcbl93ZWJyX2ZlZWRiYWNrXzIgPSB7XG4gIGNvbnN0IHsgV2ViUkdyYWRlciB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3QgZW1wdHlGZWVkYmFjayA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpO1xuXG4gIGNvbnN0IGdyYWRlciA9IG5ldyBXZWJSR3JhZGVyKF93ZWJyX3ZhbHVlXzIuZXZhbHVhdG9yKTtcbiAgY29uc3QgZmVlZGJhY2sgPSBhd2FpdCBncmFkZXIuZ3JhZGVFeGVyY2lzZSgpO1xuICBpZiAoIWZlZWRiYWNrKSByZXR1cm4gZW1wdHlGZWVkYmFjaztcbiAgcmV0dXJuIGZlZWRiYWNrO1xufVxuIn0seyJjZWxsTmFtZSI6IndlYnItcHJlbHVkZSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IndlYlJPanMgPSB7XG4gIGNvbnN0IHsgV2ViUiwgQ2hhbm5lbFR5cGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWUuV2ViUjtcbiAgY29uc3Qge1xuICAgIFdlYlJFdmFsdWF0b3IsXG4gICAgV2ViUkVudmlyb25tZW50TWFuYWdlcixcbiAgICBzZXR1cFIsXG4gICAgYjY0RGVjb2RlLFxuICAgIGNvbGxhcHNlUGF0aFxuICB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcblxuICBjb25zdCBzdGF0dXNDb250YWluZXIgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChcImV4ZXJjaXNlLWxvYWRpbmctc3RhdHVzXCIpO1xuICBjb25zdCBpbmRpY2F0b3JDb250YWluZXIgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChcImV4ZXJjaXNlLWxvYWRpbmctaW5kaWNhdG9yXCIpO1xuICBpbmRpY2F0b3JDb250YWluZXIuY2xhc3NMaXN0LnJlbW92ZShcImQtbm9uZVwiKTtcblxuICBsZXQgc3RhdHVzVGV4dCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoXCJkaXZcIilcbiAgc3RhdHVzVGV4dC5jbGFzc0xpc3QgPSBcImV4ZXJjaXNlLWxvYWRpbmctZGV0YWlsc1wiO1xuICBzdGF0dXNUZXh0ID0gc3RhdHVzQ29udGFpbmVyLmFwcGVuZENoaWxkKHN0YXR1c1RleHQpO1xuICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYEluaXRpYWxpc2VgO1xuXG4gIC8vIEhvaXN0IGluZGljYXRvciBvdXQgZnJvbSBmaW5hbCBzbGlkZSB3aGVuIHJ1bm5pbmcgdW5kZXIgcmV2ZWFsXG4gIGNvbnN0IHJldmVhbFN0YXR1cyA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIucmV2ZWFsIC5leGVyY2lzZS1sb2FkaW5nLWluZGljYXRvclwiKTtcbiAgaWYgKHJldmVhbFN0YXR1cykge1xuICAgIHJldmVhbFN0YXR1cy5yZW1vdmUoKTtcbiAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLnJldmVhbCA+IC5zbGlkZXNcIikuYXBwZW5kQ2hpbGQocmV2ZWFsU3RhdHVzKTtcbiAgfVxuXG4gIC8vIE1ha2UgYW55IHJldmVhbCBzbGlkZXMgd2l0aCBsaXZlIGNlbGxzIHNjcm9sbGFibGVcbiAgZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbChcIi5yZXZlYWwgLmV4ZXJjaXNlLWNlbGxcIikuZm9yRWFjaCgoZWwpID0+IHtcbiAgICBlbC5jbG9zZXN0KCdzZWN0aW9uLnNsaWRlJykuY2xhc3NMaXN0LmFkZChcInNjcm9sbGFibGVcIik7XG4gIH0pXG5cbiAgLy8gd2ViUiBzdXBwbGVtZW50YWwgZGF0YSBhbmQgb3B0aW9uc1xuICBjb25zdCBkYXRhQ29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLWRhdGFcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBkYXRhID0gSlNPTi5wYXJzZShiNjREZWNvZGUoZGF0YUNvbnRlbnQpKTtcblxuICAvLyBHcmFiIGxpc3Qgb2YgcmVzb3VyY2VzIHRvIGJlIGRvd25sb2FkZWRcbiAgY29uc3QgZmlsZXNDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcInZmcy1maWxlXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgZmlsZXMgPSBKU09OLnBhcnNlKGI2NERlY29kZShmaWxlc0NvbnRlbnQpKTtcblxuICAvLyBVc2UgUG9zdE1lc3NhZ2UgY2hhbm5lbCBmb3IgYXN5bmMgY29tbXVuaWNhdGlvblxuICAvLyBXZSBkbyBub3QgZXhwZWN0IHRvIHRha2UgbmVzdGVkIHByb21wdCBpbnB1dCBpbiBRdWFydG8gTGl2ZSBjZWxsc1xuICBkYXRhLm9wdGlvbnMuY2hhbm5lbFR5cGUgPSBDaGFubmVsVHlwZS5Qb3N0TWVzc2FnZTtcblxuICAvLyBJbml0aWFsaXNlIHdlYlIgYW5kIHNldHVwIGZvciBSIGNvZGUgZXZhbHVhdGlvblxuICBsZXQgd2ViUlByb21pc2UgPSAoYXN5bmMgKHdlYlIpID0+IHtcbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYERvd25sb2FkaW5nIHdlYlJgO1xuICAgIGF3YWl0IHdlYlIuaW5pdCgpO1xuXG4gICAgLy8gSW5zdGFsbCBwcm92aWRlZCBsaXN0IG9mIHBhY2thZ2VzXG4gICAgLy8gRW5zdXJlIHdlYlIgZGVmYXVsdCByZXBvIGlzIGluY2x1ZGVkXG4gICAgZGF0YS5wYWNrYWdlcy5yZXBvcy5wdXNoKFwiaHR0cHM6Ly9yZXBvLnItd2FzbS5vcmdcIilcbiAgICBhd2FpdCBkYXRhLnBhY2thZ2VzLnBrZ3MubWFwKChwa2cpID0+ICgpID0+IHtcbiAgICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgcGFja2FnZTogJHtwa2d9YDtcbiAgICAgIHJldHVybiB3ZWJSLmV2YWxSVm9pZChgXG4gICAgICAgIHdlYnI6Omluc3RhbGwocGtnLCByZXBvcyA9IHJlcG9zKVxuICAgICAgICBsaWJyYXJ5KHBrZywgY2hhcmFjdGVyLm9ubHkgPSBUUlVFKVxuICAgICAgYCwgeyBlbnY6IHtcbiAgICAgICAgcGtnOiBwa2csXG4gICAgICAgIHJlcG9zOiBkYXRhLnBhY2thZ2VzLnJlcG9zLFxuICAgICAgfX0pO1xuICAgIH0pLnJlZHVjZSgoY3VyLCBuZXh0KSA9PiBjdXIudGhlbihuZXh0KSwgUHJvbWlzZS5yZXNvbHZlKCkpO1xuXG4gICAgLy8gRG93bmxvYWQgYW5kIGluc3RhbGwgcmVzb3VyY2VzXG4gICAgYXdhaXQgZmlsZXMubWFwKChmaWxlKSA9PiBhc3luYyAoKSA9PiB7XG4gICAgICBjb25zdCBuYW1lID0gZmlsZS5zdWJzdHJpbmcoZmlsZS5sYXN0SW5kZXhPZignLycpICsgMSk7XG4gICAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYERvd25sb2FkaW5nIHJlc291cmNlOiAke25hbWV9YDtcbiAgICAgIGNvbnN0IHJlc3BvbnNlID0gYXdhaXQgZmV0Y2goZmlsZSk7XG4gICAgICBpZiAoIXJlc3BvbnNlLm9rKSB7XG4gICAgICAgIHRocm93IG5ldyBFcnJvcihgQ2FuJ3QgZG93bmxvYWQgXFxgJHtmaWxlfVxcYC4gRXJyb3IgJHtyZXNwb25zZS5zdGF0dXN9OiBcIiR7cmVzcG9uc2Uuc3RhdHVzVGV4dH1cIi5gKTtcbiAgICAgIH1cbiAgICAgIGNvbnN0IGRhdGEgPSBhd2FpdCByZXNwb25zZS5hcnJheUJ1ZmZlcigpO1xuXG4gICAgICAvLyBTdG9yZSBVUkxzIGluIHRoZSBjd2Qgd2l0aG91dCBhbnkgc3ViZGlyZWN0b3J5IHN0cnVjdHVyZVxuICAgICAgaWYgKGZpbGUuaW5jbHVkZXMoXCI6Ly9cIikpIHtcbiAgICAgICAgZmlsZSA9IG5hbWU7XG4gICAgICB9XG5cbiAgICAgIC8vIENvbGxhcHNlIGhpZ2hlciBkaXJlY3Rvcnkgc3RydWN0dXJlXG4gICAgICBmaWxlID0gY29sbGFwc2VQYXRoKGZpbGUpO1xuXG4gICAgICAvLyBDcmVhdGUgZGlyZWN0b3J5IHRyZWUsIGlnbm9yaW5nIFwiZGlyZWN0b3J5IGV4aXN0c1wiIFZGUyBlcnJvcnNcbiAgICAgIGNvbnN0IHBhcnRzID0gZmlsZS5zcGxpdCgnLycpLnNsaWNlKDAsIC0xKTtcbiAgICAgIGxldCBwYXRoID0gJyc7XG4gICAgICB3aGlsZSAocGFydHMubGVuZ3RoID4gMCkge1xuICAgICAgICBwYXRoICs9IHBhcnRzLnNoaWZ0KCkgKyAnLyc7XG4gICAgICAgIGNvbnN0IGFuYWx5c2lzID0gYXdhaXQgd2ViUi5GUy5hbmFseXplUGF0aChwYXRoKTtcbiAgICAgICAgaWYgKCFhbmFseXNpcy5leGlzdHMpIHtcbiAgICAgICAgICB0cnkge1xuICAgICAgICAgICAgYXdhaXQgd2ViUi5GUy5ta2RpcihwYXRoKTtcbiAgICAgICAgICB9IGNhdGNoIChlKSB7XG4gICAgICAgICAgICB0aHJvdyBuZXcgRXJyb3IoYEZpbGVzeXN0ZW0gRXJyb3I6IFwiJHtlLm1lc3NhZ2V9XCIuYCk7XG4gICAgICAgICAgfVxuICAgICAgICB9XG4gICAgICB9XG5cbiAgICAgIC8vIFdyaXRlIHRoaXMgZmlsZSB0byB0aGUgVkZTXG4gICAgICByZXR1cm4gYXdhaXQgd2ViUi5GUy53cml0ZUZpbGUoZmlsZSwgbmV3IFVpbnQ4QXJyYXkoZGF0YSkpO1xuICAgIH0pLnJlZHVjZSgoY3VyLCBuZXh0KSA9PiBjdXIudGhlbihuZXh0KSwgUHJvbWlzZS5yZXNvbHZlKCkpO1xuXG4gICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBJbnN0YWxsaW5nIHdlYlIgc2hpbXNgO1xuICAgIGF3YWl0IHdlYlIuZXZhbFJWb2lkKGB3ZWJyOjpzaGltX2luc3RhbGwoKWApO1xuXG4gICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBXZWJSIGVudmlyb25tZW50IHNldHVwYDtcbiAgICBhd2FpdCBzZXR1cFIod2ViUiwgZGF0YSk7XG5cbiAgICBzdGF0dXNUZXh0LnJlbW92ZSgpO1xuICAgIGlmIChzdGF0dXNDb250YWluZXIuY2hpbGRyZW4ubGVuZ3RoID09IDApIHtcbiAgICAgIHN0YXR1c0NvbnRhaW5lci5wYXJlbnROb2RlLnJlbW92ZSgpO1xuICAgIH1cbiAgICByZXR1cm4gd2ViUjtcbiAgfSkobmV3IFdlYlIoZGF0YS5vcHRpb25zKSk7XG5cbiAgLy8gS2VlcCB0cmFjayBvZiBpbml0aWFsIE9KUyBibG9jayByZW5kZXJcbiAgY29uc3QgcmVuZGVyZWRPanMgPSB7fTtcblxuICBjb25zdCBwcm9jZXNzID0gYXN5bmMgKGNvbnRleHQsIGlucHV0cykgPT4ge1xuICAgIGNvbnN0IHdlYlIgPSBhd2FpdCB3ZWJSUHJvbWlzZTtcbiAgICBjb25zdCBldmFsdWF0b3IgPSBuZXcgV2ViUkV2YWx1YXRvcih3ZWJSLCBjb250ZXh0KVxuICAgIGF3YWl0IGV2YWx1YXRvci5wcm9jZXNzKGlucHV0cyk7XG4gICAgcmV0dXJuIGV2YWx1YXRvci5jb250YWluZXI7XG4gIH1cblxuICByZXR1cm4ge1xuICAgIHByb2Nlc3MsXG4gICAgd2ViUlByb21pc2UsXG4gICAgcmVuZGVyZWRPanMsXG4gIH07XG59XG4ifV19
+</script>
+<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
+<div id="exercise-loading-status" class="d-flex gap-2">
+
+</div>
+<div class="spinner-grow spinner-grow-sm">
+
+</div>
+</div>
+<script type="vfs-file">
+W10=
+</script>
 </section>
 
 </main> <!-- /main -->
-<script>
-
-/* definition of content for the buttons */
-const webex_buttons = {check_hidden:          "<b>&check;</b>",
-                       check_hidden_alt:      "Check answer",
-                       check_shown:           "<b>&lsh;</b>",
-                       check_shown_alt:       "Hide check",
-                       check_of_total:        "/",
-                       solution:              "<b>&quest;</b>",
-                       solution_alt:          "Correct solution",
-                       question_next:         "<b>&#8634;</b>",
-                       question_next_alt:     "Next question",
-                       question_previous:     "",
-                       question_previous_alt: ""}
-
-
-/* update total correct if #webex-total_correct exists */
-update_total_correct = function() {
-  console.log("webex: update total_correct");
-
-  document.querySelectorAll(".webex-total_correct").forEach(total => {
-    p = total.closest(".webex-box");
-    var correct = p.getElementsByClassName("webex-correct").length;
-    var solvemes = p.getElementsByClassName("webex-solveme").length;
-    var radiogroups = p.getElementsByClassName("webex-radiogroup").length;
-    var selects = p.getElementsByClassName("webex-select").length;
-    /* no specific class on input node, thus searching via query selector */
-    var checkboxgroups = p.querySelectorAll("div[class=webex-checkboxgroup] input[type=checkbox]").length
-
-    /* show number of correct / total number of answers */
-    total.innerHTML = correct + "&nbsp;" + webex_buttons.check_of_total + "&nbsp;" + (solvemes + radiogroups + checkboxgroups + selects);
-  });
-}
-
-/* check answers */
-check_func = function() {
-  console.log("webex: check answer");
-
-  //var cl = elem.parentElement.classList;
-  var cl = this.closest(".webex-box").classList;
-  if (cl.contains("unchecked")) {
-    cl.remove("unchecked");
-    this.innerHTML = webex_buttons.check_shown; //"Hide check";
-    if (webex_buttons.check_shown_alt.length > 0) this.setAttribute("title", webex_buttons.check_shown_alt);
-  } else {
-    cl.add("unchecked");
-    this.innerHTML = webex_buttons.check_hidden; //"Check answer";
-    if (webex_buttons.check_hidden_alt.length > 0) this.setAttribute("title", webex_buttons.check_hidden_alt);
-  }
-}
-
-/* helper functions for checking the webex ID */
-const id_checker = {"fmt": new RegExp("[g-zG-Z]"),
-                    "load": function(e) { return e.getAttribute("id").match("(?<=(-)).*$")[0]; },
-                    "eval": new TextEncoder(),
-                    "dval": new TextDecoder()}
-
-/* Show/hide correct solution */
-solution_func = function() {
-  console.log("webex: show/hide solution");
-
-  var div = this.closest(".webex-question").querySelector(".webex-solution");
-  var cl = div.classList;
-
-  if (cl.contains("visible")) {
-    cl.remove("visible");
-  } else {
-    cl.add("visible");
-  }
-}
-
-/* function to check if the real answer is numeric */
-convert_to_numeric = function(x) {
-  if (typeof x == "string") {
-    /* do nothing */
-  } else if (x.length == 1) {
-    /* take first element */
-    x = x[0]
-  } else {
-    return NaN;
-  }
-
-  /* remove spaces for easier parsing */
-  x = x.replace(/\s/g, "");
-
-  /* Define patterns for different formats, note that spaces have been removed above */
-  const patterns = [
-    {regex: /^[+-]?\d+(\.\d{3})*,\d+$/, decimal: ",", thousand: "." },  // Format: "1.100.100.100,3"
-    {regex: /^[+-]?\d+(,\d{3})*\.\d+$/, decimal: ".", thousand: "," },  // Format: "1,100,100,100.3"
-    {regex: /^[+-]?\d+(\.|\.\d+)?$/, decimal: "." },                    // Format: "1100100100.5" or "1100100100."
-    {regex: /^[+-]?\d+(,|,\d+)$/, decimal: "," }                        // Format: "1100100100,5" or "1100100100,"
-  ];
-
-
-  /* testing all regular expressions, convert to float if possible */
-  for (const { regex, decimal, thousand } of patterns) {
-    if (regex.test(x)) {
-      let numeric = x;
-      if (thousand) numeric = numeric.replace(new RegExp(`\\${thousand}`, "g"), "");
-      numeric = numeric.replace(decimal, ".");
-      return parseFloat(numeric);
-    }
-  }
-
-  /* input of length 1 but none of the known formats, return NaN */
-  return NaN;
-}
-
-/* Checking webex ID, returns formalsol */
-check_id = function(e) {
-  /* loading webex ID */
-  var id = id_checker["load"](e);
-
-  /* extracting answer */
-  let answer = e.dataset.answer;
-
-  /* checking unique id, prepare and return array */
-  if (!id_checker["fmt"].test(id)) {
-    const a = id_checker["eval"].encode(atob(answer));
-    const b = id_checker["eval"].encode(id);
-    const res = a.map((byte, index) => byte^b[index % b.length]);
-    answer = id_checker["dval"].decode(res);
-    /* Replacing &amp; with ' before parsing */
-    answer = answer.replaceAll("&apos;", "'");
-  }
-
-  return JSON.parse(answer);
-}
-
-/* function for checking solveme answers */
-solveme_func = function(e) {
-  /* avoid that keyup and keychange twice execute this function within nms = 10
-   * ms, clearing inputTimer and add timeout */
-  console.log("webex: check solveme");
-
-  /* float, precision for checking numeric answers */
-  const eps = 0.00000000000001;
-
-  /* get last checked user answer */
-  const question = this.closest(".webex-question")
-
-  /* extracting classes */
-  var cl = this.classList;
-  var my_answer = this.value;
-
-  /* extracting classes */
-  var cl = this.classList;
-
-  /* empty answer? Job done */
-  if (my_answer == "") {
-    cl.remove("webex-correct");
-    cl.remove("webex-incorrect");
-    return false;
-  }
-
-  /* Find closest (parent) webex-question */
-  let formalsols = check_id(this)
-
-  /* by default we assume the users' answer is incorrect */
-  var user_answer_correct = false;
-
-  /* check if the correct answer is numeric, i.e. if 
-   * formalsols is of length 1 containing one single numeric
-   * value in a known format, else, NaN is returned */
-  const num_formalsol = convert_to_numeric(formalsols);
-  const num_my_answer = convert_to_numeric(my_answer);
-
-  /* if the correct answer is numeric (float), the user's answer
-   * must also be numeric. If not, it is wrong. Else we can
-   * compare floating point numbers */
-  if (!isNaN(num_formalsol) && !isNaN(num_my_answer)) {
-    /* check if the real answer and the user input are numerically the same;
-     * adding 'delta' to avoid precision issues */
-    var diff = Math.abs(num_formalsol - num_my_answer);
-    if (diff < parseFloat(this.dataset.tol) + eps) { user_answer_correct = true; }
-
-  /* if the question contains regex, a regular expression is used
-   * to evaluate the users answer. Allows for multiple regular expressions */
-  } else if (cl.contains("regex")) {
-    for (let i = 0; i < formalsols.length; i++) {
-        let regex = new RegExp(formalsols[i], cl.contains("ignorecase") ? "i" : "");
-        if (regex.test(my_answer)) { user_answer_correct = true; break; }
-    }
-
-  /* else we evaluate on 'string level', considering the creators preferences
-   * regarding set options */
-  } else {
-    /* modify/prepare answer */
-    if (cl.contains("ignorecase")) { my_answer = my_answer.toLowerCase(); }
-    if (cl.contains("nospaces"))   { my_answer = my_answer.replace(/ /g, ""); }
-
-    /* if the real answer includes user input - correct */
-    if (formalsols.includes(my_answer)) {
-      user_answer_correct = true;
-  
-      // added regex bit
-      if (cl.contains("regex")) {
-        answer_regex = RegExp(formalsols.join("|"))
-        if (answer_regex.test(my_answer)) {
-          cl.add("webex-correct");
-        }
-      }
-    }
-  }
-
-  if (user_answer_correct) {
-      cl.add("webex-correct");
-      cl.remove("webex-incorrect");
-  } else {
-      cl.add("webex-incorrect");
-      cl.remove("webex-correct");
-  }
-
-  update_total_correct();
-
-}
-
-/* function for checking select answers */
-select_func = function(e) {
-  console.log("webex: check select");
-
-  var options   = [];
-  Array.from(this.querySelectorAll("option")).forEach((option, index) => {
-    if (!option.hasAttribute("value") || !option.getAttribute("value") === "blank") {
-      options.push(option);
-    }
-  });
-
-  /* get selected option */
-  function get_selected(options) { return options.findIndex(option => option.selected); }
-  var option_index = get_selected(options)
-
-  /* loading webex ID */
-  var formalsol = check_id(this)
-
-  /* add class for current selection */
-  this.classList.remove("webex-incorrect");
-  this.classList.remove("webex-correct");
-  if (option_index >= 0) {
-    this.classList.add(formalsol[option_index] === 1 ? "webex-correct" : "webex-incorrect");
-  }
-
-  update_total_correct();
-}
-
-/* function for checking radiogroups answers */
-radiogroups_func = function(e) {
-  console.log("webex: check radiogroups");
-
-  /* get real answer (binary integer array) */
-  var id = e.target.getAttribute("name");
-  var group = document.querySelector(".webex-radiogroup[id='webex-" + id + "']");
-  var formalsol = check_id(group)
-
-  /* check which radiobuttion is selected (user answer) */
-  function get_checked(radios) {
-    return radios.findIndex(radios => radios.checked);
-  }
-  var radios = Array.from(group.querySelectorAll("input[type='radio']"))
-  var radio_index = get_checked(radios);
-
-  /* remove existing classes */
-  radios.forEach(radio => {
-    let cl = radio.closest("label").classList
-    cl.remove("webex-incorrect");
-    cl.remove("webex-correct");
-  });
-
-  /* add class for current selection */
-  let cl = radios[radio_index].closest("label").classList
-  if (formalsol[radio_index] === 1) {
-      cl.add("webex-correct");
-  } else {
-      cl.add("webex-incorrect");
-  }
-
-  update_total_correct();
-}
-
-
-/* function for checking checkboxgroups answers */
-checkboxgroups_func = function(e) {
-  console.log("webex: check checkboxgroups");
-
-  /* get real answer (binary integer array) */
-  var group = document.querySelector(".webex-checkboxgroup[id='" + this.id + "']");
-  var formalsol = check_id(group);
-
-  /* check which checkbox is checked (user answer) */
-  function get_checked(group) {
-      const checkboxes = Array.from(group.querySelectorAll("input[type='checkbox']"));
-      return checkboxes.reduce((indices, checkbox, index) => {
-          if (checkbox.checked) indices.push(index);
-          return indices;
-      }, []);
-  }
-  var checks = Array.from(group.querySelectorAll("input[type='checkbox']"));
-  var check_index = get_checked(group);
-
-  checks.forEach((e, index) => {
-    var label = e.parentNode;
-    var ans = formalsol[index];
-    if ((e.checked && ans === 1) || (!e.checked && ans === 0)) {
-        label.setAttribute("class", "webex-correct")
-    } else {
-        label.setAttribute("class", "webex-incorrect")
-    }
-  });
-
-  update_total_correct();
-}
-
-/* shuffling array (thanks to stack overflow)
- * If argument x is an integer we create an integer sequence
- * from 0, 1, ..., (x - 1) and return a shuffled version. If
- * the input is an array, we simply shuffle it */
-shuffle_array = function(x) {
-   if (Number.isInteger(x) && !isNaN(x)) {
-     x = Array.from({length: x}, (v, i) => i);
-   }
-   let shuffled = x.map(value => ({ value, sort: Math.random() }))
-        .sort((a, b) => a.sort - b.sort).map(({ value }) => value)
-   return shuffled;
-}
-
-/* ---------------------------------------------------------
- * ---------------------------------------------------------
- * --------------------------------------------------------- */
-window.onload = function() {
-  //console.log("webex: onload");
-
-  /* setting up buttons and actions to show/hide answers */
-  document.querySelectorAll(".webex-check").forEach(section => {
-    section.classList.add("unchecked");
-
-    /* ul to take up the list items with buttons */
-    let button_ul = document.createElement("ul");
-    button_ul.setAttribute("class", "webex-button-list");
-    section.appendChild(button_ul);
-
-    /* button to _check_ if answers given are correct */
-    let li_check = document.createElement("li");
-    button_ul.appendChild(li_check); /* add list item to ul */
-    let btn_check = document.createElement("button");
-    btn_check.innerHTML = webex_buttons.check_hidden;  // "Check answer";
-    btn_check.setAttribute("class", "webex-button webex-button-check");
-    if (webex_buttons.check_hidden_alt.length > 0) btn_check.setAttribute("title", webex_buttons.check_hidden_alt);
-    btn_check.onclick = check_func;
-    li_check.appendChild(btn_check);
-
-    /* span to show current number of points (when _check_ active) */
-    let spn = document.createElement("span");
-    spn.classList.add("webex-total_correct");
-    li_check.appendChild(spn);
-
-    /* button to show the _solution_ if there is one */
-    var has_solution = section.parentNode.querySelectorAll(".webex-solution").length > 0;
-    if (has_solution) {
-      let li_solution = document.createElement("li");
-      button_ul.appendChild(li_solution); /* add list item to ul */
-      let btn_solution = document.createElement("button");
-      btn_solution.innerHTML = webex_buttons.solution; // "Correct answer";
-      btn_solution.setAttribute("class", "webex-button webex-button-solution");
-      if (webex_buttons.solution_alt.length > 0) btn_solution.setAttribute("title", webex_buttons.solution_alt);
-      btn_solution.onclick = solution_func;
-      li_solution.appendChild(btn_solution);
-    }
-
-  });
-
-  /* set up webex-solveme inputs */
-  document.querySelectorAll(".webex-solveme").forEach(solveme => {
-    solveme.setAttribute("autocomplete","off");
-    solveme.setAttribute("autocorrect", "off");
-    solveme.setAttribute("autocapitalize", "off");
-    solveme.setAttribute("spellcheck", "false");
-    solveme.value = "";
-
-    /* adjust answer for 'no spaces' (ignore spaces) */
-    if (solveme.classList.contains("nospaces")) {
-      solveme.dataset.answer = solveme.dataset.answer.replace(/ /g, "");
-    }
-
-    /* attach checking function, triggered on key up, change, and when
-     * elemnt is out of focus. Only evaluated once by tracking changes
-     * via variable solveme_last_user_answer */
-    solveme.addEventListener("keyup",  solveme_func);
-    solveme.addEventListener("change", solveme_func);
-    solveme.addEventListener("blur",   solveme_func);
-
-    /* adding span to show correct/incorrect icon */
-    solveme.insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
-  });
-
-  /* set up radiogroups (single choice questions with display = "buttons") */
-  document.querySelectorAll(".webex-radiogroup").forEach(radiogroup => {
-    radiogroup.onchange = radiogroups_func;
-  });
-
-  /* set up checkboxgroups (multiple choice questions with display = "buttons") */
-  document.querySelectorAll(".webex-checkboxgroup").forEach(checkboxgroup => {
-    checkboxgroup.onchange = checkboxgroups_func;
-  });
-
-  /* set up selects (dropdown menus) */
-  document.querySelectorAll(".webex-select").forEach(select => {
-    select.onchange = select_func;
-    /* append webex-icon for correct/incorrect icons */
-    var elem = document.createElement("span")
-    elem.classList.add("webex-icon")
-    select.parentNode.appendChild(elem)
-  });
-
-  /* change to next/previous question if multiple are available */
-  function handleQuestionClick(group, questions, step) {
-    return async function() {
-      /* get question order as integer vector */
-      let questionOrder = group.dataset.questionOrder.split(",").map(str => parseInt(str));
-
-      /* current question/position */
-      let currentPosition = parseInt(group.dataset.currentPosition);
-
-      /* Hide the current question */
-      questions.forEach(question => { question.classList.remove("active"); });
-
-      /* Move to the next question index */
-      currentPosition = (currentPosition + step) % questionOrder.length;
-      if (currentPosition < 0) currentPosition = currentPosition + questionOrder.length
-
-      /* Display the new question */
-      questions[questionOrder[currentPosition]].classList.add("active");
-
-      // Update the currentPosition data attribute on the group div
-      group.dataset.currentPosition = currentPosition;
-    };
-  }
-
-  document.querySelectorAll(".webex-group").forEach(group => {
-    const questions = Array.from(group.querySelectorAll(".webex-question"));
-
-    /* Create vector with question order. If the webex-group does
-     * not have class '.noshuffle' we will randomly shuffle the order */
-    let questionOrder = Array.from({length: questions.length}, (v, i) => i);
-    if (!group.classList.contains("noshuffle")) {
-      questionOrder = shuffle_array(questionOrder);
-    }
-
-    /* take start position (if set) or start at 0 */
-    const currentPosition = parseInt(group.getAttribute("data-start-position")) || 0;
-
-    /* show the default question for each group */
-    questions[questionOrder[currentPosition]].classList.add("active");
-
-    /* store random order of questions as well as current position */
-    group.dataset.questionOrder   = questionOrder;
-    group.dataset.currentPosition = currentPosition;
-
-    /* find all webex-questions, search for .webex-button-list and
-     * populate the list with necessary <li><button>...</button></li> elements */
-    questions.forEach(question => {
-        let button_ul = question.querySelector("ul.webex-button-list");
-
-        let li_next = document.createElement("li");
-        let nextButton = document.createElement("button");
-        nextButton.setAttribute("class", "webex-button webex-button-next");
-        if (webex_buttons.question_next_alt.length > 0) nextButton.setAttribute("title", webex_buttons.question_next_alt);
-        nextButton.innerHTML = webex_buttons.question_next; // "Next question";
-        nextButton.addEventListener("click", handleQuestionClick(group, questions, 1));
-        li_next.appendChild(nextButton);
-
-        let li_previous = document.createElement("li");
-        let previousButton = document.createElement("button");
-        previousButton.setAttribute("class", "webex-button webex-button-previous");
-        if (webex_buttons.question_previous_alt.length > 0) previousButton.setAttribute("title", webex_buttons.question_previous_alt);
-        previousButton.innerHTML = webex_buttons.question_previous; // "Previous question";
-        previousButton.addEventListener("click", handleQuestionClick(group, questions, -1));
-        li_previous.appendChild(previousButton);
-
-        if (webex_buttons.question_previous.length > 0) button_ul.appendChild(li_previous);
-        if (webex_buttons.question_next.length > 0) button_ul.appendChild(li_next);
-    });
-  });
-
-  /* Development options */
-  document.querySelectorAll(".webex-question.check").forEach(question => {
-      question.querySelector(".webex-button-check").click()
-  });
-  document.querySelectorAll(".webex-question.solution").forEach(question => {
-      let btn = question.querySelector(".webex-button-solution");
-      if (btn !== null) { btn.click(); }
-  });
-
-  /* Pre-filling <input> fields */
-  document.querySelectorAll(".webex-question.prefill").forEach(question => {
-      question.querySelectorAll("input.webex-solveme").forEach(solveme => {
-          let x = JSON.parse(solveme.dataset.answer);
-          solveme.value = x[0];
-          /* Trigger the on change event */
-          solveme.dispatchEvent(new Event("change"));
-      });
-
-      /* Pre-filling radiogroups, that is for schoice questions */
-      question.querySelectorAll(".webex-radiogroup").forEach(radiogroup => {
-          let x = JSON.parse(radiogroup.dataset.answer);
-          let idx = x.indexOf(1);
-          let radios = radiogroup.querySelectorAll('input[type="radio"]');
-          radios[idx].checked = true;
-          /* Trigger the on change event */
-          radios[idx].dispatchEvent(new Event("change", { bubbles: true }));
-      });
-
-      /* Pre-filling checkboxgroups, that is for schoice questions w/ dropdown menus */
-      question.querySelectorAll(".webex-select").forEach(dropdown => {
-          let x = JSON.parse(dropdown.dataset.answer);
-          let idx = x.indexOf(1) + 1; /* +1 to skip the first blank option */
-          let options = dropdown.querySelectorAll("option");
-          options[idx].selected = true;
-          /* Trigger the on change event */
-          options[idx].dispatchEvent(new Event("change", { bubbles: true }));
-      });
-
-      /* Pre-filling checkboxgroups, that is for mchoice questions */
-      question.querySelectorAll(".webex-checkboxgroup").forEach(radiogroup => {
-          let x = JSON.parse(radiogroup.dataset.answer);
-          let checkboxes = radiogroup.querySelectorAll('input[type="checkbox"]');
-          for (let i = 0; i < checkboxes.length; i++) {
-              checkboxes[i].checked = x[i];
-          }
-          /* Trigger the on change event */
-          checkboxes[0].dispatchEvent(new Event("change", { bubbles: true }));
-      });
-  });
-
-  /* Show set tolerance (devel option) */
-  function calc_width(x, txt, offset = 20) {
-      /* We do the following:
-       * Create a new span, insert the value we need in the .tolerance
-       * input node, and calculate its offsetWidth. Then remove it
-       * again; this is just used to calculate the required width. */
-      var cwtmp = document.createElement("span");
-      x.appendChild(cwtmp);
-      cwtmp.innerHTML = txt || "";
-      var w = parseInt(cwtmp.getBoundingClientRect().width) + offset;
-      cwtmp.remove();
-      return w;
-  }
-
-  /* If tolerance should be shown (devel option) we calculate:
-   * - the width required to properly display the solution
-   * - the width required to properly display the tolerance
-   * - add a new element to display the tolerance
-   * - reduce the width of the solution input box. */
-  document.querySelectorAll(".webex-question.tolerance").forEach(question => {
-      question.querySelectorAll("input[data-tol]").forEach(elem => {
-          var w = null;
-
-          /* Add new element showing the tolerance */
-          let tol = document.createElement("input");
-          tol.type = "text"; // <inpyt type="text">
-          tol.disabled = true; // Disable input element
-          tol.classList.add("tolerance"); // Appending class
-          tol.value = "± " + elem.getAttribute("data-tol");
-
-          /* Add new node */
-          elem.parentNode.insertBefore(tol, elem)
-
-          var body     = document.querySelector("body");
-          //tol.value = "± " + "0.0000007";
-          //tol.value = "± " + "0.07";
-          w    = calc_width(body, tol.value);
-          wold = parseInt(elem.getBoundingClientRect().width);
-          wmin = calc_width(body, elem.value);
-
-          /* Calculate required width of the 'tolerance' node, and the
-           * reduction of the original 'input' node */
-          let wnew = Math.max(wmin, wold - w);
-          tol.style.width  = w + "px";
-          elem.style.width = wnew + "px";
-      });
-  });
-
-  update_total_correct();
-}
-
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../..";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1193,15 +745,6 @@ window.onload = function() {
     }
   });
   </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./Chapters/Methodologie.html" class="pagination-link" aria-label="Methodology: The Science before Statistics">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Methodology: The Science before Statistics</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 
