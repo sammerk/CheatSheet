@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Methodologie – BiU Statistikvorlesung WiSe 2025-2026</title>
+<title>Inferenz- und Deskriptivstatistik – BiU Statistikvorlesung WiSe 2025-2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 /* CSS for citations */
 div.csl-bib-body { }
@@ -64,6 +99,8 @@ div.csl-indent {
 <link href="site_libs/bootstrap/bootstrap-2c7ee39116c572cc4e7a1cf3bf4739d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark-2c7ee39116c572cc4e7a1cf3bf4739d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-2c7ee39116c572cc4e7a1cf3bf4739d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -91,13 +128,47 @@ div.csl-indent {
     "search-label": "Suchen"
   }
 }</script>
+<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="brand.css">
 <link rel="stylesheet" href="exams/webex.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed quarto-light">
+<body class="nav-sidebar floating nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -122,7 +193,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Methodologie.html">Methodologie</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Inferenzstatistik.html">Inferenz- und Deskriptivstatistik</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -148,7 +219,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Methodologie.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Methodologie.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Methodologie</span></a>
   </div>
 </li>
@@ -178,7 +249,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Inferenzstatistik.html" class="sidebar-item-text sidebar-link">
+  <a href="./Inferenzstatistik.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Inferenz- und Deskriptivstatistik</span></a>
   </div>
 </li>
@@ -187,26 +258,13 @@ div.csl-indent {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Auf dieser Seite</h2>
-   
-  <ul>
-  <li><a href="#methodology-the-science-before-statistics" id="toc-methodology-the-science-before-statistics" class="nav-link active" data-scroll-target="#methodology-the-science-before-statistics">Methodology: The Science before Statistics</a></li>
-  <li><a href="#erkenntnisinteressen" id="toc-erkenntnisinteressen" class="nav-link" data-scroll-target="#erkenntnisinteressen">Erkenntnisinteressen</a></li>
-  <li><a href="#gütekriterien-wiss.-erkenntnis-nach-campbell1957" id="toc-gütekriterien-wiss.-erkenntnis-nach-campbell1957" class="nav-link" data-scroll-target="#gütekriterien-wiss.-erkenntnis-nach-campbell1957">Gütekriterien wiss. Erkenntnis nach <span class="citation" data-cites="campbell1957">Campbell (1957)</span></a>
-  <ul class="collapse">
-  <li><a href="#steigerung-von-interner-und-externer-validität" id="toc-steigerung-von-interner-und-externer-validität" class="nav-link" data-scroll-target="#steigerung-von-interner-und-externer-validität">Steigerung von interner und externer Validität</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Methodologie</h1>
+<h1 class="title">Inferenz- und Deskriptivstatistik</h1>
 </div>
 
 
@@ -223,89 +281,274 @@ div.csl-indent {
 </header>
 
 
-<section id="methodology-the-science-before-statistics" class="level2">
-<h2 class="anchored" data-anchor-id="methodology-the-science-before-statistics">Methodology: The Science before Statistics</h2>
-<p>Jede statistische Modellierung gewinnt an Aussagekraft, je umfassender sie die inhaltliche Fragestellung abzubilden im Stande ist. Um aus der riesigen Fülle an Optionen geeignet und zielgerichtet auswählen zu können sind die folgenden Unterscheidungen oft sehr hilfreich.</p>
-</section>
-<section id="erkenntnisinteressen" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="erkenntnisinteressen">Erkenntnisinteressen</h2>
-<p>Ganz grundlegend kann a priori das Erkenntnisinteresse von Studien in die folgenden vier Kategorien unterschieden werden:</p>
-<div class="column-page-right">
+<p>Deskriptivstatistiken machen Aussagen über vorliegende Datensätze. Sie beschreiben also einen Datensatz und nichts darüber hinaus. Inferenzstatistiken machen dagegen Aussagen über (hypothetische) Mechanismen, die Daten erzeugen. Berechnet man z.B. den Mittelwert der Pinguinschnabellängen je Species im <code>palmerpenguinsdatensatz</code> so handelt es sich um eine deskriptive Statistik. Möchte man wissen, um wie viel sich die Schnabellänge <strong>im Durchnitt</strong> zwischen den Species (hypothetische Entität, Population) unterscheidet, handelt es sich um eine inferenzstatistische Fragestellung.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Beispiele für Deskriptiv- und Inferenzstatistiken
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Deskriptivstatistiken
+<ul>
+<li>Median aller Massen von Pinguinen der Species Adelie im <code>palmerpenguins</code> Datensatz</li>
+<li>Standardabweichung aller Körperlängen von Kalokokrebsen in einer Falle</li>
+<li>Modus der Species in einem Datensatz von 200 Plazen</li>
+</ul></li>
+<li>Inferenzstatistiken
+<ul>
+<li>Zeigt eine Münze von 30 Würfen 16 mal Kopf, wie wahrscheinlich ist es dann, dass die Münze sehr klar gezinkt <span class="math inline">\(\left(\theta &gt; .55\right)\)</span> ist?«</li>
+<li>Geben von 100 zufällig ausgewählten Waldkindergartenkindern 73 und von 100 zufällig ausgewählten Nicht-Waldkidnergartenkindern 62 an, gerne mit Matsch zu spielen, wie sicher liegt dann ein Unterschied in der Zustimmung bei allen Kindergartenkindern vor</li>
+<li>Zeigt sich in einer Stichprobe mit <span class="math inline">\(N=124\)</span> zwischen »Biodiversitätsbewusstsein« und »Biodiversitätswissen« ein standardisierter Regressionskoeffizient von <span class="math inline">\(\beta = .48\)</span> – wie wahrscheinlich liegt dann in der Population nur einen kleiner Effekt <span class="math inline">\(\beta &lt; .1\)</span> vor?</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<section id="parameterschätzung-vs.-hypothesentestung" class="level2">
+<h2 class="anchored" data-anchor-id="parameterschätzung-vs.-hypothesentestung">Parameterschätzung vs.&nbsp;Hypothesentestung</h2>
+<p>Typischerweise wird bei der Inferenzstatistik zwischen <em>Parameterschätzung</em> und <em>Hypothesentests</em> unterschieden. Beide Ansätze können sowohl im Rahmen der frequentistischen als auch der bayesianischen Statistik durchgeführt werden. Mit Abstand am bekanntesten sind dabei die frequentistischen Hypothesentests mit <em>p</em>-Werten obwohl diese als sehr fehleranfällig in der Interpretation gelten <span class="citation" data-cites="gigerenzer2004">(<a href="#ref-gigerenzer2004" role="doc-biblioref">Gigerenzer, 2004</a>)</span>.</p>
 <table class="caption-top table">
-<caption>Erkenntisinteressen nach <span class="citation" data-cites="doering2016">(<a href="#ref-doering2016" role="doc-biblioref">Döring &amp; Bortz, 2016</a>)</span>.</caption>
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 30%">
+<col style="width: 31%">
+<col style="width: 37%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Deskriptiv</th>
-<th>Explorativ</th>
-<th>Explanativ</th>
-<th>Prädiktiv</th>
+<th></th>
+<th style="text-align: center;">Frequentistische<br>Statistik</th>
+<th style="text-align: center;">Bayesianische<br>Statistik</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>populationsbeschreibend</td>
-<td>hypothesengenerierend</td>
-<td>hypothesenprüfend</td>
-<td>Datenpunkte vorhersagend oder imputierend</td>
+<td>Parameterschätzung</td>
+<td style="text-align: center;">Konfidenzintervalle</td>
+<td style="text-align: center;">Posterior Distributions</td>
 </tr>
 <tr class="even">
-<td><em>Bei welchem Anteil 15-Jähriger in Deutschland handelt es sich um funktionale Analphabet:innen?</em></td>
-<td><em>Was sind potentielle Ursachen für genderbezogene Disparitäten im Analphabetismus?</em></td>
-<td><em>Sind 15-jährige Jungen häufiger Analphabeten als 15-jährige Mädchen?</em></td>
-<td><em>Mit welchen Variablen können Schüler:innen at risk erfolgreich identifiziert werden?</em></td>
+<td>Hypothesentest</td>
+<td style="text-align: center;">p-Werte</td>
+<td style="text-align: center;">Bayes Faktoren</td>
 </tr>
 </tbody>
 </table>
+<p><br></p>
+<blockquote class="blockquote">
+<p>(Inferenzstatistische) <em>Schätzung</em> (estimation with quantified uncertainty) trifft anhand von Stichproben Aussagen über Parameter der Grundgesamtheit (Population) aus der die Stichprobe gezogen wurde.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>(Inferenzstatistische) <em>Hypothesentests</em> bewerten anhand von Stichprobendaten die Gültigkeit von Hypothesen in der Grundgesamtheit (Population) aus der die Stichprobe gezogen wurde.</p>
+</blockquote>
+</section>
+<section id="hypothesentests-mit-p-werten" class="level2">
+<h2 class="anchored" data-anchor-id="hypothesentests-mit-p-werten">Hypothesentests mit <em>p</em>-Werten</h2>
+<p>Für das inferenzstatistische Hypothesentesten wird in der Regel ein Framework von Neyman &amp; Pearson angewendet, das auf der Formulierung von zwei konkurrierenden Hypothesen (Nullhypothese und Alternativhypothese) basiert, dann anhand von Daten einen p-Wert berechnet und schließlich eine Entscheidung zwischen den beiden Hypothesen trifft <span class="citation" data-cites="neyman1928use">(<a href="#ref-neyman1928use" role="doc-biblioref">Neyman &amp; Pearson, 1928</a>)</span>. Der <em>p</em>-Wert ist dabei wie folgt definiert:</p>
+<p><span class="math display">\[\text{p-Wert}= P\left(\text{vorl. o. extremer gegen }H_0\text{ sprechende Daten} | H_0 \text{ist wahr}\right)\]</span></p>
+<p>Das bedeutet, dass der <em>p</em>-Wert die Wahrscheinlichkeit der vorliegenden Daten angibt, unter der Annahme, dass die Nullhypothese wahr ist. Fällt dieser p-Wert unter ein vorher festgelegtes Signifikanzlevel (z.B. <span class="math inline">\(\alpha = .05\)</span>), wird die Nullhypothese zugunsten der Alternativhypothese verworfen.</p>
+<p>Natürlich können auch mit dieser Prozedur Fehler gemacht werden. So kann es passieren, dass die Nullhypothese verworfen wird obwohl sie wahr ist (False Positve, Fehler 1. Art, <span class="math inline">\(\alpha\)</span>-Fehler) oder dass die Nullhypothese beibehalten wird obwohl die Alternativhypothese wahr ist (False Negative, Fehler 2. Art, <span class="math inline">\(\beta\)</span>-Fehler).</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 38%">
+<col style="width: 38%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: center;"><span class="math inline">\(H_0\)</span> wird beibehalten</th>
+<th style="text-align: center;"><span class="math inline">\(H_0\)</span> wird verworfen</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong><span class="math inline">\(H_0\)</span> ist wahr</strong></td>
+<td style="text-align: center;">✓ Korrekte Entscheidung</td>
+<td style="text-align: center;">✗ Fehler 1. Art<br>(<span class="math inline">\(\alpha\)</span>-Fehler, False Positive)</td>
+</tr>
+<tr class="even">
+<td><strong><span class="math inline">\(H_1\)</span> ist wahr</strong></td>
+<td style="text-align: center;">✗ Fehler 2. Art<br>(<span class="math inline">\(\beta\)</span>-Fehler, False Negative)</td>
+<td style="text-align: center;">✓ Korrekte Entscheidung<br>(Power = <span class="math inline">\(1-\beta\)</span>)</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Beispiel: Hypothesentest mit p-Wert
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Interessiert sich beispielweise eine Umweltpolitikerin dafür ob es in Deutschland eine Mehrheit für ein Tempolimit von 120 km/h auf Autobahnen gibt, könnte sie alle Bürger:innen befragen und eine Deskriptivstatistik berechnen oder eine STichpribe ziehen und den folgenden Hypothesentest durchführen:</p>
+<ul>
+<li>Hypothesen
+<ul>
+<li>Nullhypothese: <em>Der Anteil der Befürworter:innen eines Tempolimits von 120 km/h ≥ 50%.</em><br></li>
+<li>Alternativhypothese: <em>Weniger als 50% der Population befürworten ein Tempolimit von 120 km/h.</em></li>
+</ul></li>
+</ul>
+<p>Angenommen sie erhält die folgenden Daten aus einer Umfrage mit 4 zufällig ausgewählten Personen:</p>
+<ul>
+<li>Daten:
+<ul>
+<li>1 für Tempolimit ✓</li>
+<li>3 gegen Tempolimit ✗</li>
+</ul></li>
+</ul>
+<p>Dann kann der <em>p</em>-Wert berechnet werden, also die Wahrscheinlichkeit, dass unter der Annahme der Nullhypothese (Anteil der Befürworter:innen ≤ 50%) in einer Stichprobe von 4 Personen mindestens 3 Befürworter:innen auftreten:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {
+  "flowchart": {
+    "nodeSpacing": 20,
+    "rankSpacing": 25
+  },
+  "themeVariables": {
+    "fontSize": "10px"
+  }
+}}%%
+
+flowchart LR
+  A([▶])
+
+  A --&gt;|0.5| B([✓])
+  A --&gt;|0.5| C([✗])
+
+  B --&gt;|0.5| D([✓✓])
+  B --&gt;|0.5| E([✓✗])
+  C --&gt;|0.5| F([✗✓])
+  C --&gt;|0.5| G([✗✗])
+
+  D --&gt;|0.5| H([✓✓✓])
+  D --&gt;|0.5| I([✓✓✗])
+  E --&gt;|0.5| J([✓✗✓])
+  E --&gt;|0.5| K([✓✗✗])
+  F --&gt;|0.5| L([✗✓✓])
+  F --&gt;|0.5| M([✗✓✗])
+  G --&gt;|0.5| N([✗✗✓])
+  G --&gt;|0.5| O([✗✗✗])
+
+  H --&gt;|0.5| P([✓✓✓✓])
+  H --&gt;|0.5| Q([✓✓✓✗])
+  I --&gt;|0.5| R([✓✓✗✓])
+  I --&gt;|0.5| S([✓✓✗✗])
+  J --&gt;|0.5| T([✓✗✓✓])
+  J --&gt;|0.5| U([✓✗✓✗])
+  K --&gt;|0.5| V([✓✗✗✓])
+  K --&gt;|0.5| W([✓✗✗✗])
+  L --&gt;|0.5| X([✗✓✓✓])
+  L --&gt;|0.5| Y([✗✓✓✗])
+  M --&gt;|0.5| Z([✗✓✗✓])
+  M --&gt;|0.5| AA([✗✓✗✗])
+  N --&gt;|0.5| AB([✗✗✓✓])
+  N --&gt;|0.5| AC([✗✗✓✗])
+  O --&gt;|0.5| AD([✗✗✗✓])
+  O --&gt;|0.5| AE([✗✗✗✗])
+
+  %% Farbdefinition für mindestens drei ✗
+  classDef manyNo fill:#d77d00,color:#000,stroke:#333;
+
+  class W,AA,AC,AD,AE manyNo
+
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>Die Wahrscheinlichkeit für die Daten (höchstens 1 Befürworter:in, ✓) gegeben die Nullhypothese <span class="math inline">\(\left(\theta = .5\right)\)</span> dabei <span class="math inline">\(p = \color{#d77d00}{4} \cdot 0.5^4 = 0.25\)</span></p>
+<p>Da der p-Wert von 0.25 größer als das Signifikanzlevel von 0.05 ist, ist das Ergebnis inkonklusiv, was bei einer so kleinen Stichprobe wenig überraschend ist. Im folgenden Codefenster kann der p-Wert auch mit R berechnet werden. Dazu kann man die Funktion <code>binom.test()</code> verwenden, die einen binomialen Hypothesentest durchführt. Sie hat die Argumente <code>x</code> (Anzahl der Erfolge, hier Befürworter:innen), <code>n</code> (Anzahl der Versuche, hier Befragte), <code>p</code>(hypothetische Quote) und <code>alternative</code> (Form der Alternativhypothese) mit den Optionen <code>less</code>, <code>greater</code> und <code>two.sided</code>.</p>
+<ol type="1">
+<li>Prüfen Sie, ob auch Sie so auch auf einen p-Wert von 0.25 kommen.</li>
+<li>Suchen sie Zahlenbeispiele die zu einem <em>signifikanten</em> Ergebnis führen <span class="math inline">\(\left(p &lt; \alpha \right)\)</span>.</li>
+</ol>
+<div class="cell" data-exercise="binomtest">
+<div>
+<div id="webr-1" class="exercise-cell">
+
+</div>
+<script type="webr-1-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoiYmlub210ZXN0In0sImNvZGUiOiJiaW5vbS50ZXN0KHggPSAxLCBuID0gNCwgYWx0ZXJuYXRpdmUgPSBcImxlc3NcIikifQ==
+</script>
+</div>
+</div>
+<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="binomtest">
+<p>Signifikant heisst ja, dass der p-Wert kleiner als 0.05 ist. Da unsere Nullhypothese ja <em>Der Anteil der Befürworter:innen eines Tempolimits von 120 km/h ≥ 50%</em> lautet brauchen wir also Daten die stark gegen diese Hypothese sprechen.</p>
+</div>
+<div class="webr-ojs-exercise exercise-solution d-none" data-exercise="binomtest">
+<p><code>binom.test(x = 1, n = 4321, alternative = "less")</code></p>
+</div>
+</div>
+</div>
+<p>Je nachdem, welche Hypothesen, mit welcher Art von Daten formuliert werden, muss der <em>p</em>-Wert unterschiedlich berechnet werden, was in den meisten Fällen über spezialisierte statistische Tests geschieht (z.B. t-Test, ANOVA, Chi-Quadrat-Test, etc.) deren mathematische Grundlagen recht komplex sind. Die grundlegende Idee bleibt dabei aber immer gleich: Es wird eine Nullhypothese formuliert, die Wahrscheinlichkeit der vorliegenden Daten unter der Annahme der Nullhypothese berechnet und dann eine Entscheidung über die Gültigkeit der Nullhypothese getroffen. Übersichten, welche Tests für welche Daten und Hypothesen zur berechnugn von p-Werten geeignet sind, finden sich in vielen Statistikbüchern und Online-Ressourcen <span class="citation" data-cites="field2014">(z.B. <a href="#ref-field2014" role="doc-biblioref">Field, Miles, &amp; Field, 2014</a>)</span>.</p>
 </section>
-<section id="gütekriterien-wiss.-erkenntnis-nach-campbell1957" class="level2">
-<h2 class="anchored" data-anchor-id="gütekriterien-wiss.-erkenntnis-nach-campbell1957">Gütekriterien wiss. Erkenntnis nach <span class="citation" data-cites="campbell1957">Campbell (<a href="#ref-campbell1957" role="doc-biblioref">1957</a>)</span></h2>
-<p>Für ein erfolgreiches Studiendesign und die anschließende statistische Analyse ist es sehr wertvoll sich vorab über Schwerpunkte besonders gewünschter Aspekte wissenschaftlicher Güte Gedanken zu machen. Insbesondere über die Unterkriterien <strong>Methodischer Strenge</strong>:</p>
-<ul>
-<li><strong>Konstruktvalidität</strong> (<em>Inwiefern ist die Interpretation der Messwerte angemessen?</em>)</li>
-<li><strong>Interne Validität</strong> (<em>Inwiefern sind Assoziationen von unabhängiger [beeinflussender] und abhängiger [beeinflusster] Variabler als kausale Effekte interpretierbar?</em>)</li>
-<li><strong>Externe Validität</strong> (<em>Inwiefern können die Schlussfolgerungen der Studie verallgemeinert werden?</em>)</li>
-<li><strong>Statistische Validität</strong> (<em>Wie robust und angemessen sind die verwendeten statistischen Verfahren?</em>)</li>
-</ul>
-<section id="steigerung-von-interner-und-externer-validität" class="level3">
-<h3 class="anchored" data-anchor-id="steigerung-von-interner-und-externer-validität">Steigerung von interner und externer Validität</h3>
-<p>Zur Steigerung der internen Validität eignen sich insbesondere:</p>
-<ul>
-<li>Die Randomisierung der unabhängigen Variablen</li>
-<li>Kontroll- und Vergleichsgruppen</li>
-<li>Längsschnittliche Designs</li>
-<li>Statistische Kontrolle von Störvariablen (z.B. Matching)</li>
-<li>Direkte Replikationen</li>
-<li>Laborstudien</li>
-<li>(Doppelte) Verblindung</li>
-<li>Präregistrerung</li>
-</ul>
-<p>Zur Steigerung der externen Validität eignen sich insbesondere:</p>
-<ul>
-<li>Zufallsstichproben aus der Zielpopulation</li>
-<li>Gewichtungen</li>
-<li>Konzeptuelle Replikationen</li>
-<li>Feldstudien</li>
-<li>Metaanalysen</li>
-</ul>
+<section id="parameterschätzung-mit-konfidenzintervallen" class="level2">
+<h2 class="anchored" data-anchor-id="parameterschätzung-mit-konfidenzintervallen">Parameterschätzung mit Konfidenzintervallen</h2>
+<p>Leider werden Hypothesentest mit p-Werten oft in einer recht wenig informativen Art und Weise eingesetzt: So wird oft nur berichtet, ob ein Ergebnis »signifikant« ist oder nicht, ohne dass die tatsächliche Größe des Effekts oder die Unsicherheit der Schätzung berücksichtigt wird. Dies kann zu Fehlinterpretationen und falschen Schlussfolgerungen führen <span class="citation" data-cites="cumming2014">(<a href="#ref-cumming2014" role="doc-biblioref">Cumming, 2014</a>)</span>. Eine Alternative zu Hypothesentests mit p-Werten ist die Parameterschätzung mit Konfidenzintervallen. Anstatt mit dem p-Wert die Wahrscheinlichkeit der Daten unter der Nullhypothese auszudrücken, wird mit Konfidenzintervallen die Unsicherheit der Schätzung eines Parameters von Interesse (z.B. Quote, Mittelwert, Regressionskoeffizient) angegeben. Führt man etwa den binomialen Test aus dem obigen Beispiel durch,</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">binom.test</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">4</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Exact binomial test
+
+data:  1 and 4
+number of successes = 1, number of trials = 4, p-value = 0.625
+alternative hypothesis: true probability of success is not equal to 0.5
+95 percent confidence interval:
+ 0.006309463 0.805879550
+sample estimates:
+probability of success 
+                  0.25 </code></pre>
+</div>
+</div>
+<p>so erhält man auch Auskunft, dass das Konfidenzintervall für die Quote der Befürworter:innen von 0.0000 bis 0.6410 reicht. Das bedeutet allerdings nicht, dass wir mit 95%iger Sicherheit sagen können, dass der wahre Anteil der Befürworter:innen in der Population irgendwo zwischen 0% und 64.1% liegt. Vielmehr bedeutet es, dass wenn wir unendlich viele Stichproben ziehen und für jede Stichprobe ein 95%-Konfidenzintervall berechnen würden, dann würden 95% dieser Intervalle den wahren Populationsparameter enthalten wie die folgende Animation veranschaulicht.</p>
+<iframe width="100%" height="900" src="ci_visualization.html" title="KI Visualisierung" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
 
 
+<script type="webr-data">
+eyJvcHRpb25zIjp7ImJhc2VVcmwiOiJodHRwczovL3dlYnIuci13YXNtLm9yZy92MC41LjQvIn0sInBhY2thZ2VzIjp7InBrZ3MiOlsiZXZhbHVhdGUiLCJrbml0ciIsImh0bWx0b29scyJdLCJyZXBvcyI6W119LCJyZW5kZXJfZGYiOiJkZWZhdWx0In0=
+</script>
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xIiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8xO1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIn0seyJjZWxsTmFtZSI6IndlYnItMSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzEgPSB7XG4gIGNvbnN0IHsgV2ViUkV4ZXJjaXNlRWRpdG9yLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici0xLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgLy8gRGVmYXVsdCBleGVyY2lzZSBjb25maWd1cmF0aW9uXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKFxuICAgIHtcbiAgICAgIGlkOiBcIndlYnItMS1jb250ZW50c1wiLFxuICAgICAgZW52aXI6IGBleGVyY2lzZS1lbnYtJHtibG9jay5hdHRyLmV4ZXJjaXNlfWAsXG4gICAgICBlcnJvcjogZmFsc2UsXG4gICAgICBjYXB0aW9uOiAnRXhlcmNpc2UnLFxuICAgIH0sXG4gICAgYmxvY2suYXR0clxuICApO1xuXG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxudmlld29mIF93ZWJyX3ZhbHVlXzEgPSB3ZWJST2pzLnByb2Nlc3MoX3dlYnJfZWRpdG9yXzEsIHt9KTtcbl93ZWJyX2ZlZWRiYWNrXzEgPSB7XG4gIGNvbnN0IHsgV2ViUkdyYWRlciB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3QgZW1wdHlGZWVkYmFjayA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpO1xuXG4gIGNvbnN0IGdyYWRlciA9IG5ldyBXZWJSR3JhZGVyKF93ZWJyX3ZhbHVlXzEuZXZhbHVhdG9yKTtcbiAgY29uc3QgZmVlZGJhY2sgPSBhd2FpdCBncmFkZXIuZ3JhZGVFeGVyY2lzZSgpO1xuICBpZiAoIWZlZWRiYWNrKSByZXR1cm4gZW1wdHlGZWVkYmFjaztcbiAgcmV0dXJuIGZlZWRiYWNrO1xufVxuIn0seyJjZWxsTmFtZSI6IndlYnItcHJlbHVkZSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IndlYlJPanMgPSB7XG4gIGNvbnN0IHsgV2ViUiwgQ2hhbm5lbFR5cGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWUuV2ViUjtcbiAgY29uc3Qge1xuICAgIFdlYlJFdmFsdWF0b3IsXG4gICAgV2ViUkVudmlyb25tZW50TWFuYWdlcixcbiAgICBzZXR1cFIsXG4gICAgYjY0RGVjb2RlLFxuICAgIGNvbGxhcHNlUGF0aFxuICB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcblxuICBjb25zdCBzdGF0dXNDb250YWluZXIgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChcImV4ZXJjaXNlLWxvYWRpbmctc3RhdHVzXCIpO1xuICBjb25zdCBpbmRpY2F0b3JDb250YWluZXIgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChcImV4ZXJjaXNlLWxvYWRpbmctaW5kaWNhdG9yXCIpO1xuICBpbmRpY2F0b3JDb250YWluZXIuY2xhc3NMaXN0LnJlbW92ZShcImQtbm9uZVwiKTtcblxuICBsZXQgc3RhdHVzVGV4dCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoXCJkaXZcIilcbiAgc3RhdHVzVGV4dC5jbGFzc0xpc3QgPSBcImV4ZXJjaXNlLWxvYWRpbmctZGV0YWlsc1wiO1xuICBzdGF0dXNUZXh0ID0gc3RhdHVzQ29udGFpbmVyLmFwcGVuZENoaWxkKHN0YXR1c1RleHQpO1xuICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYEluaXRpYWxpc2VgO1xuXG4gIC8vIEhvaXN0IGluZGljYXRvciBvdXQgZnJvbSBmaW5hbCBzbGlkZSB3aGVuIHJ1bm5pbmcgdW5kZXIgcmV2ZWFsXG4gIGNvbnN0IHJldmVhbFN0YXR1cyA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIucmV2ZWFsIC5leGVyY2lzZS1sb2FkaW5nLWluZGljYXRvclwiKTtcbiAgaWYgKHJldmVhbFN0YXR1cykge1xuICAgIHJldmVhbFN0YXR1cy5yZW1vdmUoKTtcbiAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLnJldmVhbCA+IC5zbGlkZXNcIikuYXBwZW5kQ2hpbGQocmV2ZWFsU3RhdHVzKTtcbiAgfVxuXG4gIC8vIE1ha2UgYW55IHJldmVhbCBzbGlkZXMgd2l0aCBsaXZlIGNlbGxzIHNjcm9sbGFibGVcbiAgZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbChcIi5yZXZlYWwgLmV4ZXJjaXNlLWNlbGxcIikuZm9yRWFjaCgoZWwpID0+IHtcbiAgICBlbC5jbG9zZXN0KCdzZWN0aW9uLnNsaWRlJykuY2xhc3NMaXN0LmFkZChcInNjcm9sbGFibGVcIik7XG4gIH0pXG5cbiAgLy8gd2ViUiBzdXBwbGVtZW50YWwgZGF0YSBhbmQgb3B0aW9uc1xuICBjb25zdCBkYXRhQ29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLWRhdGFcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBkYXRhID0gSlNPTi5wYXJzZShiNjREZWNvZGUoZGF0YUNvbnRlbnQpKTtcblxuICAvLyBHcmFiIGxpc3Qgb2YgcmVzb3VyY2VzIHRvIGJlIGRvd25sb2FkZWRcbiAgY29uc3QgZmlsZXNDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcInZmcy1maWxlXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgZmlsZXMgPSBKU09OLnBhcnNlKGI2NERlY29kZShmaWxlc0NvbnRlbnQpKTtcblxuICAvLyBVc2UgUG9zdE1lc3NhZ2UgY2hhbm5lbCBmb3IgYXN5bmMgY29tbXVuaWNhdGlvblxuICAvLyBXZSBkbyBub3QgZXhwZWN0IHRvIHRha2UgbmVzdGVkIHByb21wdCBpbnB1dCBpbiBRdWFydG8gTGl2ZSBjZWxsc1xuICBkYXRhLm9wdGlvbnMuY2hhbm5lbFR5cGUgPSBDaGFubmVsVHlwZS5Qb3N0TWVzc2FnZTtcblxuICAvLyBJbml0aWFsaXNlIHdlYlIgYW5kIHNldHVwIGZvciBSIGNvZGUgZXZhbHVhdGlvblxuICBsZXQgd2ViUlByb21pc2UgPSAoYXN5bmMgKHdlYlIpID0+IHtcbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYERvd25sb2FkaW5nIHdlYlJgO1xuICAgIGF3YWl0IHdlYlIuaW5pdCgpO1xuXG4gICAgLy8gSW5zdGFsbCBwcm92aWRlZCBsaXN0IG9mIHBhY2thZ2VzXG4gICAgLy8gRW5zdXJlIHdlYlIgZGVmYXVsdCByZXBvIGlzIGluY2x1ZGVkXG4gICAgZGF0YS5wYWNrYWdlcy5yZXBvcy5wdXNoKFwiaHR0cHM6Ly9yZXBvLnItd2FzbS5vcmdcIilcbiAgICBhd2FpdCBkYXRhLnBhY2thZ2VzLnBrZ3MubWFwKChwa2cpID0+ICgpID0+IHtcbiAgICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgcGFja2FnZTogJHtwa2d9YDtcbiAgICAgIHJldHVybiB3ZWJSLmV2YWxSVm9pZChgXG4gICAgICAgIHdlYnI6Omluc3RhbGwocGtnLCByZXBvcyA9IHJlcG9zKVxuICAgICAgICBsaWJyYXJ5KHBrZywgY2hhcmFjdGVyLm9ubHkgPSBUUlVFKVxuICAgICAgYCwgeyBlbnY6IHtcbiAgICAgICAgcGtnOiBwa2csXG4gICAgICAgIHJlcG9zOiBkYXRhLnBhY2thZ2VzLnJlcG9zLFxuICAgICAgfX0pO1xuICAgIH0pLnJlZHVjZSgoY3VyLCBuZXh0KSA9PiBjdXIudGhlbihuZXh0KSwgUHJvbWlzZS5yZXNvbHZlKCkpO1xuXG4gICAgLy8gRG93bmxvYWQgYW5kIGluc3RhbGwgcmVzb3VyY2VzXG4gICAgYXdhaXQgZmlsZXMubWFwKChmaWxlKSA9PiBhc3luYyAoKSA9PiB7XG4gICAgICBjb25zdCBuYW1lID0gZmlsZS5zdWJzdHJpbmcoZmlsZS5sYXN0SW5kZXhPZignLycpICsgMSk7XG4gICAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYERvd25sb2FkaW5nIHJlc291cmNlOiAke25hbWV9YDtcbiAgICAgIGNvbnN0IHJlc3BvbnNlID0gYXdhaXQgZmV0Y2goZmlsZSk7XG4gICAgICBpZiAoIXJlc3BvbnNlLm9rKSB7XG4gICAgICAgIHRocm93IG5ldyBFcnJvcihgQ2FuJ3QgZG93bmxvYWQgXFxgJHtmaWxlfVxcYC4gRXJyb3IgJHtyZXNwb25zZS5zdGF0dXN9OiBcIiR7cmVzcG9uc2Uuc3RhdHVzVGV4dH1cIi5gKTtcbiAgICAgIH1cbiAgICAgIGNvbnN0IGRhdGEgPSBhd2FpdCByZXNwb25zZS5hcnJheUJ1ZmZlcigpO1xuXG4gICAgICAvLyBTdG9yZSBVUkxzIGluIHRoZSBjd2Qgd2l0aG91dCBhbnkgc3ViZGlyZWN0b3J5IHN0cnVjdHVyZVxuICAgICAgaWYgKGZpbGUuaW5jbHVkZXMoXCI6Ly9cIikpIHtcbiAgICAgICAgZmlsZSA9IG5hbWU7XG4gICAgICB9XG5cbiAgICAgIC8vIENvbGxhcHNlIGhpZ2hlciBkaXJlY3Rvcnkgc3RydWN0dXJlXG4gICAgICBmaWxlID0gY29sbGFwc2VQYXRoKGZpbGUpO1xuXG4gICAgICAvLyBDcmVhdGUgZGlyZWN0b3J5IHRyZWUsIGlnbm9yaW5nIFwiZGlyZWN0b3J5IGV4aXN0c1wiIFZGUyBlcnJvcnNcbiAgICAgIGNvbnN0IHBhcnRzID0gZmlsZS5zcGxpdCgnLycpLnNsaWNlKDAsIC0xKTtcbiAgICAgIGxldCBwYXRoID0gJyc7XG4gICAgICB3aGlsZSAocGFydHMubGVuZ3RoID4gMCkge1xuICAgICAgICBwYXRoICs9IHBhcnRzLnNoaWZ0KCkgKyAnLyc7XG4gICAgICAgIGNvbnN0IGFuYWx5c2lzID0gYXdhaXQgd2ViUi5GUy5hbmFseXplUGF0aChwYXRoKTtcbiAgICAgICAgaWYgKCFhbmFseXNpcy5leGlzdHMpIHtcbiAgICAgICAgICB0cnkge1xuICAgICAgICAgICAgYXdhaXQgd2ViUi5GUy5ta2RpcihwYXRoKTtcbiAgICAgICAgICB9IGNhdGNoIChlKSB7XG4gICAgICAgICAgICB0aHJvdyBuZXcgRXJyb3IoYEZpbGVzeXN0ZW0gRXJyb3I6IFwiJHtlLm1lc3NhZ2V9XCIuYCk7XG4gICAgICAgICAgfVxuICAgICAgICB9XG4gICAgICB9XG5cbiAgICAgIC8vIFdyaXRlIHRoaXMgZmlsZSB0byB0aGUgVkZTXG4gICAgICByZXR1cm4gYXdhaXQgd2ViUi5GUy53cml0ZUZpbGUoZmlsZSwgbmV3IFVpbnQ4QXJyYXkoZGF0YSkpO1xuICAgIH0pLnJlZHVjZSgoY3VyLCBuZXh0KSA9PiBjdXIudGhlbihuZXh0KSwgUHJvbWlzZS5yZXNvbHZlKCkpO1xuXG4gICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBJbnN0YWxsaW5nIHdlYlIgc2hpbXNgO1xuICAgIGF3YWl0IHdlYlIuZXZhbFJWb2lkKGB3ZWJyOjpzaGltX2luc3RhbGwoKWApO1xuXG4gICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBXZWJSIGVudmlyb25tZW50IHNldHVwYDtcbiAgICBhd2FpdCBzZXR1cFIod2ViUiwgZGF0YSk7XG5cbiAgICBzdGF0dXNUZXh0LnJlbW92ZSgpO1xuICAgIGlmIChzdGF0dXNDb250YWluZXIuY2hpbGRyZW4ubGVuZ3RoID09IDApIHtcbiAgICAgIHN0YXR1c0NvbnRhaW5lci5wYXJlbnROb2RlLnJlbW92ZSgpO1xuICAgIH1cbiAgICByZXR1cm4gd2ViUjtcbiAgfSkobmV3IFdlYlIoZGF0YS5vcHRpb25zKSk7XG5cbiAgLy8gS2VlcCB0cmFjayBvZiBpbml0aWFsIE9KUyBibG9jayByZW5kZXJcbiAgY29uc3QgcmVuZGVyZWRPanMgPSB7fTtcblxuICBjb25zdCBwcm9jZXNzID0gYXN5bmMgKGNvbnRleHQsIGlucHV0cykgPT4ge1xuICAgIGNvbnN0IHdlYlIgPSBhd2FpdCB3ZWJSUHJvbWlzZTtcbiAgICBjb25zdCBldmFsdWF0b3IgPSBuZXcgV2ViUkV2YWx1YXRvcih3ZWJSLCBjb250ZXh0KVxuICAgIGF3YWl0IGV2YWx1YXRvci5wcm9jZXNzKGlucHV0cyk7XG4gICAgcmV0dXJuIGV2YWx1YXRvci5jb250YWluZXI7XG4gIH1cblxuICByZXR1cm4ge1xuICAgIHByb2Nlc3MsXG4gICAgd2ViUlByb21pc2UsXG4gICAgcmVuZGVyZWRPanMsXG4gIH07XG59XG4ifV19
+</script>
+<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
+<div id="exercise-loading-status" class="d-flex gap-2">
 
-</section>
+</div>
+<div class="spinner-grow spinner-grow-sm">
+
+</div>
+</div>
+<script type="vfs-file">
+W10=
+</script>
+
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Literatur</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
-<div id="ref-campbell1957" class="csl-entry" role="listitem">
-Campbell, D. T. (1957). <a href="https://doi.org/10.1037/h0040950"><span>Factors relevant to the validity of experiments in social settings</span></a>. <em>Psychological Bulletin</em>, <em>54</em>(4), 297–312.
+<div id="ref-cumming2014" class="csl-entry" role="listitem">
+Cumming, G. (2014). <a href="https://doi.org/10.1177/0956797613504966">The <span>New Statistics</span>: <span>Why</span> and <span>How</span></a>. <em>Psychological Science</em>, <em>25</em>(1), 7–29.
 </div>
-<div id="ref-doering2016" class="csl-entry" role="listitem">
-Döring, N., &amp; Bortz, J. (2016). <em><span>Forschungsmethoden und Evaluation in den Sozial- und Humanwissenschaften</span></em> (5., vollst). <span>Berlin, Heidelberg</span>: <span>Springer</span>.
+<div id="ref-field2014" class="csl-entry" role="listitem">
+Field, A. P., Miles, J., &amp; Field, Z. (2014). <em>Discovering statistics using <span>R</span></em>. London: Sage.
+</div>
+<div id="ref-gigerenzer2004" class="csl-entry" role="listitem">
+Gigerenzer, G. (2004). <a href="https://doi.org/10.1016/j.socec.2004.09.033">Mindless statistics</a>. <em>Journal of Socio-Economics</em>, <em>33</em>(5), 587–606.
+</div>
+<div id="ref-neyman1928use" class="csl-entry" role="listitem">
+Neyman, J., &amp; Pearson, E. S. (1928). On the use and interpretation of certain test criteria for purposes of statistical inference: <span>Part I</span>. <em>Biometrika</em>, 175–240.
 </div>
 </div></section></div></main> <!-- /main -->
 <script>
@@ -892,6 +1135,17 @@ window.onload = function() {
   update_total_correct();
 }
 
+</script>
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../..";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {

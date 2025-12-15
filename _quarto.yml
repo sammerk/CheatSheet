@@ -22,6 +22,7 @@ website:
       - Univariate Deskriptivstatistik.qmd
       - Einfache lineare Regression.qmd
       - Multiple lineare Regression.qmd
+      - Inferenzstatistik.qmd
 
 
 format:

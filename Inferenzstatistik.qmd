@@ -1,0 +1,173 @@
+---
+title: "Inferenz- und Deskriptivstatistik"
+format:
+  live-html:
+    css: 
+      - brand.css     
+      - exams/webex.css
+    include-after-body: exams/webex.js
+engine: knitr
+---
+
+{{< include _extensions/r-wasm/live/_knitr.qmd >}}
+
+
+Deskriptivstatistiken machen Aussagen über vorliegende Datensätze. Sie beschreiben also einen Datensatz und nichts darüber hinaus. Inferenzstatistiken machen dagegen Aussagen über (hypothetische) Mechanismen, die Daten erzeugen. Berechnet man z.B. den Mittelwert der Pinguinschnabellängen je Species im `palmerpenguinsdatensatz` so handelt es sich um eine deskriptive Statistik. Möchte man wissen, um wie viel sich die Schnabellänge **im Durchnitt** zwischen den Species (hypothetische Entität, Population) unterscheidet, handelt es sich um eine inferenzstatistische Fragestellung.
+
+::: callout-tip
+### Beispiele für Deskriptiv- und Inferenzstatistiken
+
+-   Deskriptivstatistiken
+    -   Median aller Massen von Pinguinen der Species Adelie im `palmerpenguins` Datensatz
+    -   Standardabweichung aller Körperlängen von Kalokokrebsen in einer Falle
+    -   Modus der Species in einem Datensatz von 200 Plazen
+-   Inferenzstatistiken
+    -   Zeigt eine Münze von 30 Würfen 16 mal Kopf, wie wahrscheinlich ist es dann, dass die Münze sehr klar gezinkt $\left(\theta > .55\right)$ ist?«
+    -   Geben von 100 zufällig ausgewählten Waldkindergartenkindern 73 und von 100 zufällig ausgewählten Nicht-Waldkidnergartenkindern 62 an, gerne mit Matsch zu spielen, wie sicher liegt dann ein Unterschied in der Zustimmung bei allen Kindergartenkindern vor
+    -   Zeigt sich in einer Stichprobe mit $N=124$ zwischen »Biodiversitätsbewusstsein« und »Biodiversitätswissen« ein standardisierter Regressionskoeffizient von $\beta = .48$ -- wie wahrscheinlich liegt dann in der Population nur einen kleiner Effekt $\beta < .1$ vor?
+:::
+
+## Parameterschätzung vs. Hypothesentestung
+
+Typischerweise wird bei der Inferenzstatistik zwischen *Parameterschätzung* und *Hypothesentests* unterschieden. Beide Ansätze können sowohl im Rahmen der frequentistischen als auch der bayesianischen Statistik durchgeführt werden. Mit Abstand am bekanntesten sind dabei die frequentistischen Hypothesentests mit *p*-Werten obwohl diese als sehr fehleranfällig in der Interpretation gelten [@gigerenzer2004].
+
+|   | Frequentistische<br>Statistik | Bayesianische<br>Statistik |
+|----------------------|:---------------------:|:-------------------------:|
+| Parameterschätzung | Konfidenzintervalle | Posterior Distributions |
+| Hypothesentest | p-Werte | Bayes Faktoren |
+
+<br>
+
+> (Inferenzstatistische) *Schätzung* (estimation with quantified uncertainty) trifft anhand von Stichproben Aussagen über Parameter der Grundgesamtheit (Population) aus der die Stichprobe gezogen wurde.
+
+> (Inferenzstatistische) *Hypothesentests* bewerten anhand von Stichprobendaten die Gültigkeit von Hypothesen in der Grundgesamtheit (Population) aus der die Stichprobe gezogen wurde.
+
+## Hypothesentests mit *p*-Werten
+Für das inferenzstatistische Hypothesentesten wird in der Regel ein Framework von Neyman & Pearson angewendet, das auf der Formulierung von zwei konkurrierenden Hypothesen (Nullhypothese und Alternativhypothese) basiert, dann anhand von Daten einen p-Wert berechnet und schließlich eine Entscheidung zwischen den beiden Hypothesen trifft [@neyman1928use].
+Der *p*-Wert ist dabei wie folgt definiert:
+
+$$\text{p-Wert}= P\left(\text{vorl. o. extremer gegen }H_0\text{ sprechende Daten} | H_0 \text{ist wahr}\right)$$
+
+Das bedeutet, dass der *p*-Wert die Wahrscheinlichkeit der vorliegenden Daten angibt, unter der Annahme, dass die Nullhypothese wahr ist. Fällt dieser p-Wert unter ein vorher festgelegtes Signifikanzlevel (z.B. $\alpha = .05$), wird die Nullhypothese zugunsten der Alternativhypothese verworfen. 
+
+Natürlich können auch mit dieser Prozedur Fehler gemacht werden. So kann es passieren, dass die Nullhypothese verworfen wird obwohl sie wahr ist (False Positve, Fehler 1. Art, $\alpha$-Fehler) oder dass die Nullhypothese beibehalten wird obwohl die Alternativhypothese wahr ist (False Negative, Fehler 2. Art, $\beta$-Fehler).
+
+|  | $H_0$ wird beibehalten | $H_0$ wird verworfen |
+|---|:---:|:---:|
+| **$H_0$ ist wahr** | ✓ Korrekte Entscheidung | ✗ Fehler 1. Art<br>($\alpha$-Fehler, False Positive) |
+| **$H_1$ ist wahr** | ✗ Fehler 2. Art<br>($\beta$-Fehler, False Negative) | ✓ Korrekte Entscheidung<br>(Power = $1-\beta$) |
+
+<br>
+
+::: callout-tip
+### Beispiel: Hypothesentest mit p-Wert
+Interessiert sich beispielweise eine Umweltpolitikerin dafür ob es in Deutschland eine Mehrheit für ein Tempolimit von 120 km/h auf Autobahnen gibt, könnte sie alle Bürger:innen befragen und eine Deskriptivstatistik berechnen oder eine STichpribe ziehen und den folgenden Hypothesentest durchführen:
+
+* Hypothesen 
+    * Nullhypothese: *Der Anteil der Befürworter:innen eines Tempolimits von 120 km/h ≥ 50%.*<br>
+    * Alternativhypothese: *Weniger als 50% der Population befürworten ein Tempolimit von 120 km/h.*
+
+Angenommen sie erhält die folgenden Daten aus einer Umfrage mit 4 zufällig ausgewählten Personen:
+
+* Daten: 
+    * 1 für Tempolimit ✓
+    * 3 gegen Tempolimit ✗
+
+Dann kann der *p*-Wert berechnet werden, also die Wahrscheinlichkeit, dass unter der Annahme der Nullhypothese (Anteil der Befürworter:innen ≤ 50%) in einer Stichprobe von 4 Personen mindestens 3 Befürworter:innen auftreten:
+
+```{mermaid}
+%%{init: {
+  "flowchart": {
+    "nodeSpacing": 20,
+    "rankSpacing": 25
+  },
+  "themeVariables": {
+    "fontSize": "10px"
+  }
+}}%%
+
+flowchart LR
+  A([▶])
+
+  A -->|0.5| B([✓])
+  A -->|0.5| C([✗])
+
+  B -->|0.5| D([✓✓])
+  B -->|0.5| E([✓✗])
+  C -->|0.5| F([✗✓])
+  C -->|0.5| G([✗✗])
+
+  D -->|0.5| H([✓✓✓])
+  D -->|0.5| I([✓✓✗])
+  E -->|0.5| J([✓✗✓])
+  E -->|0.5| K([✓✗✗])
+  F -->|0.5| L([✗✓✓])
+  F -->|0.5| M([✗✓✗])
+  G -->|0.5| N([✗✗✓])
+  G -->|0.5| O([✗✗✗])
+
+  H -->|0.5| P([✓✓✓✓])
+  H -->|0.5| Q([✓✓✓✗])
+  I -->|0.5| R([✓✓✗✓])
+  I -->|0.5| S([✓✓✗✗])
+  J -->|0.5| T([✓✗✓✓])
+  J -->|0.5| U([✓✗✓✗])
+  K -->|0.5| V([✓✗✗✓])
+  K -->|0.5| W([✓✗✗✗])
+  L -->|0.5| X([✗✓✓✓])
+  L -->|0.5| Y([✗✓✓✗])
+  M -->|0.5| Z([✗✓✗✓])
+  M -->|0.5| AA([✗✓✗✗])
+  N -->|0.5| AB([✗✗✓✓])
+  N -->|0.5| AC([✗✗✓✗])
+  O -->|0.5| AD([✗✗✗✓])
+  O -->|0.5| AE([✗✗✗✗])
+
+  %% Farbdefinition für mindestens drei ✗
+  classDef manyNo fill:#d77d00,color:#000,stroke:#333;
+
+  class W,AA,AC,AD,AE manyNo
+
+
+```
+
+Die Wahrscheinlichkeit für die Daten (höchstens 1 Befürworter:in, ✓) gegeben die Nullhypothese $\left(\theta = .5\right)$ dabei $p = \color{#d77d00}{4} \cdot 0.5^4 = 0.25$
+
+
+Da der p-Wert von 0.25 größer als das Signifikanzlevel von 0.05 ist, ist das Ergebnis inkonklusiv, was bei einer so kleinen Stichprobe wenig überraschend ist.
+Im folgenden Codefenster kann der p-Wert auch mit R berechnet werden. Dazu kann man die Funktion `binom.test()` verwenden, die einen binomialen Hypothesentest durchführt. Sie hat die Argumente `x` (Anzahl der Erfolge, hier Befürworter:innen), `n` (Anzahl der Versuche, hier Befragte), `p`(hypothetische Quote) und `alternative` (Form der Alternativhypothese) mit den Optionen `less`, `greater` und `two.sided`.
+
+1) Prüfen Sie, ob auch Sie so auch auf einen p-Wert von 0.25 kommen.
+2) Suchen sie Zahlenbeispiele die zu einem *signifikanten* Ergebnis führen $\left(p < \alpha \right)$.
+
+```{webr}
+#| exercise: binomtest
+binom.test(x = 1, n = 4, alternative = "less")
+```
+
+::: { .hint exercise="binomtest"}
+Signifikant heisst ja, dass der p-Wert kleiner als 0.05 ist. Da unsere Nullhypothese ja *Der Anteil der Befürworter:innen eines Tempolimits von 120 km/h ≥ 50%* lautet brauchen wir also Daten die stark gegen diese Hypothese sprechen. 
+:::
+
+::: { .solution exercise="binomtest"}
+`binom.test(x = 1, n = 4321, alternative = "less")`
+:::
+
+:::
+
+Je nachdem, welche Hypothesen, mit welcher Art von Daten formuliert werden, muss der *p*-Wert unterschiedlich berechnet werden, was in den meisten Fällen über spezialisierte statistische Tests geschieht (z.B. t-Test, ANOVA, Chi-Quadrat-Test, etc.) deren mathematische Grundlagen recht komplex sind.
+Die grundlegende Idee bleibt dabei aber immer gleich: Es wird eine Nullhypothese formuliert, die Wahrscheinlichkeit der vorliegenden Daten unter der Annahme der Nullhypothese berechnet und dann eine Entscheidung über die Gültigkeit der Nullhypothese getroffen.
+Übersichten, welche Tests für welche Daten und Hypothesen zur berechnugn von p-Werten geeignet sind, finden sich in vielen Statistikbüchern und Online-Ressourcen [z.B. @field2014].
+
+## Parameterschätzung mit Konfidenzintervallen
+Leider werden Hypothesentest mit p-Werten oft in einer recht wenig informativen Art und Weise eingesetzt: So wird oft nur berichtet, ob ein Ergebnis »signifikant« ist oder nicht, ohne dass die tatsächliche Größe des Effekts oder die Unsicherheit der Schätzung berücksichtigt wird. Dies kann zu Fehlinterpretationen und falschen Schlussfolgerungen führen [@cumming2014].
+Eine Alternative zu Hypothesentests mit p-Werten ist die Parameterschätzung mit Konfidenzintervallen. Anstatt mit dem p-Wert die Wahrscheinlichkeit der Daten unter der Nullhypothese auszudrücken, wird mit Konfidenzintervallen die Unsicherheit der Schätzung eines Parameters von Interesse (z.B. Quote, Mittelwert, Regressionskoeffizient) angegeben. 
+Führt man etwa den binomialen Test aus dem obigen Beispiel durch,
+```{r}
+binom.test(x = 1, n = 4, conf.level = 0.95)
+```
+so erhält man auch Auskunft, dass das Konfidenzintervall für die Quote der Befürworter:innen von 0.0000 bis 0.6410 reicht. Das bedeutet allerdings nicht, dass wir mit 95%iger Sicherheit sagen können, dass der wahre Anteil der Befürworter:innen in der Population irgendwo zwischen 0% und 64.1% liegt. Vielmehr bedeutet es, dass wenn wir unendlich viele Stichproben ziehen und für jede Stichprobe ein 95%-Konfidenzintervall berechnen würden, dann würden 95% dieser Intervalle den wahren Populationsparameter enthalten wie die folgende Animation veranschaulicht.
+
+```{=html}
+<iframe width="100%" height="900" src="ci_visualization.html" title="KI Visualisierung" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+```
