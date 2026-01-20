@@ -1,0 +1,194 @@
+---
+title: "Fallbeispiel 1 - Trendstudie"
+format:
+  live-html:
+    css: 
+      - brand.css     
+      - exams/webex.css
+    include-after-body: exams/webex.js
+engine: knitr
+lightbox: true
+---
+
+{{< include _extensions/r-wasm/live/_knitr.qmd >}}
+
+```{r}
+#| echo: false
+#| results: hide
+#| warning: false
+#| message: false
+library(tidyverse)
+library(haven)
+read_spss("ISSP_cumulation_1-4.sav") %>% 
+    select(year, country, v33, v34) %>% 
+    write_csv(file = "ISSP_cumulation_1-4.csv")
+```
+
+Eine Forscherin stellt sich die Frage, ob es im Laufe der Jahre zu erhöhtem Wissen zu Mechanismen des Treibhauseffekts und stellt daher einer Repräsentativen Stichprobe in den Jahren 1993, 2000, 2010, 2020 die beiden Fragen 
+
+1) *Every time we use coal or oil or gas, we contribute to climate change* (Variable `v34`)
+2) *The greenhouse effect is caused by a hole in the earth's atmosphere* (Variable `v33`)
+
+auf die die Proband:innen jeweils mit 
+
+* 1 = Definitely true
+* 2 = Probably true
+* 3 = Probably not true
+* 4 = Definitely not true
+
+antworten können.
+
+## Erkenntnisinteresse
+::: {.callout-caution}
+## Frage
+Hat diese Studie ein deskriptives, exploratives oder explanatives Interesse? Inwiefern kommt daher der internen, externen und Konstruktvalidität besondere Bedeutung zu?
+:::
+
+
+## Messtheorie
+
+### Gütekriterien
+Wiederholen Sie für sich die Definition von Objektivität, Reliabilität und Konstruktvalidität und diskutieren Sie
+
+* wie Sie diese Gütekriterien (der Messung) im vorliegenden Fallbeispiel wie ausgeprägt sehen
+* welche Maßnahmen zur Verbesserung der Gütekriterien in zukünftigen Studien ergriffen werden könnten
+* wie Sie Evidenz für die Konstruktvalidität der verwendeten Messinstrumente gewinnen könnten
+
+::: {.callout-info collapse="true"}
+### Visualisierung und Schätzung der Kovariation der beiden Items
+```{r}
+library(ggplot2)
+library(dplyr)
+library(skimr)
+
+# Import the data
+data_issp <-
+  read_csv(
+    paste0(
+      "https://raw.githubusercontent.com/",
+      "sammerk/",
+      "CheatSheet/",
+      "master/",
+      "ISSP_cumulation_1-4.csv"
+    )
+  )
+
+# Check data structure
+skim(data_issp)
+
+# Jitter plot of v33 and v34 by year
+data_issp %>%
+  filter(country == 276 & year == 2010) %>%
+  ggplot(aes(x = v34, y = v33)) +
+  geom_jitter() +
+  theme_minimal()
+```
+
+:::
+
+### Indexbildung
+Die Forscherin entscheidet sich einen neuen Index zu bilden, der diejenigen gleich 1 kodiert, die in beiden Fragen die richtige Antworttendenz gegeben haben.
+
+```{r}
+data_issp <-
+  data_issp %>%
+  mutate(
+    knowledge_index = ifelse(
+      (v33 == 3 | v33 == 4) & (v34 == 1 | v34 == 2),
+      1,
+      0
+    )
+  )
+```
+
+
+## Deskription über die Jahre
+
+### Plot der Verteilungen
+Um einen ersten Überblick über die Entwicklung des Wissensstands zu erhalten, plottet die Forscherin zunächst die Verteilung der einzelnen Items und des `knowledge_index` über die Jahre hinweg.
+
+```{r}
+#| out-width: 36%
+# With missings
+data_issp %>% 
+    ggplot(aes(x = year, fill = factor(knowledge_index))) +
+    geom_bar(position = "fill") +
+    labs(x = "Year", y = "Proportion", fill = "Knowledge Index") +
+    theme_minimal()
+
+data_issp %>% 
+    ggplot(aes(x = year, fill = factor(v33))) +
+    geom_bar(position = "fill") +
+    labs(x = "Year", y = "Proportion", fill = "v33") +
+    theme_minimal()
+
+data_issp %>% 
+    ggplot(aes(x = year, fill = factor(v34))) +
+    geom_bar(position = "fill") +
+    labs(x = "Year", y = "Proportion", fill = "v34") +
+    theme_minimal()
+
+# Without misings
+data_issp %>%
+    select(year, knowledge_index) %>% 
+    na.omit() %>% 
+    ggplot(aes(x = year, fill = factor(knowledge_index))) +
+    geom_bar(position = "fill") +
+    labs(x = "Year", y = "Proportion", fill = "Knowledge Index") +
+    theme_minimal()
+
+data_issp %>%
+    select(year, v33) %>% 
+    na.omit() %>% 
+    ggplot(aes(x = year, fill = factor(v33))) +
+    geom_bar(position = "fill") +
+    labs(x = "Year", y = "Proportion", fill = "v33") +
+    theme_minimal()
+
+data_issp %>%
+    select(year, v34) %>% 
+    na.omit() %>% 
+    ggplot(aes(x = year, fill = factor(v34))) +
+    geom_bar(position = "fill") +
+    labs(x = "Year", y = "Proportion", fill = "v34") +
+    theme_minimal()
+```
+
+### (Explorativer) Vergleich der Jahre 2000 und 2010
+In den obigen Plots *entdeckt* die Forscherin eines besonders starke Veränderung zwischen der 200er und der 2010er Kohorte, weshalb sie diesen Unterschied genauer untersuchen möchte
+
+#### Effektstärke
+Da die Variablen ordinales Skalenniveaus aufweisen bzw. dichotom sind verwendet die Forscherin Vragha & Delaney's A [-@vargha2000] als Effektstärkemaß. Dieses Maß vergleicht jeden Datenpunkt asu dem Jahr 2000 (z.B. $v33_i^{2000}$) mit jedem Datenpunkt aus 2010 (z.B. $v33_i^{2010}$) und zählt wie oft sich gleiche Werte zeigen und wie oft der Datenpunkt aus 2010 größer bzw. ist als der aus 2000.
+Die Häufigkeiten setzt er dann wie folgt ins Verhältnis:
+
+$$
+A = \frac{\text{Anzahl 2010 überlegen} + 0.5 \cdot \text{Anzahl unentscheiden}}{\text{Anzahl alle Vergleiche}}
+$$
+
+Dementsprechend ist A = 0.5 bei einem Nulleffekt (kein Unterschied zwischen den Gruppen).
+```{r}
+library(effsize)
+VD.A(
+  v33 ~ as.factor(year),
+  data = data_issp %>% filter(year %in% c(2000, 2010))
+)
+VD.A(
+  v34 ~ as.factor(year),
+  data = data_issp %>% filter(year %in% c(2000, 2010))
+)
+VD.A(
+  knowledge_index ~ as.factor(year),
+  data = data_issp %>% filter(year %in% c(2000, 2010))
+)
+```
+
+#### Inferenzstatistik
+Da die Unterschiede sehr marginal erscheinen, stellt sich die Frage, inwiefern diese nur zufällige Schwankungen durch die Stichrobenziehung sind oder ob es doch naheliegt anzunehmen, dass auch in der Population eine Veränderung vorliegt. Diese Frage kann mit einem Nullhypothesensignifikanztest nachgegangen werden.
+Da die Daten eher als ordinal angenommen werden sollten, macht es Sinn den Wilcoxon Test zu verwenden.
+
+```{r}
+wilcox.test(v33 ~ year, data = data_issp %>% filter(year %in% c(2000, 2010)))
+wilcox.test(v34 ~ year, data = data_issp %>% filter(year %in% c(2000, 2010)))
+wilcox.test(knowledge_index ~ year, data = data_issp %>% filter(year %in% c(2000, 2010)))
+```
+

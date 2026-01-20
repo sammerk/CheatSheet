@@ -30,147 +30,43 @@
     ]
   },
   {
-    "objectID": "exams/tempfile.html",
-    "href": "exams/tempfile.html",
-    "title": "Question",
+    "objectID": "Methodologie.html",
+    "href": "Methodologie.html",
+    "title": "Methodologie",
     "section": "",
-    "text": "Gegeben sei die ordinale Variable mit folgenden Ausprägungen: Y = (80, 41, 65, 87, 28, 2).\nWelchen Wert hat der Median von Y?\n\n\n\n80\n87\n65\n53\n41\n28"
+    "text": "Jede statistische Modellierung gewinnt an Aussagekraft, je umfassender sie die inhaltliche Fragestellung abzubilden im Stande ist. Um aus der riesigen Fülle an Optionen geeignet und zielgerichtet auswählen zu können sind die folgenden Unterscheidungen oft sehr hilfreich.",
+    "crumbs": [
+      "Methodologie"
+    ]
   },
   {
-    "objectID": "exams/tempfile.html#answerlist",
-    "href": "exams/tempfile.html#answerlist",
-    "title": "Question",
+    "objectID": "Methodologie.html#methodology-the-science-before-statistics",
+    "href": "Methodologie.html#methodology-the-science-before-statistics",
+    "title": "Methodologie",
     "section": "",
-    "text": "80\n87\n65\n53\n41\n28"
-  },
-  {
-    "objectID": "Inferenzstatistik.html",
-    "href": "Inferenzstatistik.html",
-    "title": "Inferenz- und Deskriptivstatistik",
-    "section": "",
-    "text": "Deskriptivstatistiken machen Aussagen über vorliegende Datensätze. Sie beschreiben also einen Datensatz und nichts darüber hinaus. Inferenzstatistiken machen dagegen Aussagen über (hypothetische) Mechanismen, die Daten erzeugen. Berechnet man z.B. den Mittelwert der Pinguinschnabellängen je Species im palmerpenguins Datensatz so handelt es sich um eine deskriptive Statistik. Möchte man wissen, um wie viel sich die Schnabellänge im Durchschnitt zwischen den Species (hypothetische Entität, Population) unterscheidet, handelt es sich um eine inferenzstatistische Fragestellung.",
+    "text": "Jede statistische Modellierung gewinnt an Aussagekraft, je umfassender sie die inhaltliche Fragestellung abzubilden im Stande ist. Um aus der riesigen Fülle an Optionen geeignet und zielgerichtet auswählen zu können sind die folgenden Unterscheidungen oft sehr hilfreich.",
     "crumbs": [
-      "Inferenz- und Deskriptivstatistik"
+      "Methodologie"
     ]
   },
   {
-    "objectID": "Inferenzstatistik.html#parameterschätzung-vs.-hypothesentestung",
-    "href": "Inferenzstatistik.html#parameterschätzung-vs.-hypothesentestung",
-    "title": "Inferenz- und Deskriptivstatistik",
-    "section": "Parameterschätzung vs. Hypothesentestung",
-    "text": "Parameterschätzung vs. Hypothesentestung\nTypischerweise wird bei der Inferenzstatistik zwischen Parameterschätzung und Hypothesentests unterschieden. Beide Ansätze können sowohl im Rahmen der frequentistischen als auch der bayesianischen Statistik durchgeführt werden. Mit Abstand am bekanntesten sind dabei die frequentistischen Hypothesentests mit p-Werten obwohl diese als sehr fehleranfällig in der Interpretation gelten (Gigerenzer, 2004).\n\n\n\n\n\n\n\n\n\nFrequentistischeStatistik\nBayesianischeStatistik\n\n\n\n\nParameterschätzung\nKonfidenzintervalle\nPosterior Distributions\n\n\nHypothesentest\np-Werte\nBayes Faktoren\n\n\n\n\n\n(Inferenzstatistische) Schätzung (estimation with quantified uncertainty) trifft anhand von Stichproben Aussagen über Parameter der Grundgesamtheit (Population) aus der die Stichprobe gezogen wurde.\n\n\n(Inferenzstatistische) Hypothesentests bewerten anhand von Stichprobendaten die Gültigkeit von Hypothesen in der Grundgesamtheit (Population) aus der die Stichprobe gezogen wurde.",
+    "objectID": "Methodologie.html#erkenntnisinteressen",
+    "href": "Methodologie.html#erkenntnisinteressen",
+    "title": "Methodologie",
+    "section": "Erkenntnisinteressen",
+    "text": "Erkenntnisinteressen\nGanz grundlegend kann a priori das Erkenntnisinteresse von Studien in die folgenden vier Kategorien unterschieden werden:\n\n\nErkenntisinteressen nach (Döring & Bortz, 2016).\n\n\n\n\n\n\n\n\nDeskriptiv\nExplorativ\nExplanativ\nPrädiktiv\n\n\n\n\npopulationsbeschreibend\nhypothesengenerierend\nhypothesenprüfend\nDatenpunkte vorhersagend oder imputierend\n\n\nBei welchem Anteil 15-Jähriger in Deutschland handelt es sich um funktionale Analphabet:innen?\nWas sind potentielle Ursachen für genderbezogene Disparitäten im Analphabetismus?\nSind 15-jährige Jungen häufiger Analphabeten als 15-jährige Mädchen?\nMit welchen Variablen können Schüler:innen at risk erfolgreich identifiziert werden?",
     "crumbs": [
-      "Inferenz- und Deskriptivstatistik"
+      "Methodologie"
     ]
   },
   {
-    "objectID": "Inferenzstatistik.html#hypothesentests-mit-p-werten",
-    "href": "Inferenzstatistik.html#hypothesentests-mit-p-werten",
-    "title": "Inferenz- und Deskriptivstatistik",
-    "section": "Hypothesentests mit p-Werten",
-    "text": "Hypothesentests mit p-Werten\nFür das inferenzstatistische Hypothesentesten wird in der Regel ein Framework von Neyman & Pearson angewendet, das auf der Formulierung von zwei konkurrierenden Hypothesen (Nullhypothese und Alternativhypothese) basiert, dann anhand von Daten einen p-Wert berechnet und schließlich eine Entscheidung zwischen den beiden Hypothesen trifft (Neyman & Pearson, 1928). Der p-Wert ist dabei wie folgt definiert:\n\\[\\text{p-Wert}= P\\left(\\text{vorl. o. extremer gegen }H_0\\text{ sprechende Daten} | H_0 \\text{ist wahr}\\right)\\]\nDas bedeutet, dass der p-Wert die Wahrscheinlichkeit der vorliegenden Daten angibt, unter der Annahme, dass die Nullhypothese wahr ist. Fällt dieser p-Wert unter ein vorher festgelegtes Signifikanzlevel (z.B. \\(\\alpha = .05\\)), wird die Nullhypothese zugunsten der Alternativhypothese verworfen.\nNatürlich können auch mit dieser Prozedur Fehler gemacht werden. So kann es passieren, dass die Nullhypothese verworfen wird obwohl sie wahr ist (False Positve, Fehler 1. Art, \\(\\alpha\\)-Fehler) oder dass die Nullhypothese beibehalten wird obwohl die Alternativhypothese wahr ist (False Negative, Fehler 2. Art, \\(\\beta\\)-Fehler).\n\n\n\n\n\n\n\n\n\n\\(H_0\\) wird beibehalten\n\\(H_0\\) wird verworfen\n\n\n\n\n\\(H_0\\) ist wahr\n✓ Korrekte Entscheidung\n✗ Fehler 1. Art(\\(\\alpha\\)-Fehler, False Positive)\n\n\n\\(H_1\\) ist wahr\n✗ Fehler 2. Art(\\(\\beta\\)-Fehler, False Negative)\n✓ Korrekte Entscheidung(Power = \\(1-\\beta\\))\n\n\n\n\n\n\n\n\n\n\nTippBeispiel: Hypothesentest mit p-Wert\n\n\n\nInteressiert sich beispielsweise eine Umweltpolitikerin dafür, ob es in Deutschland eine Mehrheit für ein Tempolimit von 120 km/h auf Autobahnen gibt, könnte sie alle Bürger:innen befragen und eine Deskriptivstatistik berechnen oder eine Stichprobe ziehen und den folgenden Hypothesentest durchführen:\n\nHypothesen\n\nNullhypothese: Der Anteil von Befürworter:innen und Gegner:innen eines Tempolimits von 120 km/h ist gleich groß: \\(\\theta_{für} = \\theta_{gegen} = .5\\)\nAlternativhypothese: Es gibt eine Mehrheit für oder gegen das Tempolimit \\(\\theta_{für} \\neq \\theta_{gegen}\\)\n\n\nAngenommen sie erhält die folgenden Daten aus einer Umfrage mit 4 zufällig ausgewählten Personen:\n\nDaten:\n\n1 gegen Tempolimit ✗\n3 für Tempolimit ✓\n\n\nDann kann der p-Wert berechnet werden, also die Wahrscheinlichkeit, dass unter der Annahme der Nullhypothese (Anteil der Befürworter:innen = 50%) in einer Stichprobe von 4 Personen mindestens 3 Befürworter:innen auftreten:\n\n\n\n\n\n%%{init: {\n  \"flowchart\": {\n    \"nodeSpacing\": 20,\n    \"rankSpacing\": 25\n  },\n  \"themeVariables\": {\n    \"fontSize\": \"10px\"\n  }\n}}%%\n\nflowchart LR\n  A([▶])\n\n  A --&gt;|0.5| B([✓])\n  A --&gt;|0.5| C([✗])\n\n  B --&gt;|0.5| D([✓✓])\n  B --&gt;|0.5| E([✓✗])\n  C --&gt;|0.5| F([✗✓])\n  C --&gt;|0.5| G([✗✗])\n\n  D --&gt;|0.5| H([✓✓✓])\n  D --&gt;|0.5| I([✓✓✗])\n  E --&gt;|0.5| J([✓✗✓])\n  E --&gt;|0.5| K([✓✗✗])\n  F --&gt;|0.5| L([✗✓✓])\n  F --&gt;|0.5| M([✗✓✗])\n  G --&gt;|0.5| N([✗✗✓])\n  G --&gt;|0.5| O([✗✗✗])\n\n  H --&gt;|0.5| P([✓✓✓✓])\n  H --&gt;|0.5| Q([✓✓✓✗])\n  I --&gt;|0.5| R([✓✓✗✓])\n  I --&gt;|0.5| S([✓✓✗✗])\n  J --&gt;|0.5| T([✓✗✓✓])\n  J --&gt;|0.5| U([✓✗✓✗])\n  K --&gt;|0.5| V([✓✗✗✓])\n  K --&gt;|0.5| W([✓✗✗✗])\n  L --&gt;|0.5| X([✗✓✓✓])\n  L --&gt;|0.5| Y([✗✓✓✗])\n  M --&gt;|0.5| Z([✗✓✗✓])\n  M --&gt;|0.5| AA([✗✓✗✗])\n  N --&gt;|0.5| AB([✗✗✓✓])\n  N --&gt;|0.5| AC([✗✗✓✗])\n  O --&gt;|0.5| AD([✗✗✗✓])\n  O --&gt;|0.5| AE([✗✗✗✗])\n\n  %% Farbdefinition für mindestens drei ✗\n  classDef manyNo fill:#d77d00,color:#000,stroke:#333;\n\n  class P,Q,R,T,W,X,AA,AC,AD,AE manyNo\n\n\n\n\n\n\n\nDie Wahrscheinlichkeit für die Daten (höchstens 1 Befürworter:in, ✓) gegeben die Nullhypothese \\(\\left(\\theta = .5\\right)\\) beträgt dabei \\(p = \\color{#d77d00}{10} \\cdot 0.5^4 = 0.625\\)\nDa der p-Wert von 0.625 größer als das Signifikanzlevel von 0.05 ist, ist das Ergebnis inkonklusiv, was bei einer so kleinen Stichprobe wenig überraschend ist. Im folgenden Codefenster kann der p-Wert auch mit R berechnet werden. Dazu kann man die Funktion binom.test() verwenden, die einen binomialen Hypothesentest durchführt. Sie hat die Argumente x (Anzahl der Erfolge, hier Befürworter:innen), n (Anzahl der Versuche, hier Befragte), p (hypothetische Quote) und alternative (Form der Alternativhypothese) mit den Optionen less, greater (einseitige Tests) und two.sided (zweiseitiger Test).\n\nPrüfen Sie, ob auch Sie auf einen p-Wert von 0.625 kommen.\nSuchen Sie Zahlenbeispiele, die zu einem signifikanten Ergebnis führen \\(\\left(p &lt; \\alpha \\right)\\).\n\n\n\n\n\n\n\n\n\n\nSignifikant heißt ja, dass der p-Wert kleiner als 0.05 ist. Da unsere Nullhypothese ja Der Anteil der Befürworter:innen eines Tempolimits von 120 km/h ≥ 50% lautet, brauchen wir also Daten, die stark gegen diese Hypothese sprechen.\n\n\nbinom.test(x = 4000, n = 4321, alternative = \"two.sided\")\n\n\n\nJe nachdem, welche Hypothesen mit welcher Art von Daten formuliert werden, muss der p-Wert unterschiedlich berechnet werden, was in den meisten Fällen über spezialisierte statistische Tests geschieht (z.B. t-Test, ANOVA, Chi-Quadrat-Test, etc.), deren mathematische Grundlagen recht komplex sind. Die grundlegende Idee bleibt dabei aber immer gleich: Es wird eine Nullhypothese formuliert, die Wahrscheinlichkeit der vorliegenden Daten unter der Annahme der Nullhypothese berechnet und dann eine Entscheidung über die Gültigkeit der Nullhypothese getroffen. Übersichten, welche Tests für welche Daten und Hypothesen zur Berechnung von p-Werten geeignet sind, finden sich in vielen Statistikbüchern und Online-Ressourcen (z.B. Field, Miles, & Field, 2014).",
+    "objectID": "Methodologie.html#gütekriterien-wiss.-erkenntnis-nach-campbell1957",
+    "href": "Methodologie.html#gütekriterien-wiss.-erkenntnis-nach-campbell1957",
+    "title": "Methodologie",
+    "section": "Gütekriterien wiss. Erkenntnis nach Campbell (1957)",
+    "text": "Gütekriterien wiss. Erkenntnis nach Campbell (1957)\nFür ein erfolgreiches Studiendesign und die anschließende statistische Analyse ist es sehr wertvoll sich vorab über Schwerpunkte besonders gewünschter Aspekte wissenschaftlicher Güte Gedanken zu machen. Insbesondere über die Unterkriterien Methodischer Strenge:\n\nKonstruktvalidität (Inwiefern ist die Interpretation der Messwerte angemessen?)\nInterne Validität (Inwiefern sind Assoziationen von unabhängiger [beeinflussender] und abhängiger [beeinflusster] Variabler als kausale Effekte interpretierbar?)\nExterne Validität (Inwiefern können die Schlussfolgerungen der Studie verallgemeinert werden?)\nStatistische Validität (Wie robust und angemessen sind die verwendeten statistischen Verfahren?)\n\n\nSteigerung von interner und externer Validität\nZur Steigerung der internen Validität eignen sich insbesondere:\n\nDie Randomisierung der unabhängigen Variablen\nKontroll- und Vergleichsgruppen\nLängsschnittliche Designs\nStatistische Kontrolle von Störvariablen (z.B. Matching)\nDirekte Replikationen\nLaborstudien\n(Doppelte) Verblindung\nPräregistrerung\n\nZur Steigerung der externen Validität eignen sich insbesondere:\n\nZufallsstichproben aus der Zielpopulation\nGewichtungen\nKonzeptuelle Replikationen\nFeldstudien\nMetaanalysen",
     "crumbs": [
-      "Inferenz- und Deskriptivstatistik"
-    ]
-  },
-  {
-    "objectID": "Inferenzstatistik.html#parameterschätzung-mit-konfidenzintervallen",
-    "href": "Inferenzstatistik.html#parameterschätzung-mit-konfidenzintervallen",
-    "title": "Inferenz- und Deskriptivstatistik",
-    "section": "Parameterschätzung mit Konfidenzintervallen",
-    "text": "Parameterschätzung mit Konfidenzintervallen\nLeider werden Hypothesentest mit p-Werten oft in einer recht wenig informativen Art und Weise eingesetzt: So wird oft nur berichtet, ob ein Ergebnis »signifikant« ist oder nicht, ohne dass die tatsächliche Größe des Effekts oder die Unsicherheit der Schätzung berücksichtigt wird. Dies kann zu Fehlinterpretationen und falschen Schlussfolgerungen führen (Cumming, 2014). Eine Alternative zu Hypothesentests mit p-Werten ist die Parameterschätzung mit Konfidenzintervallen. Anstatt mit dem p-Wert die Wahrscheinlichkeit der Daten unter der Nullhypothese auszudrücken, wird mit Konfidenzintervallen die Unsicherheit der Schätzung eines Parameters von Interesse (z.B. Quote, Mittelwert, Regressionskoeffizient) angegeben. Führt man etwa den binomialen Test aus dem obigen Beispiel durch,\n\nbinom.test(x = 1, n = 4, conf.level = 0.95)\n\n\n    Exact binomial test\n\ndata:  1 and 4\nnumber of successes = 1, number of trials = 4, p-value = 0.625\nalternative hypothesis: true probability of success is not equal to 0.5\n95 percent confidence interval:\n 0.006309463 0.805879550\nsample estimates:\nprobability of success \n                  0.25 \n\n\nso erhält man auch Auskunft, dass das Konfidenzintervall für die Quote der Befürworter:innen von 0.0000 bis 0.6410 reicht. Das bedeutet allerdings nicht, dass wir mit 95%iger Sicherheit sagen können, dass der wahre Anteil der Befürworter:innen in der Population irgendwo zwischen 0% und 64.1% liegt. Vielmehr bedeutet es, dass wenn wir unendlich viele Stichproben ziehen und für jede Stichprobe ein 95%-Konfidenzintervall berechnen würden, dann würden 95% dieser Intervalle den wahren Populationsparameter enthalten wie die folgende Animation veranschaulicht.",
-    "crumbs": [
-      "Inferenz- und Deskriptivstatistik"
-    ]
-  },
-  {
-    "objectID": "Messtheorie.html",
-    "href": "Messtheorie.html",
-    "title": "Messtheorie",
-    "section": "",
-    "text": "Statistische Berechnungen haben unterschiedliche Voraussetzungen an die Interpretierbarkeit von numerisch enkodierten Variablen. So hat sich die Unterscheidung der folgenden Skalenniveaus (Döring & Bortz, 2016)etabliert:\n\nNominal skalierte Variablen: Dieses Variablenniveau liegt vor, wenn allein Gleichheit und Ungleichheit von Datenpunkiten unterschieden werden kann (z.B. Spezies, Sex, Nationalität).\nOrdinal skalierte Variablen: Dieses Variablenniveau liegt vor, wenn neben der Gleichheit zudem eine Ordnung in Datenpunkten generiert werden kann (z.B. Entwicklungsstadien, Schulabschlüsse).\nIntervallskalierte Variablen: Dieses Variablenniveau liegt vor, wenn neben der Gleichheit und der Ordnung von Datenpunkten zudem deren Abstand sinnvoll interpretiert werden kann (z.B. Temperatur, Gewicht).\n\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau",
-    "crumbs": [
-      "Messtheorie"
-    ]
-  },
-  {
-    "objectID": "Messtheorie.html#skalenniveaus",
-    "href": "Messtheorie.html#skalenniveaus",
-    "title": "Messtheorie",
-    "section": "",
-    "text": "Statistische Berechnungen haben unterschiedliche Voraussetzungen an die Interpretierbarkeit von numerisch enkodierten Variablen. So hat sich die Unterscheidung der folgenden Skalenniveaus (Döring & Bortz, 2016)etabliert:\n\nNominal skalierte Variablen: Dieses Variablenniveau liegt vor, wenn allein Gleichheit und Ungleichheit von Datenpunkiten unterschieden werden kann (z.B. Spezies, Sex, Nationalität).\nOrdinal skalierte Variablen: Dieses Variablenniveau liegt vor, wenn neben der Gleichheit zudem eine Ordnung in Datenpunkten generiert werden kann (z.B. Entwicklungsstadien, Schulabschlüsse).\nIntervallskalierte Variablen: Dieses Variablenniveau liegt vor, wenn neben der Gleichheit und der Ordnung von Datenpunkten zudem deren Abstand sinnvoll interpretiert werden kann (z.B. Temperatur, Gewicht).\n\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau",
-    "crumbs": [
-      "Messtheorie"
-    ]
-  },
-  {
-    "objectID": "Messtheorie.html#kausalrelationierung",
-    "href": "Messtheorie.html#kausalrelationierung",
-    "title": "Messtheorie",
-    "section": "Kausalrelationierung",
-    "text": "Kausalrelationierung\nJe nachdem ob eine Variable als Ursache, Wirkung oder beides in einem kausalen System angenommen wird erhalten sie in der Statistik unterschiedliche Bezeichnungen (Döring & Bortz, 2016):\n\nUnabhängige Variable (UV, independet variable): Variable, die als Ursache in einem kausalen System angenommen wird.\nAbhängige Variable (AV, dependet variable): Variable, die als Wirkung in einem kausalen System angenommen wird.\nMediatorvariable (MeV, mediator): Variable, die sowohl UV als auch AV darstellt.\nModeratorvariable (MoV, moderator): Variable, die einen Einfluss beeinflusst.\nStörvariable (UV, confounder): Variable, die sowohl UV als auch AV beeinflusst und somit eine Scheinkorrelation erzeugen kann.",
-    "crumbs": [
-      "Messtheorie"
-    ]
-  },
-  {
-    "objectID": "Einfache lineare Regression.html",
-    "href": "Einfache lineare Regression.html",
-    "title": "BiU Statistikvorlesung WiSe 2025-2026",
-    "section": "",
-    "text": "Ein lineares Modell beschreibt die Beziehung zwischen einer abhängigen Variable \\(y\\) und einer unabhängiger \\(x\\) Variablen.",
-    "crumbs": [
-      "Geometrische Repräsentation"
-    ]
-  },
-  {
-    "objectID": "Einfache lineare Regression.html#geometrische-repräsentation",
-    "href": "Einfache lineare Regression.html#geometrische-repräsentation",
-    "title": "BiU Statistikvorlesung WiSe 2025-2026",
-    "section": "Geometrische Repräsentation",
-    "text": "Geometrische Repräsentation\nOftmals wird die lineare Regression zunächst geometrisch eingeführt:",
-    "crumbs": [
-      "Geometrische Repräsentation"
-    ]
-  },
-  {
-    "objectID": "Einfache lineare Regression.html#algebraische-notation",
-    "href": "Einfache lineare Regression.html#algebraische-notation",
-    "title": "BiU Statistikvorlesung WiSe 2025-2026",
-    "section": "Algebraische Notation",
-    "text": "Algebraische Notation\nMan kann die einfache lineare Regression auch algebraisch darstellen. In der einfachsten Form wird die abhängige Variable Pro-Environmental Behaviour durch eine unabhängige Variable Climate Anxiety erklärt:\n\\[\\text{Pro-Environmental Behaviour}_i = b_0 + b_1 \\cdot \\text{Climate Anxiety}_i + \\varepsilon_i\\]\nDabei kann dann b_0 als Achsenabschnitt und b_1 als Steigung der Regressionsgeraden interpretiert werden:\n\nb_0: Der erwartete Wert der Pro-Environmental Behaviour, wenn Climate Anxiety gleich 0 ist.\nb_1: Die erwartete Differenz in der Pro-Environmental Behaviour zweier gruppen, die sich in Climate Anxiety um eine Einheit unterscheiden",
-    "crumbs": [
-      "Geometrische Repräsentation"
-    ]
-  },
-  {
-    "objectID": "Einfache lineare Regression.html#stochastische-notation",
-    "href": "Einfache lineare Regression.html#stochastische-notation",
-    "title": "BiU Statistikvorlesung WiSe 2025-2026",
-    "section": "Stochastische Notation",
-    "text": "Stochastische Notation\nWährend die sowohl die geometrische Repräsentation als auch die algebraische Notation das Modell mit seinen zu bestimmenden Parametern beschrieben, betont die stochastische Schreibweise den Prozess, durch den die Daten generiert werden\n\\[\\text{Pro-Environmental Behaviour} \\sim \\mathcal{N}\\left(b_0 + b_1 \\cdot \\text{Climate Anxiety}, \\sigma^2\\right)\\]\nIn der stochastischen Notation wird angenommen, dass die abhängige Variable Pro-Environmental Behaviour für jede Climate Anxiety-Subgruppe einer Normalverteilung folgt, die Variable als Gesamtes jedoch nicht unbedingt. Zudem ist in der Notation bereits die Annahme der Homoskedastizität (konstante Varianz enthalten: Die Streuung der der Pro-Environmental Behaviour-Werte ist für alle Climate Anxiety-Subgruppen gleich (\\(\\sigma^2\\)).",
-    "crumbs": [
-      "Geometrische Repräsentation"
-    ]
-  },
-  {
-    "objectID": "Einfache lineare Regression.html#standardisierte-regression",
-    "href": "Einfache lineare Regression.html#standardisierte-regression",
-    "title": "BiU Statistikvorlesung WiSe 2025-2026",
-    "section": "Standardisierte Regression",
-    "text": "Standardisierte Regression\nDie Steigung einer einfachen linearen regression hängt von der Maßeinheit der abhängigen udn unabhängigen Variable ab. Um diese Abhängigkeit zu eliminieren können sowohl die abhängige als auch die unabhängige Variable standardisiert werden. In der standardisierten Regression entspricht die Steigung b_1 dann der erwarteten Differenz in Standardabweichungen der abhängigen Variable, wenn sich die unabhängige Variable um eine Standardabweichung ändert. Das entspricht exakt der sogenannten Pearson-Korrelation \\(r\\), wie in dieser interaktiven Applikation verdeutlicht wird.",
-    "crumbs": [
-      "Geometrische Repräsentation"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "BiU Statistik im WiSe 2025/26",
-    "section": "",
-    "text": "Hallo 👋🏼\nIn diesem interaktiven E-Book finden Sie die Materialen für die Vorlesung »Biu Statistik« im Wintersemester 2025-2026.",
-    "crumbs": [
-      "BiU Statistik im WiSe 2025/26"
+      "Methodologie"
     ]
   },
   {
@@ -254,43 +150,187 @@
     ]
   },
   {
-    "objectID": "Methodologie.html",
-    "href": "Methodologie.html",
-    "title": "Methodologie",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "BiU Statistik im WiSe 2025/26",
     "section": "",
-    "text": "Jede statistische Modellierung gewinnt an Aussagekraft, je umfassender sie die inhaltliche Fragestellung abzubilden im Stande ist. Um aus der riesigen Fülle an Optionen geeignet und zielgerichtet auswählen zu können sind die folgenden Unterscheidungen oft sehr hilfreich.",
+    "text": "Hallo 👋🏼\nIn diesem interaktiven E-Book finden Sie die Materialen für die Vorlesung »Biu Statistik« im Wintersemester 2025-2026.",
     "crumbs": [
-      "Methodologie"
+      "BiU Statistik im WiSe 2025/26"
     ]
   },
   {
-    "objectID": "Methodologie.html#methodology-the-science-before-statistics",
-    "href": "Methodologie.html#methodology-the-science-before-statistics",
-    "title": "Methodologie",
+    "objectID": "Einfache lineare Regression.html",
+    "href": "Einfache lineare Regression.html",
+    "title": "BiU Statistikvorlesung WiSe 2025-2026",
     "section": "",
-    "text": "Jede statistische Modellierung gewinnt an Aussagekraft, je umfassender sie die inhaltliche Fragestellung abzubilden im Stande ist. Um aus der riesigen Fülle an Optionen geeignet und zielgerichtet auswählen zu können sind die folgenden Unterscheidungen oft sehr hilfreich.",
+    "text": "Ein lineares Modell beschreibt die Beziehung zwischen einer abhängigen Variable \\(y\\) und einer unabhängiger \\(x\\) Variablen.",
     "crumbs": [
-      "Methodologie"
+      "Geometrische Repräsentation"
     ]
   },
   {
-    "objectID": "Methodologie.html#erkenntnisinteressen",
-    "href": "Methodologie.html#erkenntnisinteressen",
-    "title": "Methodologie",
-    "section": "Erkenntnisinteressen",
-    "text": "Erkenntnisinteressen\nGanz grundlegend kann a priori das Erkenntnisinteresse von Studien in die folgenden vier Kategorien unterschieden werden:\n\n\nErkenntisinteressen nach (Döring & Bortz, 2016).\n\n\n\n\n\n\n\n\nDeskriptiv\nExplorativ\nExplanativ\nPrädiktiv\n\n\n\n\npopulationsbeschreibend\nhypothesengenerierend\nhypothesenprüfend\nDatenpunkte vorhersagend oder imputierend\n\n\nBei welchem Anteil 15-Jähriger in Deutschland handelt es sich um funktionale Analphabet:innen?\nWas sind potentielle Ursachen für genderbezogene Disparitäten im Analphabetismus?\nSind 15-jährige Jungen häufiger Analphabeten als 15-jährige Mädchen?\nMit welchen Variablen können Schüler:innen at risk erfolgreich identifiziert werden?",
+    "objectID": "Einfache lineare Regression.html#geometrische-repräsentation",
+    "href": "Einfache lineare Regression.html#geometrische-repräsentation",
+    "title": "BiU Statistikvorlesung WiSe 2025-2026",
+    "section": "Geometrische Repräsentation",
+    "text": "Geometrische Repräsentation\nOftmals wird die lineare Regression zunächst geometrisch eingeführt:",
     "crumbs": [
-      "Methodologie"
+      "Geometrische Repräsentation"
     ]
   },
   {
-    "objectID": "Methodologie.html#gütekriterien-wiss.-erkenntnis-nach-campbell1957",
-    "href": "Methodologie.html#gütekriterien-wiss.-erkenntnis-nach-campbell1957",
-    "title": "Methodologie",
-    "section": "Gütekriterien wiss. Erkenntnis nach Campbell (1957)",
-    "text": "Gütekriterien wiss. Erkenntnis nach Campbell (1957)\nFür ein erfolgreiches Studiendesign und die anschließende statistische Analyse ist es sehr wertvoll sich vorab über Schwerpunkte besonders gewünschter Aspekte wissenschaftlicher Güte Gedanken zu machen. Insbesondere über die Unterkriterien Methodischer Strenge:\n\nKonstruktvalidität (Inwiefern ist die Interpretation der Messwerte angemessen?)\nInterne Validität (Inwiefern sind Assoziationen von unabhängiger [beeinflussender] und abhängiger [beeinflusster] Variabler als kausale Effekte interpretierbar?)\nExterne Validität (Inwiefern können die Schlussfolgerungen der Studie verallgemeinert werden?)\nStatistische Validität (Wie robust und angemessen sind die verwendeten statistischen Verfahren?)\n\n\nSteigerung von interner und externer Validität\nZur Steigerung der internen Validität eignen sich insbesondere:\n\nDie Randomisierung der unabhängigen Variablen\nKontroll- und Vergleichsgruppen\nLängsschnittliche Designs\nStatistische Kontrolle von Störvariablen (z.B. Matching)\nDirekte Replikationen\nLaborstudien\n(Doppelte) Verblindung\nPräregistrerung\n\nZur Steigerung der externen Validität eignen sich insbesondere:\n\nZufallsstichproben aus der Zielpopulation\nGewichtungen\nKonzeptuelle Replikationen\nFeldstudien\nMetaanalysen",
+    "objectID": "Einfache lineare Regression.html#algebraische-notation",
+    "href": "Einfache lineare Regression.html#algebraische-notation",
+    "title": "BiU Statistikvorlesung WiSe 2025-2026",
+    "section": "Algebraische Notation",
+    "text": "Algebraische Notation\nMan kann die einfache lineare Regression auch algebraisch darstellen. In der einfachsten Form wird die abhängige Variable Pro-Environmental Behaviour durch eine unabhängige Variable Climate Anxiety erklärt:\n\\[\\text{Pro-Environmental Behaviour}_i = b_0 + b_1 \\cdot \\text{Climate Anxiety}_i + \\varepsilon_i\\]\nDabei kann dann b_0 als Achsenabschnitt und b_1 als Steigung der Regressionsgeraden interpretiert werden:\n\nb_0: Der erwartete Wert der Pro-Environmental Behaviour, wenn Climate Anxiety gleich 0 ist.\nb_1: Die erwartete Differenz in der Pro-Environmental Behaviour zweier gruppen, die sich in Climate Anxiety um eine Einheit unterscheiden",
     "crumbs": [
-      "Methodologie"
+      "Geometrische Repräsentation"
+    ]
+  },
+  {
+    "objectID": "Einfache lineare Regression.html#stochastische-notation",
+    "href": "Einfache lineare Regression.html#stochastische-notation",
+    "title": "BiU Statistikvorlesung WiSe 2025-2026",
+    "section": "Stochastische Notation",
+    "text": "Stochastische Notation\nWährend die sowohl die geometrische Repräsentation als auch die algebraische Notation das Modell mit seinen zu bestimmenden Parametern beschrieben, betont die stochastische Schreibweise den Prozess, durch den die Daten generiert werden\n\\[\\text{Pro-Environmental Behaviour} \\sim \\mathcal{N}\\left(b_0 + b_1 \\cdot \\text{Climate Anxiety}, \\sigma^2\\right)\\]\nIn der stochastischen Notation wird angenommen, dass die abhängige Variable Pro-Environmental Behaviour für jede Climate Anxiety-Subgruppe einer Normalverteilung folgt, die Variable als Gesamtes jedoch nicht unbedingt. Zudem ist in der Notation bereits die Annahme der Homoskedastizität (konstante Varianz enthalten: Die Streuung der der Pro-Environmental Behaviour-Werte ist für alle Climate Anxiety-Subgruppen gleich (\\(\\sigma^2\\)).",
+    "crumbs": [
+      "Geometrische Repräsentation"
+    ]
+  },
+  {
+    "objectID": "Einfache lineare Regression.html#standardisierte-regression",
+    "href": "Einfache lineare Regression.html#standardisierte-regression",
+    "title": "BiU Statistikvorlesung WiSe 2025-2026",
+    "section": "Standardisierte Regression",
+    "text": "Standardisierte Regression\nDie Steigung einer einfachen linearen regression hängt von der Maßeinheit der abhängigen udn unabhängigen Variable ab. Um diese Abhängigkeit zu eliminieren können sowohl die abhängige als auch die unabhängige Variable standardisiert werden. In der standardisierten Regression entspricht die Steigung b_1 dann der erwarteten Differenz in Standardabweichungen der abhängigen Variable, wenn sich die unabhängige Variable um eine Standardabweichung ändert. Das entspricht exakt der sogenannten Pearson-Korrelation \\(r\\), wie in dieser interaktiven Applikation verdeutlicht wird.",
+    "crumbs": [
+      "Geometrische Repräsentation"
+    ]
+  },
+  {
+    "objectID": "Messtheorie.html",
+    "href": "Messtheorie.html",
+    "title": "Messtheorie",
+    "section": "",
+    "text": "Statistische Berechnungen haben unterschiedliche Voraussetzungen an die Interpretierbarkeit von numerisch enkodierten Variablen. So hat sich die Unterscheidung der folgenden Skalenniveaus (Döring & Bortz, 2016)etabliert:\n\nNominal skalierte Variablen: Dieses Variablenniveau liegt vor, wenn allein Gleichheit und Ungleichheit von Datenpunkiten unterschieden werden kann (z.B. Spezies, Sex, Nationalität).\nOrdinal skalierte Variablen: Dieses Variablenniveau liegt vor, wenn neben der Gleichheit zudem eine Ordnung in Datenpunkten generiert werden kann (z.B. Entwicklungsstadien, Schulabschlüsse).\nIntervallskalierte Variablen: Dieses Variablenniveau liegt vor, wenn neben der Gleichheit und der Ordnung von Datenpunkten zudem deren Abstand sinnvoll interpretiert werden kann (z.B. Temperatur, Gewicht).\n\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau",
+    "crumbs": [
+      "Messtheorie"
+    ]
+  },
+  {
+    "objectID": "Messtheorie.html#skalenniveaus",
+    "href": "Messtheorie.html#skalenniveaus",
+    "title": "Messtheorie",
+    "section": "",
+    "text": "Statistische Berechnungen haben unterschiedliche Voraussetzungen an die Interpretierbarkeit von numerisch enkodierten Variablen. So hat sich die Unterscheidung der folgenden Skalenniveaus (Döring & Bortz, 2016)etabliert:\n\nNominal skalierte Variablen: Dieses Variablenniveau liegt vor, wenn allein Gleichheit und Ungleichheit von Datenpunkiten unterschieden werden kann (z.B. Spezies, Sex, Nationalität).\nOrdinal skalierte Variablen: Dieses Variablenniveau liegt vor, wenn neben der Gleichheit zudem eine Ordnung in Datenpunkten generiert werden kann (z.B. Entwicklungsstadien, Schulabschlüsse).\nIntervallskalierte Variablen: Dieses Variablenniveau liegt vor, wenn neben der Gleichheit und der Ordnung von Datenpunkten zudem deren Abstand sinnvoll interpretiert werden kann (z.B. Temperatur, Gewicht).\n\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau\n\n\n\n\n\nWelches Skalenniveau sollte der folgenden Variable sinnvollerweise zugeschrieben werden?\n\nReligionszugehörigkeit\n\n\nNominales SkalenniveauOrdinales SkalenniveauIntervallskaliertes Skalenniveau",
+    "crumbs": [
+      "Messtheorie"
+    ]
+  },
+  {
+    "objectID": "Messtheorie.html#kausalrelationierung",
+    "href": "Messtheorie.html#kausalrelationierung",
+    "title": "Messtheorie",
+    "section": "Kausalrelationierung",
+    "text": "Kausalrelationierung\nJe nachdem ob eine Variable als Ursache, Wirkung oder beides in einem kausalen System angenommen wird erhalten sie in der Statistik unterschiedliche Bezeichnungen (Döring & Bortz, 2016):\n\nUnabhängige Variable (UV, independet variable): Variable, die als Ursache in einem kausalen System angenommen wird.\nAbhängige Variable (AV, dependet variable): Variable, die als Wirkung in einem kausalen System angenommen wird.\nMediatorvariable (MeV, mediator): Variable, die sowohl UV als auch AV darstellt.\nModeratorvariable (MoV, moderator): Variable, die einen Einfluss beeinflusst.\nStörvariable (UV, confounder): Variable, die sowohl UV als auch AV beeinflusst und somit eine Scheinkorrelation erzeugen kann.",
+    "crumbs": [
+      "Messtheorie"
+    ]
+  },
+  {
+    "objectID": "Inferenzstatistik.html",
+    "href": "Inferenzstatistik.html",
+    "title": "Inferenz- und Deskriptivstatistik",
+    "section": "",
+    "text": "Deskriptivstatistiken machen Aussagen über vorliegende Datensätze. Sie beschreiben also einen Datensatz und nichts darüber hinaus. Inferenzstatistiken machen dagegen Aussagen über (hypothetische) Mechanismen, die Daten erzeugen. Berechnet man z.B. den Mittelwert der Pinguinschnabellängen je Species im palmerpenguins Datensatz so handelt es sich um eine deskriptive Statistik. Möchte man wissen, um wie viel sich die Schnabellänge im Durchschnitt zwischen den Species (hypothetische Entität, Population) unterscheidet, handelt es sich um eine inferenzstatistische Fragestellung.",
+    "crumbs": [
+      "Inferenz- und Deskriptivstatistik"
+    ]
+  },
+  {
+    "objectID": "Inferenzstatistik.html#parameterschätzung-vs.-hypothesentestung",
+    "href": "Inferenzstatistik.html#parameterschätzung-vs.-hypothesentestung",
+    "title": "Inferenz- und Deskriptivstatistik",
+    "section": "Parameterschätzung vs. Hypothesentestung",
+    "text": "Parameterschätzung vs. Hypothesentestung\nTypischerweise wird bei der Inferenzstatistik zwischen Parameterschätzung und Hypothesentests unterschieden. Beide Ansätze können sowohl im Rahmen der frequentistischen als auch der bayesianischen Statistik durchgeführt werden. Mit Abstand am bekanntesten sind dabei die frequentistischen Hypothesentests mit p-Werten obwohl diese als sehr fehleranfällig in der Interpretation gelten (Gigerenzer, 2004).\n\n\n\n\n\n\n\n\n\nFrequentistischeStatistik\nBayesianischeStatistik\n\n\n\n\nParameterschätzung\nKonfidenzintervalle\nPosterior Distributions\n\n\nHypothesentest\np-Werte\nBayes Faktoren\n\n\n\n\n\n(Inferenzstatistische) Schätzung (estimation with quantified uncertainty) trifft anhand von Stichproben Aussagen über Parameter der Grundgesamtheit (Population) aus der die Stichprobe gezogen wurde.\n\n\n(Inferenzstatistische) Hypothesentests bewerten anhand von Stichprobendaten die Gültigkeit von Hypothesen in der Grundgesamtheit (Population) aus der die Stichprobe gezogen wurde.",
+    "crumbs": [
+      "Inferenz- und Deskriptivstatistik"
+    ]
+  },
+  {
+    "objectID": "Inferenzstatistik.html#hypothesentests-mit-p-werten",
+    "href": "Inferenzstatistik.html#hypothesentests-mit-p-werten",
+    "title": "Inferenz- und Deskriptivstatistik",
+    "section": "Hypothesentests mit p-Werten",
+    "text": "Hypothesentests mit p-Werten\nFür das inferenzstatistische Hypothesentesten wird in der Regel ein Framework von Neyman & Pearson angewendet, das auf der Formulierung von zwei konkurrierenden Hypothesen (Nullhypothese und Alternativhypothese) basiert, dann anhand von Daten einen p-Wert berechnet und schließlich eine Entscheidung zwischen den beiden Hypothesen trifft (Neyman & Pearson, 1928). Der p-Wert ist dabei wie folgt definiert:\n\\[\\text{p-Wert}= P\\left(\\text{vorl. o. extremer gegen }H_0\\text{ sprechende Daten} | H_0 \\text{ist wahr}\\right)\\]\nDas bedeutet, dass der p-Wert die Wahrscheinlichkeit der vorliegenden Daten angibt, unter der Annahme, dass die Nullhypothese wahr ist. Fällt dieser p-Wert unter ein vorher festgelegtes Signifikanzlevel (z.B. \\(\\alpha = .05\\)), wird die Nullhypothese zugunsten der Alternativhypothese verworfen.\nNatürlich können auch mit dieser Prozedur Fehler gemacht werden. So kann es passieren, dass die Nullhypothese verworfen wird obwohl sie wahr ist (False Positive, Fehler 1. Art, \\(\\alpha\\)-Fehler) oder dass die Nullhypothese beibehalten wird obwohl die Alternativhypothese wahr ist (False Negative, Fehler 2. Art, \\(\\beta\\)-Fehler).\n\n\n\n\n\n\n\n\n\n\\(H_0\\) wird beibehalten\n\\(H_0\\) wird verworfen\n\n\n\n\n\\(H_0\\) ist wahr\n✓ Korrekte Entscheidung\n✗ Fehler 1. Art(\\(\\alpha\\)-Fehler, False Positive)\n\n\n\\(H_1\\) ist wahr\n✗ Fehler 2. Art(\\(\\beta\\)-Fehler, False Negative)\n✓ Korrekte Entscheidung(Power = \\(1-\\beta\\))\n\n\n\n\n\n\n\n\n\n\nTippBeispiel: Hypothesentest mit p-Wert\n\n\n\nInteressiert sich beispielsweise eine Umweltpolitikerin dafür, ob es in Deutschland eine Mehrheit für ein Tempolimit von 120 km/h auf Autobahnen gibt, könnte sie alle Bürger:innen befragen und eine Deskriptivstatistik berechnen oder eine Stichprobe ziehen und den folgenden Hypothesentest durchführen:\n\nHypothesen\n\nNullhypothese: Der Anteil von Befürworter:innen und Gegner:innen eines Tempolimits von 120 km/h ist gleich groß: \\(\\theta_{für} = \\theta_{gegen} = .5\\)\nAlternativhypothese: Es gibt eine Mehrheit für oder gegen das Tempolimit \\(\\theta_{für} \\neq \\theta_{gegen}\\)\n\n\nAngenommen sie erhält die folgenden Daten aus einer Umfrage mit 4 zufällig ausgewählten Personen:\n\nDaten:\n\n1 gegen Tempolimit ✗\n3 für Tempolimit ✓\n\n\nDann kann der p-Wert berechnet werden, also die Wahrscheinlichkeit, dass unter der Annahme der Nullhypothese (Anteil der Befürworter:innen = 50%) in einer Stichprobe von 4 Personen mindestens 3 Befürworter:innen auftreten:\n\n\n\n\n\n%%{init: {\n  \"flowchart\": {\n    \"nodeSpacing\": 20,\n    \"rankSpacing\": 25\n  },\n  \"themeVariables\": {\n    \"fontSize\": \"10px\"\n  }\n}}%%\n\nflowchart LR\n  A([▶])\n\n  A --&gt;|0.5| B([✓])\n  A --&gt;|0.5| C([✗])\n\n  B --&gt;|0.5| D([✓✓])\n  B --&gt;|0.5| E([✓✗])\n  C --&gt;|0.5| F([✗✓])\n  C --&gt;|0.5| G([✗✗])\n\n  D --&gt;|0.5| H([✓✓✓])\n  D --&gt;|0.5| I([✓✓✗])\n  E --&gt;|0.5| J([✓✗✓])\n  E --&gt;|0.5| K([✓✗✗])\n  F --&gt;|0.5| L([✗✓✓])\n  F --&gt;|0.5| M([✗✓✗])\n  G --&gt;|0.5| N([✗✗✓])\n  G --&gt;|0.5| O([✗✗✗])\n\n  H --&gt;|0.5| P([✓✓✓✓])\n  H --&gt;|0.5| Q([✓✓✓✗])\n  I --&gt;|0.5| R([✓✓✗✓])\n  I --&gt;|0.5| S([✓✓✗✗])\n  J --&gt;|0.5| T([✓✗✓✓])\n  J --&gt;|0.5| U([✓✗✓✗])\n  K --&gt;|0.5| V([✓✗✗✓])\n  K --&gt;|0.5| W([✓✗✗✗])\n  L --&gt;|0.5| X([✗✓✓✓])\n  L --&gt;|0.5| Y([✗✓✓✗])\n  M --&gt;|0.5| Z([✗✓✗✓])\n  M --&gt;|0.5| AA([✗✓✗✗])\n  N --&gt;|0.5| AB([✗✗✓✓])\n  N --&gt;|0.5| AC([✗✗✓✗])\n  O --&gt;|0.5| AD([✗✗✗✓])\n  O --&gt;|0.5| AE([✗✗✗✗])\n\n  %% Farbdefinition für mindestens drei ✗\n  classDef manyNo fill:#d77d00,color:#000,stroke:#333;\n\n  class P,Q,R,T,W,X,AA,AC,AD,AE manyNo\n\n\n\n\n\n\n\nDie Wahrscheinlichkeit für die Daten (höchstens 1 Befürworter:in, ✓) gegeben die Nullhypothese \\(\\left(\\theta = .5\\right)\\) beträgt dabei \\(p = \\color{#d77d00}{10} \\cdot 0.5^4 = 0.625\\)\nDa der p-Wert von 0.625 größer als das Signifikanzlevel von 0.05 ist, ist das Ergebnis inkonklusiv, was bei einer so kleinen Stichprobe wenig überraschend ist. Im folgenden Codefenster kann der p-Wert auch mit R berechnet werden. Dazu kann man die Funktion binom.test() verwenden, die einen binomialen Hypothesentest durchführt. Sie hat die Argumente x (Anzahl der Erfolge, hier Befürworter:innen), n (Anzahl der Versuche, hier Befragte), p (hypothetische Quote) und alternative (Form der Alternativhypothese) mit den Optionen less, greater (einseitige Tests) und two.sided (zweiseitiger Test).\n\nPrüfen Sie, ob auch Sie auf einen p-Wert von 0.625 kommen.\nSuchen Sie Zahlenbeispiele, die zu einem signifikanten Ergebnis führen \\(\\left(p &lt; \\alpha \\right)\\).\n\n\n\n\n\n\n\n\n\n\nSignifikant heißt ja, dass der p-Wert kleiner als 0.05 ist. Da unsere Nullhypothese ja Der Anteil der Befürworter:innen eines Tempolimits von 120 km/h ≥ 50% lautet, brauchen wir also Daten, die stark gegen diese Hypothese sprechen.\n\n\nbinom.test(x = 4000, n = 4321, alternative = \"two.sided\")\n\n\n\nJe nachdem, welche Hypothesen mit welcher Art von Daten formuliert werden, muss der p-Wert unterschiedlich berechnet werden, was in den meisten Fällen über spezialisierte statistische Tests geschieht (z.B. t-Test, ANOVA, Chi-Quadrat-Test, etc.), deren mathematische Grundlagen recht komplex sind. Die grundlegende Idee bleibt dabei aber immer gleich: Es wird eine Nullhypothese formuliert, die Wahrscheinlichkeit der vorliegenden Daten unter der Annahme der Nullhypothese berechnet und dann eine Entscheidung über die Gültigkeit der Nullhypothese getroffen. Übersichten, welche Tests für welche Daten und Hypothesen zur Berechnung von p-Werten geeignet sind, finden sich in vielen Statistikbüchern und Online-Ressourcen (z.B. Field, Miles, & Field, 2014).",
+    "crumbs": [
+      "Inferenz- und Deskriptivstatistik"
+    ]
+  },
+  {
+    "objectID": "Inferenzstatistik.html#parameterschätzung-mit-konfidenzintervallen",
+    "href": "Inferenzstatistik.html#parameterschätzung-mit-konfidenzintervallen",
+    "title": "Inferenz- und Deskriptivstatistik",
+    "section": "Parameterschätzung mit Konfidenzintervallen",
+    "text": "Parameterschätzung mit Konfidenzintervallen\nLeider werden Hypothesentest mit p-Werten oft in einer recht wenig informativen Art und Weise eingesetzt: So wird oft nur berichtet, ob ein Ergebnis »signifikant« ist oder nicht, ohne dass die tatsächliche Größe des Effekts oder die Unsicherheit der Schätzung berücksichtigt wird. Dies kann zu Fehlinterpretationen und falschen Schlussfolgerungen führen (Cumming, 2014). Eine Alternative zu Hypothesentests mit p-Werten ist die Parameterschätzung mit Konfidenzintervallen. Anstatt mit dem p-Wert die Wahrscheinlichkeit der Daten unter der Nullhypothese auszudrücken, wird mit Konfidenzintervallen die Unsicherheit der Schätzung eines Parameters von Interesse (z.B. Quote, Mittelwert, Regressionskoeffizient) angegeben. Führt man etwa den binomialen Test aus dem obigen Beispiel durch,\n\nbinom.test(x = 1, n = 4, conf.level = 0.95)\n\n\n    Exact binomial test\n\ndata:  1 and 4\nnumber of successes = 1, number of trials = 4, p-value = 0.625\nalternative hypothesis: true probability of success is not equal to 0.5\n95 percent confidence interval:\n 0.006309463 0.805879550\nsample estimates:\nprobability of success \n                  0.25 \n\n\nso erhält man auch Auskunft, dass das Konfidenzintervall für die Quote der Befürworter:innen von 0.0000 bis 0.6410 reicht. Das bedeutet allerdings nicht, dass wir mit 95%iger Sicherheit sagen können, dass der wahre Anteil der Befürworter:innen in der Population irgendwo zwischen 0% und 64.1% liegt. Vielmehr bedeutet es, dass wenn wir unendlich viele Stichproben ziehen und für jede Stichprobe ein 95%-Konfidenzintervall berechnen würden, dann würden 95% dieser Intervalle den wahren Populationsparameter enthalten wie die folgende Animation veranschaulicht.",
+    "crumbs": [
+      "Inferenz- und Deskriptivstatistik"
+    ]
+  },
+  {
+    "objectID": "exams/tempfile.html",
+    "href": "exams/tempfile.html",
+    "title": "Question",
+    "section": "",
+    "text": "Gegeben sei die ordinale Variable mit folgenden Ausprägungen: Y = (80, 41, 65, 87, 28, 2).\nWelchen Wert hat der Median von Y?\n\n\n\n80\n87\n65\n53\n41\n28"
+  },
+  {
+    "objectID": "exams/tempfile.html#answerlist",
+    "href": "exams/tempfile.html#answerlist",
+    "title": "Question",
+    "section": "",
+    "text": "80\n87\n65\n53\n41\n28"
+  },
+  {
+    "objectID": "Fallbeispiel 1 - Trendstudie.html",
+    "href": "Fallbeispiel 1 - Trendstudie.html",
+    "title": "Fallbeispiel 1 - Trendstudie",
+    "section": "",
+    "text": "Eine Forscherin stellt sich die Frage, ob es im Laufe der Jahre zu erhöhtem Wissen zu Mechanismen des Treibhauseffekts und stellt daher einer Repräsentativen Stichprobe in den Jahren 1993, 2000, 2010, 2020 die beiden Fragen\nauf die die Proband:innen jeweils mit\nantworten können.",
+    "crumbs": [
+      "Fallbeispiel 1 - Trendstudie"
+    ]
+  },
+  {
+    "objectID": "Fallbeispiel 1 - Trendstudie.html#erkenntnisinteresse",
+    "href": "Fallbeispiel 1 - Trendstudie.html#erkenntnisinteresse",
+    "title": "Fallbeispiel 1 - Trendstudie",
+    "section": "Erkenntnisinteresse",
+    "text": "Erkenntnisinteresse\n\n\n\n\n\n\nVorsichtFrage\n\n\n\nHat diese Studie ein deskriptives, exploratives oder explanatives Interesse? Inwiefern kommt daher der internen, externen und Konstruktvalidität besondere Bedeutung zu?",
+    "crumbs": [
+      "Fallbeispiel 1 - Trendstudie"
+    ]
+  },
+  {
+    "objectID": "Fallbeispiel 1 - Trendstudie.html#messtheorie",
+    "href": "Fallbeispiel 1 - Trendstudie.html#messtheorie",
+    "title": "Fallbeispiel 1 - Trendstudie",
+    "section": "Messtheorie",
+    "text": "Messtheorie\n\nGütekriterien\nWiederholen Sie für sich die Definition von Objektivität, Reliabilität und Konstruktvalidität und diskutieren Sie\n\nwie Sie diese Gütekriterien (der Messung) im vorliegenden Fallbeispiel wie ausgeprägt sehen\nwelche Maßnahmen zur Verbesserung der Gütekriterien in zukünftigen Studien ergriffen werden könnten\nwie Sie Evidenz für die Konstruktvalidität der verwendeten Messinstrumente gewinnen könnten\n\n\n\nVisualisierung und Schätzung der Kovariation der beiden Items\n\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(skimr)\n\n# Import the data\ndata_issp &lt;-\n  read_csv(\n    paste0(\n      \"https://raw.githubusercontent.com/\",\n      \"sammerk/\",\n      \"CheatSheet/\",\n      \"master/\",\n      \"ISSP_cumulation_1-4.csv\"\n    )\n  )\n\nRows: 142641 Columns: 4\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\ndbl (4): year, country, v33, v34\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n# Check data structure\nskim(data_issp)\n\n\nData summary\n\n\nName\ndata_issp\n\n\nNumber of rows\n142641\n\n\nNumber of columns\n4\n\n\n_______________________\n\n\n\nColumn type frequency:\n\n\n\nnumeric\n4\n\n\n________________________\n\n\n\nGroup variables\nNone\n\n\n\nVariable type: numeric\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\nn_missing\ncomplete_rate\nmean\nsd\np0\np25\np50\np75\np100\nhist\n\n\n\n\nyear\n0\n1.00\n2007.34\n9.78\n1993\n2000\n2010\n2020\n2020\n▅▆▁▇▆\n\n\ncountry\n0\n1.00\n1333.39\n8415.31\n36\n250\n484\n705\n82602\n▇▁▁▁▁\n\n\nv33\n73908\n0.48\n2.18\n0.98\n1\n1\n2\n3\n4\n▅▇▁▂▂\n\n\nv34\n70093\n0.51\n1.88\n0.78\n1\n1\n2\n2\n4\n▅▇▁▂▁\n\n\n\n\n# Jitter plot of v33 and v34 by year\ndata_issp %&gt;%\n  filter(country == 276 & year == 2010) %&gt;%\n  ggplot(aes(x = v34, y = v33)) +\n  geom_jitter() +\n  theme_minimal()\n\nWarning: Removed 320 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\nIndexbildung\nDie Forscherin entscheidet sich einen neuen Index zu bilden, der diejenigen gleich 1 kodiert, die in beiden Fragen die richtige Antworttendenz gegeben haben.\n\ndata_issp &lt;-\n  data_issp %&gt;%\n  mutate(\n    knowledge_index = ifelse(\n      (v33 == 3 | v33 == 4) & (v34 == 1 | v34 == 2),\n      1,\n      0\n    )\n  )",
+    "crumbs": [
+      "Fallbeispiel 1 - Trendstudie"
+    ]
+  },
+  {
+    "objectID": "Fallbeispiel 1 - Trendstudie.html#deskription-über-die-jahre",
+    "href": "Fallbeispiel 1 - Trendstudie.html#deskription-über-die-jahre",
+    "title": "Fallbeispiel 1 - Trendstudie",
+    "section": "Deskription über die Jahre",
+    "text": "Deskription über die Jahre\n\nPlot der Verteilungen\nUm einen ersten Überblick über die Entwicklung des Wissensstands zu erhalten, plottet die Forscherin zunächst die Verteilung der einzelnen Items und des knowledge_index über die Jahre hinweg.\n\n# With missings\ndata_issp %&gt;% \n    ggplot(aes(x = year, fill = factor(knowledge_index))) +\n    geom_bar(position = \"fill\") +\n    labs(x = \"Year\", y = \"Proportion\", fill = \"Knowledge Index\") +\n    theme_minimal()\n\n\n\n\n\n\n\ndata_issp %&gt;% \n    ggplot(aes(x = year, fill = factor(v33))) +\n    geom_bar(position = \"fill\") +\n    labs(x = \"Year\", y = \"Proportion\", fill = \"v33\") +\n    theme_minimal()\n\n\n\n\n\n\n\ndata_issp %&gt;% \n    ggplot(aes(x = year, fill = factor(v34))) +\n    geom_bar(position = \"fill\") +\n    labs(x = \"Year\", y = \"Proportion\", fill = \"v34\") +\n    theme_minimal()\n\n\n\n\n\n\n\n# Without misings\ndata_issp %&gt;%\n    select(year, knowledge_index) %&gt;% \n    na.omit() %&gt;% \n    ggplot(aes(x = year, fill = factor(knowledge_index))) +\n    geom_bar(position = \"fill\") +\n    labs(x = \"Year\", y = \"Proportion\", fill = \"Knowledge Index\") +\n    theme_minimal()\n\n\n\n\n\n\n\ndata_issp %&gt;%\n    select(year, v33) %&gt;% \n    na.omit() %&gt;% \n    ggplot(aes(x = year, fill = factor(v33))) +\n    geom_bar(position = \"fill\") +\n    labs(x = \"Year\", y = \"Proportion\", fill = \"v33\") +\n    theme_minimal()\n\n\n\n\n\n\n\ndata_issp %&gt;%\n    select(year, v34) %&gt;% \n    na.omit() %&gt;% \n    ggplot(aes(x = year, fill = factor(v34))) +\n    geom_bar(position = \"fill\") +\n    labs(x = \"Year\", y = \"Proportion\", fill = \"v34\") +\n    theme_minimal()\n\n\n\n\n\n\n\n\n\n\n(Explorativer) Vergleich der Jahre 2000 und 2010\nIn den obigen Plots entdeckt die Forscherin eines besonders starke Veränderung zwischen der 200er und der 2010er Kohorte, weshalb sie diesen Unterschied genauer untersuchen möchte\n\nEffektstärke\nDa die Variablen ordinales Skalenniveaus aufweisen bzw. dichotom sind verwendet die Forscherin Vragha & Delaney’s A (2000) als Effektstärkemaß. Dieses Maß vergleicht jeden Datenpunkt asu dem Jahr 2000 (z.B. \\(v33_i^{2000}\\)) mit jedem Datenpunkt aus 2010 (z.B. \\(v33_i^{2010}\\)) und zählt wie oft sich gleiche Werte zeigen und wie oft der Datenpunkt aus 2010 größer bzw. ist als der aus 2000. Die Häufigkeiten setzt er dann wie folgt ins Verhältnis:\n\\[\nA = \\frac{\\text{Anzahl 2010 überlegen} + 0.5 \\cdot \\text{Anzahl unentscheiden}}{\\text{Anzahl alle Vergleiche}}\n\\]\nDementsprechend ist A = 0.5 bei einem Nulleffekt (kein Unterschied zwischen den Gruppen).\n\nlibrary(effsize)\nVD.A(\n  v33 ~ as.factor(year),\n  data = data_issp %&gt;% filter(year %in% c(2000, 2010))\n)\n\n\nVargha and Delaney A\n\nA estimate: 0.455297 (negligible)\n\nVD.A(\n  v34 ~ as.factor(year),\n  data = data_issp %&gt;% filter(year %in% c(2000, 2010))\n)\n\n\nVargha and Delaney A\n\nA estimate: 0.4698992 (negligible)\n\nVD.A(\n  knowledge_index ~ as.factor(year),\n  data = data_issp %&gt;% filter(year %in% c(2000, 2010))\n)\n\n\nVargha and Delaney A\n\nA estimate: 0.4900147 (negligible)\n\n\n\n\nInferenzstatistik\nDa die Unterschiede sehr marginal erscheinen, stellt sich die Frage, inwiefern diese nur zufällige Schwankungen durch die Stichrobenziehung sind oder ob es doch naheliegt anzunehmen, dass auch in der Population eine Veränderung vorliegt. Diese Frage kann mit einem Nullhypothesensignifikanztest nachgegangen werden. Da die Daten eher als ordinal angenommen werden sollten, macht es Sinn den Wilcoxon Test zu verwenden.\n\nwilcox.test(v33 ~ year, data = data_issp %&gt;% filter(year %in% c(2000, 2010)))\n\n\n    Wilcoxon rank sum test with continuity correction\n\ndata:  v33 by year\nW = 250464048, p-value &lt; 2.2e-16\nalternative hypothesis: true location shift is not equal to 0\n\nwilcox.test(v34 ~ year, data = data_issp %&gt;% filter(year %in% c(2000, 2010)))\n\n\n    Wilcoxon rank sum test with continuity correction\n\ndata:  v34 by year\nW = 295722392, p-value &lt; 2.2e-16\nalternative hypothesis: true location shift is not equal to 0\n\nwilcox.test(knowledge_index ~ year, data = data_issp %&gt;% filter(year %in% c(2000, 2010)))\n\n\n    Wilcoxon rank sum test with continuity correction\n\ndata:  knowledge_index by year\nW = 274258366, p-value = 7.333e-08\nalternative hypothesis: true location shift is not equal to 0",
+    "crumbs": [
+      "Fallbeispiel 1 - Trendstudie"
     ]
   }
 ]

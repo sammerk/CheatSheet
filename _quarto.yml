@@ -23,6 +23,7 @@ website:
       - Einfache lineare Regression.qmd
       - Multiple lineare Regression.qmd
       - Inferenzstatistik.qmd
+      - Fallbeispiel 1 - Trendstudie.qmd
 
 
 format:
