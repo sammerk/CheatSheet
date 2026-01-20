@@ -55,8 +55,21 @@ Wiederholen Sie für sich die Definition von Objektivität, Reliabilität und Ko
 library(ggplot2)
 library(dplyr)
 
+# Import the data
+data_issp <- 
+    read_csv(
+        paste0("https://raw.githubusercontent.com/",
+            "sammerk/",
+            "CheatSheet/",
+            "master/",
+            "ISSP_cumulation_1-4.csv")
+    )
+
+    read_csv("https://raw.githubusercontent.com/sammerk/CheatSheet/master/ISSP_cumulation_1-4.csv")
+    )
 
 ```
+
 :::
 
 
