@@ -1,0 +1,62 @@
+---
+title: "Inferenz- und Deskriptivstatistik"
+format:
+  live-html:
+    css: 
+      - brand.css     
+      - exams/webex.css
+    include-after-body: exams/webex.js
+engine: knitr
+---
+
+{{< include _extensions/r-wasm/live/_knitr.qmd >}}
+
+```{r}
+#| echo: false
+#| results: hide
+library(tidyverse)
+library(haven)
+read_spss("ISSP_cumulation_1-4.sav") %>% 
+    select(year, country, v33, v34) %>% 
+    write_csv(file = "ISSP_cumulation_1-4.csv")
+```
+
+Eine Forscherin stellt sich die Frage, ob es im Laufe der Jahre zu erhöhtem Wissen zu Mechanismen des Treibhauseffekts und stellt daher einer Repräsentativen Stichprobe in den Jahren 1993, 2000, 2010, 2020 die beiden Fragen 
+
+1) `Every time we use coal or oil or gas, we contribute to climate change.` (Variable `v34`)
+2) `The greenhouse effect is caused by a hole in the earth's atmosphere` (Variable `v33`)
+
+auf die die Proband:innen jeweils mit 
+
+* 1 = Definitely true
+* 2 = Probably true
+* 3 = Probably not true
+* 4 = Definitely not true
+
+antworten können.
+
+## Erkenntnisinteresse
+::: {.callout-caution}
+Hat diese Studie ein deskriptives, exploratives oder explanatives Interesse? Inwiefern kommt daher der internen, externen und Konstruktvalidität besondere Bedeutung zu?
+:::
+
+
+## Messtheorie
+Wiederholen Sie für sich die Definition von Objektivität, Reliabilität und Konstruktvalidität und diskutieren Sie
+
+* wie Sie diese Gütekriterien (der Messung) im vorliegenden Fallbeispiel wie ausgeprägt sehen
+* welche Maßnahmen zur Verbesserung der Gütekriterien in zukünftigen Studien ergriffen werden könnten
+* wie Sie Evidenz für die Konstruktvalidität der verwendeten Messinstrumente gewinnen könnten
+
+::: {.callout-info collapse="true"}
+### Visualisierung und Schätzung der Kovariation der beiden Items
+
+```{r}
+library(ggplot2)
+library(dplyr)
+
+
+```
+:::
+
+

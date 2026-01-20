@@ -1,3 +1,4 @@
 /.quarto/
 **/*.quarto_ipynb
 .Rproj.user
+ISSP_cumulation_1-4.csv

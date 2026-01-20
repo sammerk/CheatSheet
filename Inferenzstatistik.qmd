@@ -12,19 +12,19 @@ engine: knitr
 {{< include _extensions/r-wasm/live/_knitr.qmd >}}
 
 
-Deskriptivstatistiken machen Aussagen über vorliegende Datensätze. Sie beschreiben also einen Datensatz und nichts darüber hinaus. Inferenzstatistiken machen dagegen Aussagen über (hypothetische) Mechanismen, die Daten erzeugen. Berechnet man z.B. den Mittelwert der Pinguinschnabellängen je Species im `palmerpenguinsdatensatz` so handelt es sich um eine deskriptive Statistik. Möchte man wissen, um wie viel sich die Schnabellänge **im Durchnitt** zwischen den Species (hypothetische Entität, Population) unterscheidet, handelt es sich um eine inferenzstatistische Fragestellung.
+Deskriptivstatistiken machen Aussagen über vorliegende Datensätze. Sie beschreiben also einen Datensatz und nichts darüber hinaus. Inferenzstatistiken machen dagegen Aussagen über (hypothetische) Mechanismen, die Daten erzeugen. Berechnet man z.B. den Mittelwert der Pinguinschnabellängen je Species im `palmerpenguins` Datensatz so handelt es sich um eine deskriptive Statistik. Möchte man wissen, um wie viel sich die Schnabellänge **im Durchschnitt** zwischen den Species (hypothetische Entität, Population) unterscheidet, handelt es sich um eine inferenzstatistische Fragestellung.
 
 ::: callout-tip
 ### Beispiele für Deskriptiv- und Inferenzstatistiken
 
 -   Deskriptivstatistiken
     -   Median aller Massen von Pinguinen der Species Adelie im `palmerpenguins` Datensatz
-    -   Standardabweichung aller Körperlängen von Kalokokrebsen in einer Falle
-    -   Modus der Species in einem Datensatz von 200 Plazen
+    -   Standardabweichung aller Körperlängen von Kalikokrebsen in einer Falle
+    -   Modus der Species in einem Datensatz von 200 Pflanzen
 -   Inferenzstatistiken
     -   Zeigt eine Münze von 30 Würfen 16 mal Kopf, wie wahrscheinlich ist es dann, dass die Münze sehr klar gezinkt $\left(\theta > .55\right)$ ist?«
-    -   Geben von 100 zufällig ausgewählten Waldkindergartenkindern 73 und von 100 zufällig ausgewählten Nicht-Waldkidnergartenkindern 62 an, gerne mit Matsch zu spielen, wie sicher liegt dann ein Unterschied in der Zustimmung bei allen Kindergartenkindern vor
-    -   Zeigt sich in einer Stichprobe mit $N=124$ zwischen »Biodiversitätsbewusstsein« und »Biodiversitätswissen« ein standardisierter Regressionskoeffizient von $\beta = .48$ -- wie wahrscheinlich liegt dann in der Population nur einen kleiner Effekt $\beta < .1$ vor?
+    -   Geben von 100 zufällig ausgewählten Waldkindergartenkindern 73 und von 100 zufällig ausgewählten Nicht-Waldkindergartenkindern 62 an, gerne mit Matsch zu spielen, wie sicher liegt dann ein Unterschied in der Zustimmung bei allen Kindergartenkindern vor
+    -   Zeigt sich in einer Stichprobe mit $N=124$ zwischen »Biodiversitätsbewusstsein« und »Biodiversitätswissen« ein standardisierter Regressionskoeffizient von $\beta = .48$ -- wie wahrscheinlich liegt dann in der Population nur ein kleiner Effekt $\beta < .1$ vor?
 :::
 
 ## Parameterschätzung vs. Hypothesentestung
@@ -50,7 +50,7 @@ $$\text{p-Wert}= P\left(\text{vorl. o. extremer gegen }H_0\text{ sprechende Date
 
 Das bedeutet, dass der *p*-Wert die Wahrscheinlichkeit der vorliegenden Daten angibt, unter der Annahme, dass die Nullhypothese wahr ist. Fällt dieser p-Wert unter ein vorher festgelegtes Signifikanzlevel (z.B. $\alpha = .05$), wird die Nullhypothese zugunsten der Alternativhypothese verworfen. 
 
-Natürlich können auch mit dieser Prozedur Fehler gemacht werden. So kann es passieren, dass die Nullhypothese verworfen wird obwohl sie wahr ist (False Positve, Fehler 1. Art, $\alpha$-Fehler) oder dass die Nullhypothese beibehalten wird obwohl die Alternativhypothese wahr ist (False Negative, Fehler 2. Art, $\beta$-Fehler).
+Natürlich können auch mit dieser Prozedur Fehler gemacht werden. So kann es passieren, dass die Nullhypothese verworfen wird obwohl sie wahr ist (False Positive, Fehler 1. Art, $\alpha$-Fehler) oder dass die Nullhypothese beibehalten wird obwohl die Alternativhypothese wahr ist (False Negative, Fehler 2. Art, $\beta$-Fehler).
 
 |  | $H_0$ wird beibehalten | $H_0$ wird verworfen |
 |---|:---:|:---:|
@@ -61,19 +61,19 @@ Natürlich können auch mit dieser Prozedur Fehler gemacht werden. So kann es pa
 
 ::: callout-tip
 ### Beispiel: Hypothesentest mit p-Wert
-Interessiert sich beispielweise eine Umweltpolitikerin dafür ob es in Deutschland eine Mehrheit für ein Tempolimit von 120 km/h auf Autobahnen gibt, könnte sie alle Bürger:innen befragen und eine Deskriptivstatistik berechnen oder eine STichpribe ziehen und den folgenden Hypothesentest durchführen:
+Interessiert sich beispielsweise eine Umweltpolitikerin dafür, ob es in Deutschland eine Mehrheit für ein Tempolimit von 120 km/h auf Autobahnen gibt, könnte sie alle Bürger:innen befragen und eine Deskriptivstatistik berechnen oder eine Stichprobe ziehen und den folgenden Hypothesentest durchführen:
 
 * Hypothesen 
-    * Nullhypothese: *Der Anteil der Befürworter:innen eines Tempolimits von 120 km/h ≥ 50%.*<br>
-    * Alternativhypothese: *Weniger als 50% der Population befürworten ein Tempolimit von 120 km/h.*
+    * Nullhypothese: *Der Anteil von Befürworter:innen und Gegner:innen eines Tempolimits von 120 km/h ist gleich groß: $\theta_{für} = \theta_{gegen} = .5$*<br>
+    * Alternativhypothese: *Es gibt eine Mehrheit für oder gegen das Tempolimit $\theta_{für} \neq \theta_{gegen}$*
 
 Angenommen sie erhält die folgenden Daten aus einer Umfrage mit 4 zufällig ausgewählten Personen:
 
 * Daten: 
-    * 1 für Tempolimit ✓
-    * 3 gegen Tempolimit ✗
+    * 1 gegen Tempolimit ✗
+    * 3 für Tempolimit ✓
 
-Dann kann der *p*-Wert berechnet werden, also die Wahrscheinlichkeit, dass unter der Annahme der Nullhypothese (Anteil der Befürworter:innen ≤ 50%) in einer Stichprobe von 4 Personen mindestens 3 Befürworter:innen auftreten:
+Dann kann der *p*-Wert berechnet werden, also die Wahrscheinlichkeit, dass unter der Annahme der Nullhypothese (Anteil der Befürworter:innen = 50%) in einer Stichprobe von 4 Personen mindestens 3 Befürworter:innen auftreten:
 
 ```{mermaid}
 %%{init: {
@@ -126,38 +126,38 @@ flowchart LR
   %% Farbdefinition für mindestens drei ✗
   classDef manyNo fill:#d77d00,color:#000,stroke:#333;
 
-  class W,AA,AC,AD,AE manyNo
+  class P,Q,R,T,W,X,AA,AC,AD,AE manyNo
 
 
 ```
 
-Die Wahrscheinlichkeit für die Daten (höchstens 1 Befürworter:in, ✓) gegeben die Nullhypothese $\left(\theta = .5\right)$ dabei $p = \color{#d77d00}{4} \cdot 0.5^4 = 0.25$
+Die Wahrscheinlichkeit für die Daten (höchstens 1 Befürworter:in, ✓) gegeben die Nullhypothese $\left(\theta = .5\right)$ beträgt dabei $p = \color{#d77d00}{10} \cdot 0.5^4 = 0.625$
 
 
-Da der p-Wert von 0.25 größer als das Signifikanzlevel von 0.05 ist, ist das Ergebnis inkonklusiv, was bei einer so kleinen Stichprobe wenig überraschend ist.
-Im folgenden Codefenster kann der p-Wert auch mit R berechnet werden. Dazu kann man die Funktion `binom.test()` verwenden, die einen binomialen Hypothesentest durchführt. Sie hat die Argumente `x` (Anzahl der Erfolge, hier Befürworter:innen), `n` (Anzahl der Versuche, hier Befragte), `p`(hypothetische Quote) und `alternative` (Form der Alternativhypothese) mit den Optionen `less`, `greater` und `two.sided`.
+Da der p-Wert von 0.625 größer als das Signifikanzlevel von 0.05 ist, ist das Ergebnis inkonklusiv, was bei einer so kleinen Stichprobe wenig überraschend ist.
+Im folgenden Codefenster kann der p-Wert auch mit R berechnet werden. Dazu kann man die Funktion `binom.test()` verwenden, die einen binomialen Hypothesentest durchführt. Sie hat die Argumente `x` (Anzahl der Erfolge, hier Befürworter:innen), `n` (Anzahl der Versuche, hier Befragte), `p` (hypothetische Quote) und `alternative` (Form der Alternativhypothese) mit den Optionen `less`, `greater` (einseitige Tests) und `two.sided` (zweiseitiger Test).
 
-1) Prüfen Sie, ob auch Sie so auch auf einen p-Wert von 0.25 kommen.
-2) Suchen sie Zahlenbeispiele die zu einem *signifikanten* Ergebnis führen $\left(p < \alpha \right)$.
+1) Prüfen Sie, ob auch Sie auf einen p-Wert von 0.625 kommen.
+2) Suchen Sie Zahlenbeispiele, die zu einem *signifikanten* Ergebnis führen $\left(p < \alpha \right)$.
 
 ```{webr}
 #| exercise: binomtest
-binom.test(x = 1, n = 4, alternative = "less")
+binom.test(x = 3, n = 4, alternative = "two.sided")
 ```
 
 ::: { .hint exercise="binomtest"}
-Signifikant heisst ja, dass der p-Wert kleiner als 0.05 ist. Da unsere Nullhypothese ja *Der Anteil der Befürworter:innen eines Tempolimits von 120 km/h ≥ 50%* lautet brauchen wir also Daten die stark gegen diese Hypothese sprechen. 
+Signifikant heißt ja, dass der p-Wert kleiner als 0.05 ist. Da unsere Nullhypothese ja *Der Anteil der Befürworter:innen eines Tempolimits von 120 km/h ≥ 50%* lautet, brauchen wir also Daten, die stark gegen diese Hypothese sprechen.
 :::
 
 ::: { .solution exercise="binomtest"}
-`binom.test(x = 1, n = 4321, alternative = "less")`
+`binom.test(x = 4000, n = 4321, alternative = "two.sided")`
 :::
 
 :::
 
-Je nachdem, welche Hypothesen, mit welcher Art von Daten formuliert werden, muss der *p*-Wert unterschiedlich berechnet werden, was in den meisten Fällen über spezialisierte statistische Tests geschieht (z.B. t-Test, ANOVA, Chi-Quadrat-Test, etc.) deren mathematische Grundlagen recht komplex sind.
+Je nachdem, welche Hypothesen mit welcher Art von Daten formuliert werden, muss der *p*-Wert unterschiedlich berechnet werden, was in den meisten Fällen über spezialisierte statistische Tests geschieht (z.B. t-Test, ANOVA, Chi-Quadrat-Test, etc.), deren mathematische Grundlagen recht komplex sind.
 Die grundlegende Idee bleibt dabei aber immer gleich: Es wird eine Nullhypothese formuliert, die Wahrscheinlichkeit der vorliegenden Daten unter der Annahme der Nullhypothese berechnet und dann eine Entscheidung über die Gültigkeit der Nullhypothese getroffen.
-Übersichten, welche Tests für welche Daten und Hypothesen zur berechnugn von p-Werten geeignet sind, finden sich in vielen Statistikbüchern und Online-Ressourcen [z.B. @field2014].
+Übersichten, welche Tests für welche Daten und Hypothesen zur Berechnung von p-Werten geeignet sind, finden sich in vielen Statistikbüchern und Online-Ressourcen [z.B. @field2014].
 
 ## Parameterschätzung mit Konfidenzintervallen
 Leider werden Hypothesentest mit p-Werten oft in einer recht wenig informativen Art und Weise eingesetzt: So wird oft nur berichtet, ob ein Ergebnis »signifikant« ist oder nicht, ohne dass die tatsächliche Größe des Effekts oder die Unsicherheit der Schätzung berücksichtigt wird. Dies kann zu Fehlinterpretationen und falschen Schlussfolgerungen führen [@cumming2014].
