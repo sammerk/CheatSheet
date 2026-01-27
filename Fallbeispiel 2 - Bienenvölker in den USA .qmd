@@ -1,0 +1,146 @@
+---
+title: "Fallbeispiel 2 - Bienenvölker in den USA"
+format:
+  live-html:
+    css: 
+      - brand.css     
+      - exams/webex.css
+    include-after-body: exams/webex.js
+engine: knitr
+lightbox: true
+---
+
+{{< include _extensions/r-wasm/live/_knitr.qmd >}}
+
+# Die Daten
+
+In diesem Fallbeispiel wird die Entwicklung der Anzahl von Bienenvölkern in den USA untersucht. Die Daten stammen aus dem [USDA-National Agricultural Statistics Service](https://esmis.nal.usda.gov/publication/honey-bee-colonies) und umfassen Informationen zu Verlust und Stressfaktoren sowie neu eingesetzten Völkern.
+
+## Import der Daten
+
+Die Daten können wie folgt geladen werden:
+
+```{r}
+#| echo: false
+#| results: hide
+#| warning: false
+#| message: false
+library(readr)
+colony <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2022/2022-01-11/colony.csv')
+stressor <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2022/2022-01-11/stressor.csv')
+```
+
+## Variablenbeschreibung
+
+Sie enthalten die [folgenden Variablen](https://github.com/rfordatascience/tidytuesday/tree/main/data/2022/2022-01-11):
+
+### Datensatz `colony.csv`
+
+| variable | class | description |
+|:-----------------------------|:------------------|:----------------------|
+| year | character | year |
+| months | character | month |
+| state | character | State Name (note there is United States and Other States) |
+| colony_n | integer | Number of colonies |
+| colony_max | integer | Maximum colonies |
+| colony_lost | integer | Colonies lost |
+| colony_lost_pct | integer | Percent of total colonies lost |
+| colony_added | integer | Colonies added |
+| colony_reno | integer | Colonies renovated |
+| colony_reno_pct | integer | Percent of colonies renovated |
+
+### Datensatz `stressor.csv`
+
+| variable | class | description |
+|:-----------------------|:---------------------|:-------------------------|
+| year | character | Year |
+| months | character | Month range |
+| state | character | State Name (note there is United States and Other States) |
+| stressor | character | Stress type |
+| stress_pct | double | Percent of colonies affected by stressors anytime during the quarter, colony can be affected by multiple stressors during same quarter. |
+
+
+## Wie verteilen sich die Völkeranzahl zwischen den States?
+
+```{r}
+library(ggplot2)
+library(dplyr)
+colony %>% 
+    ggplot(aes(x = colony_n)) +
+    geom_histogram() +
+    facet_grid(year ~ months)
+```
+
+In diesem Plot fällt zunächst auf, dass die Quartale alphabetisch sortiert sind und nicht chronologisch. Daher wird eine neue Zeitvariable kodiert:
+
+```{r}
+library(lubridate)
+colony <- colony %>%
+  mutate(
+    months_num = case_when(
+      months == "January-March" ~ 1,
+      months == "April-June" ~ 2,
+      months == "July-September" ~ 3,
+      months == "October-December" ~ 4
+    ),
+    time_date = ymd(paste(year, months_num, "01", sep = "-"))
+  )
+```
+
+
+Zudem scheint die Variable `colony_n` sehr rechtsschief verteilt zu sein.
+
+Ein Blick in die Variable `state` zeigt, dass es dort sehr heterogene Gruppen gibt.
+```{r}
+table(colony$state)
+```
+
+Löst man über diese auf, ergeben sich deutlich erwartungskonformere Verteilungen:
+```{r}
+library(ggforce)
+colony %>%
+  filter(
+    state %in%
+      c("Nebraska", "Wyoming", "Utah", "Pensylvania", "Oklahoma", "Arizona", "Arkansas")
+  ) %>%
+  ggplot(aes(x = colony_n, y = state)) +
+  geom_sina() +
+  theme_minimal()
+```
+
+Wie kann man nun den Unterscheid zwischen z.B. Utah und Oklahoma treffend beschreiben? Ein reiner Vergleich der Mittelwerte scheint etwas missleading:
+
+```{r}
+colony %>%
+  filter(state %in% c("Utah", "Oklahoma")) %>%
+  group_by(state) %>% 
+  summarize(MW = mean(colony_n, na.rm = T))
+```
+
+Der Mittelwert Utahs liegt bei 174% des Mittelwertes von Oklahoma, jedoch ist die Probability of Superiority bei 78%%. Das bedeutet, dass wenn man 100 mal zufällig gewählte Datenpunkte aus Utah und Oklahoma vergleicht, 22 mal Oklahoma »gewinnt« und 78 mal Utah.
+
+
+```{r}
+library(effsize)
+VD.A(
+  colony_n ~ state,
+  data = colony %>%
+    filter(state %in% c("Utah", "Oklahoma"))
+)
+```
+
+Die Streuung innerhalb der Gruppen ist also im Vergleich zum Abstand der Mittelwerte durchaus relevant.
+Zudem kommen für die Interpretation der Within-Group Variation unterschiedliche Erklärungen in Frage, was etwa dann ersichtlich wird, wenn man die Verteilung der Datenpunkte innerhalb der Gruppen über die Jahreszeiten starifiziert betrachtet:
+
+
+```{r}
+library(ggforce)
+colony %>%
+  filter(
+    state %in%
+      c("Nebraska", "Wyoming", "Utah", "Pensylvania", "Oklahoma", "Arizona", "Arkansas")
+  ) %>%
+  ggplot(aes(x = colony_n, y = state)) +
+  geom_jitter(aes(color = months), height = .2) +
+  theme_minimal()
+```
