@@ -365,8 +365,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </section>
 </section>
-<section id="wie-verteilen-sich-die-völker-zwischen-und-innerhalb-von-jahren" class="level2">
-<h2 class="anchored" data-anchor-id="wie-verteilen-sich-die-völker-zwischen-und-innerhalb-von-jahren">Wie verteilen sich die Völker zwischen und innerhalb von Jahren</h2>
+<section id="wie-verteilen-sich-die-völkeranzahl-zwischen-den-states" class="level2">
+<h2 class="anchored" data-anchor-id="wie-verteilen-sich-die-völkeranzahl-zwischen-den-states">Wie verteilen sich die Völkeranzahl zwischen den States?</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
@@ -403,10 +403,24 @@ Attaching package: 'dplyr'</code></pre>
 </div>
 </div>
 </div>
-<p>In diesem Plot fällt zunächst auf, dass die Quartale alphabetisch sortiert sind und nicht chronologisch. Zudem scheint die Variable <code>colony_n</code> sehr rechtsschief verteilt zu sein.</p>
+<p>In diesem Plot fällt zunächst auf, dass die Quartale alphabetisch sortiert sind und nicht chronologisch. Daher wird eine neue Zeitvariable kodiert:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>colony <span class="ot">&lt;-</span> colony <span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">months_num =</span> <span class="fu">case_when</span>(</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>      months <span class="sc">==</span> <span class="st">"January-March"</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>      months <span class="sc">==</span> <span class="st">"April-June"</span> <span class="sc">~</span> <span class="dv">2</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>      months <span class="sc">==</span> <span class="st">"July-September"</span> <span class="sc">~</span> <span class="dv">3</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>      months <span class="sc">==</span> <span class="st">"October-December"</span> <span class="sc">~</span> <span class="dv">4</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">time_date =</span> <span class="fu">ymd</span>(<span class="fu">paste</span>(year, months_num, <span class="st">"01"</span>, <span class="at">sep =</span> <span class="st">"-"</span>))</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Zudem scheint die Variable <code>colony_n</code> sehr rechtsschief verteilt zu sein.</p>
 <p>Ein Blick in die Variable <code>state</code> zeigt, dass es dort sehr heterogene Gruppen gibt.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(colony<span class="sc">$</span>state)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(colony<span class="sc">$</span>state)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
        Alabama        Arizona       Arkansas     California       Colorado 
@@ -433,22 +447,74 @@ South Carolina   South Dakota      Tennessee          Texas  United States
 </div>
 <p>Löst man über diese auf, ergeben sich deutlich erwartungskonformere Verteilungen:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>colony <span class="sc">%&gt;%</span> </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">#filter(state %in% c("United States", "Florida", "Utah", "Minnesota")) %&gt;% </span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> colony_n)) <span class="sc">+</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>( <span class="sc">~</span> state, <span class="at">scales =</span> <span class="st">"free"</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggforce)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>colony <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    state <span class="sc">%in%</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">"Nebraska"</span>, <span class="st">"Wyoming"</span>, <span class="st">"Utah"</span>, <span class="st">"Pensylvania"</span>, <span class="st">"Oklahoma"</span>, <span class="st">"Arizona"</span>, <span class="st">"Arkansas"</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> colony_n, <span class="at">y =</span> state)) <span class="sc">+</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sina</span>() <span class="sc">+</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>`stat_bin()` using `bins = 30`. Pick better value `binwidth`.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 47 rows containing non-finite outside the scale range
-(`stat_bin()`).</code></pre>
+<pre><code>Warning: Removed 6 rows containing non-finite outside the scale range
+(`stat_sina()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="Fallbeispiel-2---Bienenvölker-in-den-USA-_files/figure-html/unnamed-chunk-5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="Fallbeispiel-2---Bienenvölker-in-den-USA-_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="1728"></a></p>
+<p><a href="Fallbeispiel-2---Bienenvölker-in-den-USA-_files/figure-html/unnamed-chunk-6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="Fallbeispiel-2---Bienenvölker-in-den-USA-_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Wie kann man nun den Unterscheid zwischen z.B. Utah und Oklahoma treffend beschreiben? Ein reiner Vergleich der Mittelwerte scheint etwas missleading:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>colony <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Utah"</span>, <span class="st">"Oklahoma"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(state) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">MW =</span> <span class="fu">mean</span>(colony_n, <span class="at">na.rm =</span> T))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  state       MW
+  &lt;chr&gt;    &lt;dbl&gt;
+1 Oklahoma 12368
+2 Utah     21460</code></pre>
+</div>
+</div>
+<p>Der Mittelwert Utahs liegt bei 174% des Mittelwertes von Oklahoma, jedoch ist die Probability of Superiority bei 78%%. Das bedeutet, dass wenn man 100 mal zufällig gewählte Datenpunkte aus Utah und Oklahoma vergleicht, 22 mal Oklahoma »gewinnt« und 78 mal Utah.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effsize)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">VD.A</span>(</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  colony_n <span class="sc">~</span> state,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> colony <span class="sc">%&gt;%</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(state <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Utah"</span>, <span class="st">"Oklahoma"</span>))</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Vargha and Delaney A
+
+A estimate: 0.2184 (large)</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggforce)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>colony <span class="sc">%&gt;%</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    state <span class="sc">%in%</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">"Nebraska"</span>, <span class="st">"Wyoming"</span>, <span class="st">"Utah"</span>, <span class="st">"Pensylvania"</span>, <span class="st">"Oklahoma"</span>, <span class="st">"Arizona"</span>, <span class="st">"Arkansas"</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> colony_n, <span class="at">y =</span> state)) <span class="sc">+</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="fu">aes</span>(<span class="at">color =</span> months), <span class="at">height =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 6 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="Fallbeispiel-2---Bienenvölker-in-den-USA-_files/figure-html/unnamed-chunk-9-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="Fallbeispiel-2---Bienenvölker-in-den-USA-_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
